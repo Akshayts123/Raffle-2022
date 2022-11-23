@@ -6,8 +6,9 @@ import '../services/api.dart';
 class HomeController extends GetxController {
   @override
   bool get wantKeepAlive => true;
-  var index = 0;
-  dynamic selected;
+  // var index = 0.obs;
+  final selected= 0.obs;
+
   var heart = false;
   PageController controller = PageController();
   Api? _apicart;
@@ -210,7 +211,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
 
-    selected = index;
+
     heart = !heart;
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _apicart?.setcartitem();

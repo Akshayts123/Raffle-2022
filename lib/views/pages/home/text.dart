@@ -171,6 +171,7 @@ class text extends StatelessWidget {
               ],
             ),
           ),
+
           Expanded(
             child: Obx(() {
               if (productController.isLoading.value)

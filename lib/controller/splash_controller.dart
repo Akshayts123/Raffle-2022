@@ -10,7 +10,7 @@ class SplashController extends GetxController{
   void onInit() {
     Timer(
         Duration(seconds: 5),
-            () =>  Get.to(Home()));
+            () =>  Get.to(text()));
         super.onInit();
   }
 }

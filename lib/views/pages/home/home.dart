@@ -1,4 +1,5 @@
 import 'package:draw_idea/views/pages/home/stacked_banner.dart';
+import 'package:draw_idea/views/pages/home/text.dart';
 import 'package:draw_idea/views/widgets/search/search1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -142,80 +143,83 @@ class Home extends StatelessWidget {
             ),
              ),
 
-          bottomNavigationBar: StylishBottomBar(
-            items: [
-              AnimatedBarItems(
-                  icon: TextButton(
-                    onPressed: () {
-                      Get.to(splashscreen());
-                    },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
-                      padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          bottomNavigationBar:Obx(() =>
+           StylishBottomBar(
+              items: [
+                AnimatedBarItems(
+                    icon: TextButton(
+                      onPressed: () {
+                        // Get.to(splashscreen());
+                      },
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: const Icon(
+                        Icons.house_outlined,
+                        color: Colors.red,
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.house_outlined,
-                      color: Colors.red,
+                    selectedIcon: Icon(
+                      Icons.house_rounded,
                     ),
-                  ),
-                  selectedIcon: Icon(
-                    Icons.house_rounded,
-                  ),
-                  selectedColor: Colors.red,
-                  backgroundColor: Colors.tealAccent,
-                  title: const Text('Home')),
-              AnimatedBarItems(
-                  icon: TextButton(
-                    onPressed: () {
-                      Get.to(Home());
-                    },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
-                      padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    selectedColor: Colors.red,
+                    backgroundColor: Colors.tealAccent,
+                    title: const Text('Home')),
+                AnimatedBarItems(
+                    icon: TextButton(
+                      onPressed: () {
+                        // Get.to(splashscreen());
+                      },
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: const Icon(
+                        Icons.star_border_rounded,
+                        color: Colors.grey,
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.star_border_rounded,
-                      color: Colors.grey,
+                    selectedIcon: const Icon(Icons.star_rounded),
+                    selectedColor: Colors.red,
+                    backgroundColor: Colors.lightGreenAccent,
+                    title: const Text('Star')),
+                AnimatedBarItems(
+                    icon: const Icon(
+                      Icons.style_outlined,
                     ),
-                  ),
-                  selectedIcon: const Icon(Icons.star_rounded),
-                  selectedColor: Colors.red,
-                  backgroundColor: Colors.lightGreenAccent,
-                  title: const Text('Star')),
-              AnimatedBarItems(
-                  icon: const Icon(
-                    Icons.style_outlined,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.style,
-                  ),
-                  backgroundColor: Colors.amber,
-                  selectedColor: Colors.red,
-                  title: const Text('Style')),
-              AnimatedBarItems(
-                  icon: const Icon(
-                    Icons.person_outline,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.person,
-                  ),
-                  backgroundColor: Colors.purpleAccent,
-                  selectedColor: Colors.red,
-                  title: const Text('Profile')),
-            ],
-            iconSize: 32,
-            barAnimation: BarAnimation.blink,
-            iconStyle: IconStyle.Default,
-            hasNotch: true,
-            fabLocation: StylishBarFabLocation.center,
-            opacity: 0.3,
-            currentIndex: _coffeeController.selected ?? 0,
-            onTap: (index) {
-              _coffeeController.controller.jumpToPage(index!);
-              _coffeeController.selected;
-            },
+                    selectedIcon: const Icon(
+                      Icons.style,
+                    ),
+                    backgroundColor: Colors.amber,
+                    selectedColor: Colors.red,
+                    title: const Text('Style')),
+                AnimatedBarItems(
+                    icon: const Icon(
+                      Icons.person_outline,
+                    ),
+                    selectedIcon: const Icon(
+                      Icons.person,
+                    ),
+                    backgroundColor: Colors.purpleAccent,
+                    selectedColor: Colors.red,
+                    title: const Text('Profile')),
+              ],
+              iconSize: 32,
+              barAnimation: BarAnimation.blink,
+              iconStyle: IconStyle.Default,
+              hasNotch: true,
+              fabLocation: StylishBarFabLocation.center,
+              opacity: 0.3,
+              currentIndex: _coffeeController.selected.value ?? 0,
+              onTap: (index) {
+                // _coffeeController.controller.jumpToPage(index!);
+                _coffeeController.selected.value = index!;
+                _coffeeController.selected.value == 0 ?Get.to(splashscreen()) : Get.to(text());
+              },
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {

@@ -23,15 +23,17 @@ class latestmovies extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Container(
-                      child: Text(
-                        _coffeeController.home,
-                        style: GoogleFonts.poppins(
-                            fontSize: 19,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
+                Obx(() =>
+                     Container(
+                        child: Text(
+                          _coffeeController.home.value ,
+                          style: GoogleFonts.poppins(
+                              fontSize: 19,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                    ),
+                   ),
                   RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
