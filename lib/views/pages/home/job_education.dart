@@ -15,7 +15,7 @@ class jobeducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 15, right: 15, bottom: 15),
+      padding: EdgeInsets.only(left: 15, top: 15, right: 0, bottom: 15),
       height: 600,
       color: Colors.grey[200],
       child: Column(
@@ -31,11 +31,22 @@ class jobeducation extends StatelessWidget {
                     color: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
-              Container(
-                child: Icon(
-                  Icons.arrow_circle_right,
-                  color: Colors.black,
+              RawMaterialButton(
+                onPressed: () {},
+                constraints: BoxConstraints(),
+                elevation: 2.0,
+                fillColor: Colors.white,
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Icon(
+                    Icons.chevron_right,
+                    size: 20,
+                  ),
                 ),
+                padding: EdgeInsets.all(0.0),
+                shape: CircleBorder(),
               ),
             ],
           ),
@@ -53,7 +64,8 @@ class jobeducation extends StatelessWidget {
             height: 10,
           ),
           Container(
-            height: 505,
+            padding: EdgeInsets.only(right: 15),
+            height: 475,
             child: ListView.builder(
               itemCount: 3,
               physics: NeverScrollableScrollPhysics(),
@@ -118,10 +130,10 @@ class jobeducation extends StatelessWidget {
                           translation: Offset(0, 0),
                           child: Container(
                             child: Image.asset(
-                              _coffeeController.getHomesList[index].game??"",
+                              _coffeeController.getHomesList[index].people??"",
                               width: 120,
                               height: 140,
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),

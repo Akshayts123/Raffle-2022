@@ -5,19 +5,41 @@ import 'dart:convert';
 //
 // String unicornToJson(List<Unicorn> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-Product productFromJson(String str) => Product.fromJson(json.decode(str));
-
-String productToJson(Product data) => json.encode(data.toJson());
-// List<dog> dogFromJson(String str) =>
-//     List<dog>.from(json.decode(str).map((x) => dog.fromJson(x)));
+// Dog DogFromJson(String str) => Dog.fromJson(json.decode(str));
 //
-// String dogToJson(List<dog> data) =>
-//     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+// String DogToJson(Dog data) => json.encode(data.toJson());
+
+// To parse this JSON data, do
+//
+//     final random = randomFromJson(jsonString);
+
+import 'dart:convert';
 
 
+class Plane {
+  int? userId;
+  int? id;
+  String? title;
+  String? body;
 
+  Plane({this.userId, this.id, this.title, this.body});
 
+  Plane.fromJson(Map<String, dynamic> json) {
+    userId = json['userId'];
+    id = json['id'];
+    title = json['title'];
+    body = json['body'];
+  }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['userId'] = this.userId;
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['body'] = this.body;
+    return data;
+  }
+}
 
 class Dog {
   Data? data;
@@ -367,6 +389,7 @@ class Homes {
   late final String? Name;
   late final String? img;
   late final String? ban;
+  late final String? people;
   late final String? btndesc;
   late final String? title;
   late final String? backimg;
@@ -380,6 +403,7 @@ class Homes {
     required this.Name,
     required this.img,
     required this.ban,
+    required this.people,
     required this.btndesc,
     required this.title,
     required this.backimg,
@@ -396,6 +420,7 @@ class Homes {
       this.Name,
       this.img,
       this.ban,
+      this.people,
       this.btndesc,
       this.title,
       this.backimg,
@@ -407,6 +432,7 @@ class Homes {
     Name = json['Name'];
     img = json['img'];
     ban = json['ban'];
+    people = json['people'];
     btndesc = json['btndesc'];
     game = json['game'];
     title = json['title'];
@@ -423,6 +449,7 @@ class Homes {
     data['Name'] = this.Name;
     data['img'] = this.img;
     data['ban'] = this.ban;
+    data['people'] = this.people;
     data['btndesc'] = this.btndesc;
     data['title'] = this.title;
     data['backimg'] = this.backimg;

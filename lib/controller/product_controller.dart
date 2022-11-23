@@ -1,34 +1,33 @@
+import 'dart:math';
 
+import 'package:draw_idea/models/model.dart';
 import 'package:get/get.dart';
 
-import '../models/items.dart';
+
 import '../services/api_service.dart';
 
 class TodoController extends GetxController {
   var isLoading = true.obs;
-  // var todoList = <Dog>[].obs;
-   Dog? todoList;
+  Random? productList;
+
 
   @override
   void onInit() {
-    fetchfinaltodo();
+    fetchTransactions();
     super.onInit();
   }
 
-  void fetchfinaltodo() async {
-    isLoading.value =true;
-    //try {
-      Dog? todos = await Dataservices.getTodo();
-      print("===========tofos");
-      print(todos);
-      if (todos != null) {
-        todoList = todos;
-        print("--------------------");
-        print(todoList);
-        print("--------------------");
+  void fetchTransactions() async {
+    isLoading(true);
+    try {
+      var Random = await ApiService.fetchProducts();
+      if (Random != null) {
+        isLoading(false);
+        productList = Random;
       }
-    //} finally {
-      isLoading.value = false;
-    //}
+    } catch (e) {} finally {
+      isLoading(false);
+    }
   }
+
 }

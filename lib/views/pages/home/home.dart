@@ -19,6 +19,7 @@ import 'job_education.dart';
 import 'latest_movies.dart';
 import 'menu_slider.dart';
 import 'music_slider.dart';
+import 'new_connection.dart';
 import 'news_slider.dart';
 import 'offer_banner.dart';
 
@@ -44,13 +45,18 @@ class Home extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(16)),
         ),
         drawer: drawer(),
-        child: Scaffold(
+        child: RefreshIndicator(
+
+          onRefresh: _coffeeController.refreshLocalGallery,
+
+          child: Scaffold(
           body: SingleChildScrollView(
             controller: _coffeeController.controller,
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Stack(
               children: [
                 Container(
-                  color: Colors.red,
+                  color: Color(0xFFED2736),
                   child: Column(
                     children: [
                       Stack(
@@ -64,9 +70,9 @@ class Home extends StatelessWidget {
                               decoration: BoxDecoration(
                                   color: Color(0xFFFFF8E1),
                                   borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15.0),
-                                      topRight: Radius.circular(15.0))),
-                              height: 130,
+                                      topLeft: Radius.circular(20.0),
+                                      topRight: Radius.circular(20.0))),
+                              height: 110,
                               width: 120,
                             ),
                           ),
@@ -125,6 +131,7 @@ class Home extends StatelessWidget {
                             enjoygaming(),
                             jobeducation(),
                             stackedbanner(),
+                            newconnection(),
                           ],
                         ),
                       ),
@@ -133,7 +140,8 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-          ),
+             ),
+
           bottomNavigationBar: StylishBottomBar(
             items: [
               AnimatedBarItems(
@@ -169,7 +177,7 @@ class Home extends StatelessWidget {
                     ),
                     child: const Icon(
                       Icons.star_border_rounded,
-                      color: Colors.red,
+                      color: Colors.grey,
                     ),
                   ),
                   selectedIcon: const Icon(Icons.star_rounded),
@@ -218,12 +226,13 @@ class Home extends StatelessWidget {
               _coffeeController.heart
                   ? CupertinoIcons.creditcard_fill
                   : CupertinoIcons.creditcard,
-              color: Colors.red,
+              color: Colors.grey,
             ),
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
         ),
+      ),
       );
     });
   }
@@ -263,7 +272,7 @@ class Home extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  search1(),
+                  search(),
                   IconButton(
                     onPressed: _handleMenuButtonPressed,
                     icon: ValueListenableBuilder<AdvancedDrawerValue>(

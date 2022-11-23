@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/items.dart';
 import '../services/api.dart';
-class HomeController extends GetxController {
 
+class HomeController extends GetxController {
   @override
   bool get wantKeepAlive => true;
   var index = 0;
@@ -12,15 +11,21 @@ class HomeController extends GetxController {
   var heart = false;
   PageController controller = PageController();
   Api? _apicart;
+   var home = 'Home'.obs;
 
   @override
   void dispose() {
     controller.dispose();
     super.dispose();
   }
+  Future<Null> refreshLocalGallery() async{
+    await Future.delayed(Duration(seconds: 3),(){
+    home.value ="text";
+    });
 
 
 
+  }
   List<Color> colors = [
     Colors.blue,
     Colors.orangeAccent,
@@ -43,7 +48,7 @@ class HomeController extends GetxController {
     Homes(
       Name: 'Home',
       img: 'assets/telegram.png',
-      ban: 'assets/ban1.png',
+      ban: 'assets/ban4.png',
       btndesc: 'Recharge for others',
       game: 'assets/game1.png',
       title: 'Super mario',
@@ -53,6 +58,7 @@ class HomeController extends GetxController {
       no: 'assets/1.png',
       no2: 'assets/11.png',
       bis: 'assets/bis1.jpg',
+      people: 'assets/people1.png',
     ),
     Homes(
       Name: 'Fashion ',
@@ -67,6 +73,7 @@ class HomeController extends GetxController {
       no: "assets/2.png",
       no2: "assets/22.png",
       bis: 'assets/bis2.jpg',
+      people: 'assets/people2.png',
     ),
     Homes(
       Name: 'Game ',
@@ -81,11 +88,12 @@ class HomeController extends GetxController {
       no: "assets/3.png",
       no2: "assets/33.png",
       bis: 'assets/bis3.jpg',
+      people: 'assets/people4.png',
     ),
     Homes(
       Name: 'Food ',
       img: "assets/salad.png",
-      ban: "assets/ban4.png",
+      ban: "assets/ban1.png",
       btndesc: "Jobs & Education",
       game: "assets/game4.png",
       title: "Clash of clans",
@@ -95,6 +103,7 @@ class HomeController extends GetxController {
       no2: "assets/44.png",
       bis: '',
       backimg: "",
+      people: 'assets/people3.png',
     ),
     Homes(
       Name: 'Bar ',
@@ -109,6 +118,7 @@ class HomeController extends GetxController {
       no2: "assets/55.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
     Homes(
       Name: 'Home ',
@@ -123,6 +133,7 @@ class HomeController extends GetxController {
       no2: "assets/66.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
     Homes(
       Name: 'Fashion ',
@@ -137,6 +148,7 @@ class HomeController extends GetxController {
       no2: "assets/77.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
     Homes(
       Name: 'Game ',
@@ -151,6 +163,7 @@ class HomeController extends GetxController {
       no2: "assets/88.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
     Homes(
       Name: 'Food ',
@@ -165,6 +178,7 @@ class HomeController extends GetxController {
       no2: "assets/99.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
     Homes(
       Name: 'Bar ',
@@ -179,6 +193,7 @@ class HomeController extends GetxController {
       no2: "assets/10.png",
       bis: '',
       backimg: "",
+      people: '',
     ),
   ];
 
@@ -191,8 +206,10 @@ class HomeController extends GetxController {
     // TODO: implement onClose
     super.onClose();
   }
+
   @override
   void onInit() {
+
     selected = index;
     heart = !heart;
     WidgetsBinding.instance.addPostFrameCallback((_) async {

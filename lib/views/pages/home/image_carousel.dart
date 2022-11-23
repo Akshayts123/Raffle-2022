@@ -20,7 +20,7 @@ class imagecarousel extends StatelessWidget {
       child:Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.only(left: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -31,12 +31,22 @@ class imagecarousel extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Container(
-                  // padding: EdgeInsets.only(right: 15),
-                  child: Icon(
-                    Icons.arrow_circle_right,
-                    color: Colors.black,
+                RawMaterialButton(
+                  onPressed: () {},
+                  constraints: BoxConstraints(),
+                  elevation: 2.0,
+                  fillColor: Colors.white,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Icon(
+                      Icons.chevron_right,
+                      size: 20,
+                    ),
                   ),
+                  padding: EdgeInsets.all(0.0),
+                  shape: CircleBorder(),
                 ),
               ],
             ),
@@ -44,6 +54,7 @@ class imagecarousel extends StatelessWidget {
           Container(
             child: Column(
               children: [
+
                 Container(
                   alignment: Alignment(0.0, -4.0),
                   child: CarouselSlider(

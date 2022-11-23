@@ -15,52 +15,69 @@ class menuslider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 15),
       height: 150,
       child: ListView.builder(
         shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: _coffeeController.getHomesList.length,
         itemBuilder: (BuildContext context, int index) =>
             Container(
+              margin: EdgeInsets.only(left: 10),
               child: Row(
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 55,
-                        height: 55,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(50)),
-                        margin: EdgeInsets.symmetric(horizontal: 15),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Image.asset(
-                            _coffeeController.getHomesList[index].img??"",
-                            width: 35.0,
-                            color: Colors.red,
-                            height: 35.0,
-                            fit: BoxFit.cover,
-                          ),
-                          style: ButtonStyle(
-                            elevation: MaterialStatePropertyAll(1.3),
-                            shape: MaterialStateProperty.all(CircleBorder()),
-                            padding: MaterialStateProperty.all(EdgeInsets.all(
-                                13)),
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.white),
-                            // <-- Button color
-                            overlayColor:
-                            MaterialStateProperty.resolveWith<Color?>((states) {
-                              if (states.contains(MaterialState.pressed))
-                                return Colors.black12;
-                            }),
-                          ),
+                      RawMaterialButton(
+
+                        onPressed: () {},
+                        constraints: BoxConstraints(),
+                        elevation: 3.0,
+                        fillColor: Colors.white,
+                        child:Image.asset(
+                          _coffeeController.getHomesList[index].img??"",
+                          width: 32.0,
+                          color: Colors.red,
+                          height: 32.0,
+                          fit: BoxFit.cover,
                         ),
+                        padding: EdgeInsets.all(12.0),
+                        shape: CircleBorder(),
                       ),
+                      // Container(
+                      //   width: 55,
+                      //   height: 55,
+                      //   decoration: BoxDecoration(
+                      //       color: Colors.white,
+                      //       borderRadius: BorderRadius.circular(50)),
+                      //   margin: EdgeInsets.symmetric(horizontal: 15),
+                      //   child: ElevatedButton(
+                      //     onPressed: () {},
+                      //     child: Image.asset(
+                      //       _coffeeController.getHomesList[index].img??"",
+                      //       width: 35.0,
+                      //       color: Colors.red,
+                      //       height: 35.0,
+                      //       fit: BoxFit.cover,
+                      //     ),
+                      //     style: ButtonStyle(
+                      //       elevation: MaterialStatePropertyAll(2.8),
+                      //       shape: MaterialStateProperty.all(CircleBorder()),
+                      //       padding: MaterialStateProperty.all(EdgeInsets.all(
+                      //           13)),
+                      //       backgroundColor: MaterialStateProperty.all(
+                      //           Colors.white),
+                      //       // <-- Button color
+                      //       overlayColor:
+                      //       MaterialStateProperty.resolveWith<Color?>((states) {
+                      //         if (states.contains(MaterialState.pressed))
+                      //           return Colors.black12;
+                      //       }),
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                         height: 5,
                       ),

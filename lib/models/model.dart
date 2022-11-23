@@ -1,86 +1,97 @@
+// To parse this JSON data, do
+//
+//     final random = randomFromJson(jsonString);
 
 import 'dart:convert';
 
-List<popularapi> popularapiFromJson(String str) =>
-    List<popularapi>.from(json.decode(str).map((x) => popularapi.fromJson(x)));
+Random randomFromJson(String str) => Random.fromJson(json.decode(str));
 
-String popularapiToJson(List<popularapi> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String randomToJson(Random data) => json.encode(data.toJson());
 
+class Random {
+  Random({
+    this.page,
+    this.perPage,
+    this.total,
+    this.totalPages,
+    this.data,
+    this.support,
+  });
 
-class popularapi {
-  String? city;
-  String? country;
-  String? patientId;
-  int? yearOfBirth;
-  String? gender;
-  List<Diagnosis>? diagnosis;
+  int? page;
+  int? perPage;
+  int? total;
+  int? totalPages;
+  List<Datum>? data;
+  Support? support;
 
-  popularapi(
-      {this.city,
-        this.country,
-        this.patientId,
-        this.yearOfBirth,
-        this.gender,
-        this.diagnosis});
+  factory Random.fromJson(Map<String, dynamic> json) => Random(
+    page: json["page"],
+    perPage: json["per_page"],
+    total: json["total"],
+    totalPages: json["total_pages"],
+    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+    support: Support.fromJson(json["support"]),
+  );
 
-  popularapi.fromJson(Map<String, dynamic> json) {
-    city = json['city'];
-    country = json['country'];
-    patientId = json['patient_id'];
-    yearOfBirth = json['year_of_birth'];
-    gender = json['gender'];
-    if (json['diagnosis'] != null) {
-      diagnosis = <Diagnosis>[];
-      json['diagnosis'].forEach((v) {
-        diagnosis!.add(new Diagnosis.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['city'] = this.city;
-    data['country'] = this.country;
-    data['patient_id'] = this.patientId;
-    data['year_of_birth'] = this.yearOfBirth;
-    data['gender'] = this.gender;
-    if (this.diagnosis != null) {
-      data['diagnosis'] = this.diagnosis!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+    "page": page,
+    "per_page": perPage,
+    "total": total,
+    "total_pages": totalPages,
+    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+    "support": support?.toJson(),
+  };
 }
 
-class Diagnosis {
-  String? diagId;
-  String? code;
-  String? diagDate;
-  String? description;
-  String? patientId;
+class Datum {
+  Datum({
+    this.id,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.avatar,
+  });
 
-  Diagnosis(
-      {this.diagId,
-        this.code,
-        this.diagDate,
-        this.description,
-        this.patientId});
+  int? id;
+  String? email;
+  String? firstName;
+  String? lastName;
+  String? avatar;
 
-  Diagnosis.fromJson(Map<String, dynamic> json) {
-    diagId = json['diag_id'];
-    code = json['code'];
-    diagDate = json['diag_date'];
-    description = json['description'];
-    patientId = json['patient_id'];
-  }
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    id: json["id"],
+    email: json["email"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
+    avatar: json["avatar"],
+  );
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['diag_id'] = this.diagId;
-    data['code'] = this.code;
-    data['diag_date'] = this.diagDate;
-    data['description'] = this.description;
-    data['patient_id'] = this.patientId;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "email": email,
+    "first_name": firstName,
+    "last_name": lastName,
+    "avatar": avatar,
+  };
+}
+
+class Support {
+  Support({
+    this.url,
+    this.text,
+  });
+
+  String? url;
+  String? text;
+
+  factory Support.fromJson(Map<String, dynamic> json) => Support(
+    url: json["url"],
+    text: json["text"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "url": url,
+    "text": text,
+  };
 }

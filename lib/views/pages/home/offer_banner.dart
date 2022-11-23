@@ -17,7 +17,7 @@ class specialoffer extends StatelessWidget {
     return Container(
       color: Colors.red,
       margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.only(left: 20, top: 20),
+      padding: EdgeInsets.only(left: 15, top: 20),
       height: 170,
       child: Row(
         children: [

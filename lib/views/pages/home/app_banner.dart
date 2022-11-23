@@ -17,6 +17,7 @@ class appbanner extends StatelessWidget {
       height: 320,
       child: ListView.builder(
         shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: _coffeeController.getHomesList.length,
         itemBuilder: (BuildContext context, int index) =>
@@ -30,13 +31,23 @@ class appbanner extends StatelessWidget {
                       onPressed: () {},
                       child: Column(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.asset(
-                              _coffeeController.getHomesList[index].ban??"",
-                              width: 300.0,
-                              height: 300.0,
-                              fit: BoxFit.cover,
+                          RawMaterialButton(
+                            onPressed: () {},
+                            constraints:BoxConstraints(),
+                            elevation: 5.0,
+                            fillColor: Colors.white,
+                            child:ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                _coffeeController.getHomesList[index].ban??"",
+                                width: 280.0,
+                                height:280.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            padding: EdgeInsets.all(0.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)
                             ),
                           ),
                         ],

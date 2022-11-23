@@ -15,13 +15,14 @@ class trendingnews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 20, right: 0, bottom: 0),
+      padding: EdgeInsets.only(left: 0, top: 20, right: 0, bottom: 0),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
+                padding: EdgeInsets.only(left: 15),
                 child: Text(
                   "trending news",
                   style: GoogleFonts.poppins(
@@ -30,12 +31,22 @@ class trendingnews extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.only(right: 15),
-                child: Icon(
-                  Icons.arrow_circle_right,
-                  color: Colors.black,
+              RawMaterialButton(
+                onPressed: () {},
+                constraints: BoxConstraints(),
+                elevation: 2.0,
+                fillColor: Colors.white,
+                child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Icon(
+                    Icons.chevron_right,
+                    size: 20,
+                  ),
                 ),
+                padding: EdgeInsets.all(0.0),
+                shape: CircleBorder(),
               ),
             ],
           ),
@@ -48,9 +59,10 @@ class trendingnews extends StatelessWidget {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 9,
+              physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) =>
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: EdgeInsets.symmetric(horizontal: 15),
                     width: 125.0,
                     height: 120.0,
                     decoration: BoxDecoration(

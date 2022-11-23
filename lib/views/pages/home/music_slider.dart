@@ -19,7 +19,7 @@ class trendingmusic extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.only(left: 20, top: 10),
+            padding: EdgeInsets.only(left: 15, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -32,12 +32,22 @@ class trendingmusic extends StatelessWidget {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(right: 15),
-                  child: Icon(
-                    Icons.arrow_circle_right,
-                    color: Colors.black,
+                RawMaterialButton(
+                  onPressed: () {},
+                  constraints: BoxConstraints(),
+                  elevation: 2.0,
+                  fillColor: Colors.white,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Icon(
+                      Icons.chevron_right,
+                      size: 20,
+                    ),
                   ),
+                  padding: EdgeInsets.all(0.0),
+                  shape: CircleBorder(),
                 ),
               ],
             ),
@@ -47,11 +57,12 @@ class trendingmusic extends StatelessWidget {
             padding: EdgeInsets.only(top: 15),
             child: ListView.builder(
               shrinkWrap: true,
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: _coffeeController.getHomesList.length,
               itemBuilder: (BuildContext context, int index) =>
                   Container(
-                    margin: EdgeInsets.only(left: 30),
+                    margin: EdgeInsets.only(left:20 ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
