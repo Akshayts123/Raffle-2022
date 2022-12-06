@@ -15,8 +15,8 @@ class jobeducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 15, top: 15, right: 0, bottom: 15),
-      height: 600,
+      padding: EdgeInsets.only(left: 15, top: 15, right: 0, bottom: 0),
+      height: 570,
       color: Colors.grey[200],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +65,7 @@ class jobeducation extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.only(right: 15),
-            height: 475,
+            height: 455,
             child: ListView.builder(
               itemCount: 3,
               physics: NeverScrollableScrollPhysics(),
@@ -73,7 +73,7 @@ class jobeducation extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   margin: EdgeInsets.only(bottom: 15),
-                  height: 140,
+                  height: 130,
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: new DecorationImage(

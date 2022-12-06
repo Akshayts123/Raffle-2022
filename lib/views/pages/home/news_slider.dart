@@ -58,7 +58,7 @@ class trendingnews extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 9,
+              itemCount: _coffeeController.getHomesList.length,
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) =>
                   Container(
@@ -75,11 +75,13 @@ class trendingnews extends StatelessWidget {
                     child: Container(
                       width: 30.0,
                       height: 30.0,
+                      padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                           color: Colors.black,
                           image: DecorationImage(
                             image: AssetImage(
-                              "assets/company1.png",
+                              _coffeeController.getHomesList[index].news??"",
+                              
                             ),
                             fit: BoxFit.scaleDown,
                           ),
@@ -91,13 +93,13 @@ class trendingnews extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.center,
                         child: FractionalTranslation(
-                            translation: Offset(0, 3.1),
+                            translation: Offset(0, 3.13),
                             child: Container(
                                 height: 18,
                                 width: 35,
                                 decoration: BoxDecoration(
                                     color: Colors.red,
-                                    borderRadius: BorderRadius.circular(5)),
+                                    borderRadius: BorderRadius.circular(3)),
                                 child: Center(
                                   child: Text(
                                     "LIVE",

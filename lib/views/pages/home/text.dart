@@ -10,6 +10,7 @@ class text extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _controller = TextEditingController();
     return Scaffold(
       key: _key,
       drawer: Drawer(),
@@ -125,6 +126,7 @@ class text extends StatelessWidget {
               ],
             ),
           ),
+          
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -165,13 +167,13 @@ class text extends StatelessWidget {
                           )
                         ],
                       ),
+
                     ],
                   ),
                 ),
               ],
             ),
           ),
-
           Expanded(
             child: Obx(() {
               if (productController.isLoading.value)
@@ -195,7 +197,7 @@ class text extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.network(
-                                productController.productList?.data?[index]?.avatar??"",
+                                productController.productList?.data?[index].avatar??"",
                                 width: 150,
                                 height: 100,
                                 fit: BoxFit.fill,
@@ -211,11 +213,11 @@ class text extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    productController.productList?.data?[index]?.firstName??"",
+                                    productController.productList?.data?[index].firstName??"",
                                     style: TextStyle(fontSize: 18),
                                   ),
                                   Text(
-                                    productController.productList?.data?[index]?.email??"",
+                                    productController.productList?.data?[index].email??"",
                                     style: TextStyle(fontSize: 18),
                                   ),
                                 ],
@@ -224,7 +226,7 @@ class text extends StatelessWidget {
                       ),
                       Container(
                         color: Colors.black12,
-                        height: 2,
+                        // height: 2,
                       )
                     ],
                   );

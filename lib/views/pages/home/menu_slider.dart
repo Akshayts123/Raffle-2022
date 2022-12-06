@@ -38,9 +38,9 @@ class menuslider extends StatelessWidget {
                         fillColor: Colors.white,
                         child:Image.asset(
                           _coffeeController.getHomesList[index].img??"",
-                          width: 32.0,
+                          width: 26.0,
                           color: Colors.red,
-                          height: 32.0,
+                          height: 26.0,
                           fit: BoxFit.cover,
                         ),
                         padding: EdgeInsets.all(12.0),

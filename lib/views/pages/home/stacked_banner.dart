@@ -15,7 +15,7 @@ class stackedbanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 40, bottom: 10),
+      margin: EdgeInsets.only(top: 40, bottom: 0),
       child: Column(
         children: [
           Padding(
@@ -28,7 +28,7 @@ class stackedbanner extends StatelessWidget {
                   Container(
                     height: 110,
                     color: Colors.black54,
-                    padding: EdgeInsets.only(left: 160, top: 12),
+                    padding: EdgeInsets.only(left: 160, top: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

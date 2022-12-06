@@ -47,7 +47,7 @@ class drawer extends StatelessWidget {
                 leading: Icon(Icons.home),
                 title: Container(child: Row(
                   children: [
-                    Text('Default home screen'),
+                    Text(' home screen'),
                     popnew()
                   ],
                 )),

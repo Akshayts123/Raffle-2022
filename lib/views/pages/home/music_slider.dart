@@ -69,7 +69,7 @@ class trendingmusic extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
-                            _coffeeController.getHomesList[index].movie??"",
+                            _coffeeController.getHomesList[index].music??"",
                             height: 150,
                             width: 150,
                             fit: BoxFit.cover,
@@ -79,7 +79,7 @@ class trendingmusic extends StatelessWidget {
                           margin: EdgeInsets.only(top: 10),
                           padding: EdgeInsets.only(left: 10),
                           child: Text(
-                            "Kesariya ",
+                            "Music",
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                             ),

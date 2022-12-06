@@ -1,6 +1,5 @@
 
-
-import 'package:draw_idea/views/pages/home/home_page.dart';
+import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import '../views/pages/bindings/home_bindings.dart';
@@ -22,7 +21,7 @@ class AppPages {
     ),
     GetPage(
       name: "/home_screen",
-      page: () => Home(),
+      page: () => HomeScreen(),
       binding: BaseBindings(),
     ),
 

@@ -62,7 +62,7 @@ class enjoygaming extends StatelessWidget {
               itemCount: 9,
               itemBuilder: (BuildContext context, int index) =>
                   Container(
-                    margin: EdgeInsets.only(left:0 ),
+                    margin: EdgeInsets.only(left:10 ),
                     child: Column(
                       children: [
                         Stack(
@@ -71,8 +71,8 @@ class enjoygaming extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(
                                   vertical: 15, horizontal: 15),
                               child: Container(
-                                height: 120,
-                                width: 120,
+                                height: 110,
+                                width: 110,
                                 decoration: BoxDecoration(
                                     color: _coffeeController.colors[index],
                                     borderRadius: BorderRadius.circular(15)),

@@ -32,8 +32,8 @@ class homemenu extends StatelessWidget {
                       children: [
                         Image.asset(
                           _coffeeController.getHomesList[index].gif ?? "",
-                          width: 40.0,
-                          height: 40.0,
+                          width: 35.0,
+                          height: 35.0,
                           color: Colors.white,
                           fit: BoxFit.cover,
                         ),

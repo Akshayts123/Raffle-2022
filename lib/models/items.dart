@@ -316,6 +316,7 @@ class Shopitem extends ChangeNotifier {
   String? movie;
   String? gif;
   String? no;
+  String? offer;
   String? no2;
 
   Shopitem({
@@ -328,6 +329,7 @@ class Shopitem extends ChangeNotifier {
     this.backimg,
     this.movie,
     this.gif,
+    this.offer,
     this.no2,
   });
 
@@ -342,6 +344,7 @@ class Shopitem extends ChangeNotifier {
     movie = json['movie'];
     gif = json['gif'];
     no = json['no'];
+    offer = json['offer'];
     no2 = json['no2'];
   }
   Map<String, dynamic> toJson() {
@@ -356,6 +359,7 @@ class Shopitem extends ChangeNotifier {
     data['movie'] = this.movie;
     data['gif'] = this.gif;
     data['no'] = this.no;
+    data['offer'] = this.offer;
     data['no2'] = this.no2;
 
     return data;
@@ -398,6 +402,14 @@ class Homes {
   late final String? no;
   late final String? no2;
   late final String? bis;
+  late final String? music;
+  late final String? offer;
+  late final String? news;
+  late final String? banner;
+  late final String? help;
+  late final String? coupen;
+  late final String? feature;
+
 
   Homes({
     required this.Name,
@@ -413,6 +425,13 @@ class Homes {
     required this.no2,
     required this.game,
     required this.bis,
+    required this.music,
+    required this.offer,
+    required this.news,
+    required this.banner,
+    required this.help,
+    required this.coupen,
+    required this.feature,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -428,6 +447,13 @@ class Homes {
       this.gif,
       this.no,
       this.no2,
+      this.news,
+      this.music,
+      this.banner,
+      this.offer,
+      this.coupen,
+      this.help,
+      this.feature,
       this.bis) {
     Name = json['Name'];
     img = json['img'];
@@ -442,6 +468,13 @@ class Homes {
     no = json['no'];
     no2 = json['no2'];
     bis = json['bis'];
+    music = json['music'];
+    offer = json['offer'];
+    news = json['news'];
+    banner = json['banner'];
+    help = json['help'];
+    coupen = json['coupen'];
+    feature = json['feature'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -457,6 +490,13 @@ class Homes {
     data['gif'] = this.gif;
     data['no'] = this.no;
     data['no2'] = this.no2;
+    data['music'] = this.music;
+    data['offer'] = this.offer;
+    data['news'] = this.news;
+    data['banner'] = this.banner;
+    data['help'] = this.help;
+    data['coupen'] = this.coupen;
+    data['feature'] = this.feature;
 
     return data;
   }

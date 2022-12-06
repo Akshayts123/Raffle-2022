@@ -27,30 +27,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => Api()),
-      ],
-      child: LayoutBuilder(builder: (context, constraints) {
-        return GetMaterialApp(
-          theme: ThemeData(
-            textTheme: TextTheme(
-              headline6: GoogleFonts.exo2(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+
+      return GetMaterialApp(
+        theme: ThemeData(
+          textTheme: TextTheme(
+            headline6: GoogleFonts.exo2(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
             ),
           ),
-          title: 'Billion Dollar App',
-          debugShowCheckedModeBanner: false,
-          defaultTransition: Transition.rightToLeft,
-          getPages: AppPages.routes,
-          initialRoute: Routes.SPLASH ,
-        );
+        ),
+        title: 'Billion Dollar App',
+        debugShowCheckedModeBanner: false,
+        defaultTransition: Transition.rightToLeft,
+        getPages: AppPages.routes,
+        initialRoute: Routes.SPLASH,
+      );
 
-      }),
-    );
   }
 }
 
