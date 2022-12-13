@@ -1,3 +1,4 @@
+import 'package:draw_idea/utils/style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,10 +14,10 @@ class specialoffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
+      color: Style.systemblue,
       margin: EdgeInsets.only(top: 20),
       padding: EdgeInsets.only(left: 15, top: 5),
-      height: 170,
+      height: 160,
       child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -35,8 +36,8 @@ class specialoffer extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                              width: 90,
-                              height: 20,
+                              width: 80,
+                              height: 18,
                               decoration: BoxDecoration(
                                   color: Colors.yellow,
                                   borderRadius: BorderRadius.circular(3)),
@@ -70,16 +71,16 @@ class specialoffer extends StatelessWidget {
                           child: Text("6 OTT'S in 1 app!",
                               style: GoogleFonts.poppins(
                                   fontSize: 17,
-                                  color: Colors.white,
+                                  color: Style.whitecolor,
                                   fontWeight: FontWeight.bold)),
                         ),
                         Container(
-                          width: 170,
+                          width: 190,
                           child: Text(
                             "Flutter is an open source framework by Google for building beautiful",
                             style: GoogleFonts.poppins(
                               fontSize: 12,
-                              color: Colors.white,
+                              color: Colors.white70,
                             ),
                           ),
                         ),
@@ -95,13 +96,13 @@ class specialoffer extends StatelessWidget {
                               children: [
                                 Text("Stream at \$10 ",
                                     style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold)),
+                                        fontSize: 16,
+                                        color:Style.whitecolor,
+                                    )),
                                 Icon(
-                                  Icons.double_arrow_rounded,
-                                  size: 17,
-                                  color: Colors.white,
+                                  Icons.keyboard_double_arrow_right,
+                                  size: 20,
+                                  color: Style.whitecolor,
                                 )
                               ],
                             ),
@@ -110,26 +111,6 @@ class specialoffer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Align(
-                  //   alignment: Alignment.topRight,
-                  //   child: Container(
-                  //     alignment: Alignment.topRight,
-                  //     child: FractionalTranslation(
-                  //       translation: Offset(0.8, 0.1),
-                  //       child: Container(
-                  //         width: 200.0,
-                  //         height: 290.0,
-                  //         child: Image.asset(
-                  //           "assets/box2.png",
-                  //           width: 200.0,
-                  //           height: 230.0,
-                  //           fit: BoxFit.cover,
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-
                 ],
               ),
             ),
@@ -140,14 +121,14 @@ class specialoffer extends StatelessWidget {
           child: Container(
             alignment: Alignment.topRight,
             child: FractionalTranslation(
-              translation: Offset(0.9, -0.22),
+              translation: Offset(0.92, -0.23),
               child: Container(
-                width: 200.0,
-                height: 230.0,
+                width: 190.0,
+                height: 200.0,
                 child: Image.asset(
-                  "assets/box2.png",
-                  width: 200.0,
-                  height: 200.0,
+                  "assets/gift.png",
+                  width: 190.0,
+                  height: 190.0,
                   fit: BoxFit.cover,
                 ),
               ),

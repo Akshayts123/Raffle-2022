@@ -1,15 +1,15 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:draggable_home/draggable_home.dart';
+import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/small_banner.dart';
+import 'package:draw_idea/views/pages/spinner/spinner.dart';
 import 'package:draw_idea/views/pages/home/stacked_banner.dart';
-import 'package:draw_idea/views/pages/home/text.dart';
 import 'package:country_pickers/country.dart';
 import 'package:draw_idea/views/pages/home/tickets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:country_pickers/country_pickers.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
@@ -33,6 +33,7 @@ import 'news_slider.dart';
 import 'offer_banner.dart';
 
 class HomeScreen extends StatefulWidget {
+  // static String id = 'HomeScreen';
   HomeScreen({Key? key}) : super(key: key);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -40,6 +41,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   var variable = 0;
+  final Duration initialDelay = Duration(milliseconds: 500);
   final HomeController _coffeeController = Get.find();
   String page = 'Blue';
   bool folded = true;
@@ -55,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late CurvedAnimation fabCurve;
   late CurvedAnimation borderRadiusCurve;
   late AnimationController _hideBottomBarAnimationController;
-
   final iconList = <IconData>[
     Icons.dashboard,
     Icons.notifications,
@@ -88,22 +89,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
           ],
           headerWidget: headerWidget(context),
-          headerBottomBar: headerBottomBarWidget(),
+          // headerBottomBar: headerBottomBarWidget(),
           body: [
             listView(),
           ],
-          headerExpandedHeight: 0.22,
+          headerExpandedHeight: 0.21,
           fullyStretchable: false,
           bottomNavigationBar: bottomnavbar(),
           floatingActionButton: Visibility(
             visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
             child: FloatingActionButton(
-              backgroundColor: Color(0xFFED2736),
+              backgroundColor: Style.systemblue,
               child: Icon(
                 Icons.ac_unit,
-                color: Colors.white,
+                color:Style.whitecolor,
               ),
               onPressed: () {
+                Get.to(Spinner());
                 _fabAnimationController.reset();
                 _borderRadiusAnimationController.reset();
                 _borderRadiusAnimationController.forward();
@@ -115,90 +117,76 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               FloatingActionButtonLocation.centerDocked,
           // expandedBody: const CameraPreview(),
           backgroundColor: Color(0xFFFFF9E9),
-          appBarColor: Color(0xFFED2736),
+          appBarColor: Style.systemblue,
         ),
       ),
     );
   }
 
-
-  Row headerBottomBarWidget() {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(
-          margin: EdgeInsets.only(left: 0, top: 30),
-          decoration: BoxDecoration(
-              color: Color(0xFFFFC502),
-              borderRadius: BorderRadius.circular(15)),
-          width: 60,
-          height: 5,
-        ),
-      ],
-    );
-  }
-
   Widget headerWidget(BuildContext context) {
-    return Container(
 
+    return Container(
       height: 80,
-      color: Color(0xFFED2736),
+      color: Style.systemblue,
       child: Container(
         padding: EdgeInsets.only(left: 0),
         child: Column(
           children: [
-            AppBar(
-              automaticallyImplyLeading: folded ? true: false,
-              leadingWidth: 70,
-              elevation: 0,
-              backgroundColor: Color(0xFFED2736),
-              leading: folded ?  Container(
-                margin: EdgeInsets.only(top: 5),
-                height: 30,
-                // width: 75,
-                child: ListTile(
-                  onTap: _openCountryPickerDialog,
-                  title: _buildDialog(_selectedDialogCountry),
+            DelayedDisplay(
+              delay: initialDelay,
+              child:AppBar(
+                automaticallyImplyLeading: folded ? true: false,
+                leadingWidth: 70,
+                elevation: 0,
+                backgroundColor:  Style.systemblue,
+                leading: folded ?  Container(
+                  margin: EdgeInsets.only(top: 5),
+                  height: 30,
+                  // width: 75,
+                  child: ListTile(
+                    onTap: _openCountryPickerDialog,
+                    title: _buildDialog(_selectedDialogCountry),
+                  ),
+                ): null,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 5),
+                      child: DemoPage(),
+                    ),
+                  ],
                 ),
-              ): null,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                actions: [
                   Container(
                     padding: EdgeInsets.only(top: 5),
-                    child: DemoPage(),
+                    child: IconButton(
+                      onPressed: _handleMenuButtonPressed,
+                      icon: ValueListenableBuilder<AdvancedDrawerValue>(
+                        valueListenable: _advancedDrawerController,
+                        builder: (_, value, __) {
+                          return AnimatedSwitcher(
+                            duration: Duration(milliseconds: 250),
+                            child: Icon(
+                              value.visible ? Icons.clear : Icons.menu,
+                              color: Style.whitecolor,
+                              size: 30,
+                              key: ValueKey<bool>(value.visible),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
-              actions: [
-                Container(
-                  padding: EdgeInsets.only(top: 5),
-                  child: IconButton(
-                    onPressed: _handleMenuButtonPressed,
-                    icon: ValueListenableBuilder<AdvancedDrawerValue>(
-                      valueListenable: _advancedDrawerController,
-                      builder: (_, value, __) {
-                        return AnimatedSwitcher(
-                          duration: Duration(milliseconds: 250),
-                          child: Icon(
-                            value.visible ? Icons.clear : Icons.menu,
-                            color: Colors.white,
-                            size: 30,
-                            key: ValueKey<bool>(value.visible),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              ],
             ),
-            SizedBox(
-              height: 10,
+            DelayedDisplay(
+              delay: Duration(milliseconds: initialDelay.inSeconds + 800),
+              child: homemenu(),
             ),
-            homemenu(),
+
+
           ],
         ),
       ),
@@ -206,26 +194,72 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
 
-  listView() {
+  Widget listView() {
     return Container(
       color: Color(0xFFFFF9E9),
       child: Column(
         children: [
-          appbanner(),
-          menuslider(),
-          imageview(),
-          smallbanner(),
-          latestmovies(),
-          trendingmusic(),
-          specialoffer(),
-          trendingnews(),
-          enjoygaming(),
-          jobeducation(),
-          stackedbanner(),
-          newconnection(),
-          tickets(),
-          featuredoffer(),
-          helpsupport()
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 1100),
+            child: appbanner(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 1400),
+            child:menuslider(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 1700),
+            child:imageview(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 2000),
+            child: smallbanner(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 2300),
+            child: latestmovies(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 2600),
+            child: trendingmusic(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 2900),
+            child: specialoffer(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 3200),
+            child: trendingnews(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 3500),
+            child: enjoygaming(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: jobeducation(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: stackedbanner(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: tickets(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: newconnection(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: featuredoffer(),
+          ),
+          DelayedDisplay(
+            delay: Duration(seconds: initialDelay.inSeconds + 5),
+            child: helpsupport(),
+          ),
+
         ],
       ),
     );
@@ -235,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return AnimatedBottomNavigationBar.builder(
       itemCount: iconList.length,
       tabBuilder: (int index, bool isActive) {
-        final color = isActive ? Color(0xFFED2736) : Colors.grey;
+        final color = isActive ?  Style.systemblue : Style.greycolor;
         return Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -258,9 +292,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ],
         );
       },
-      backgroundColor: Colors.white,
+      backgroundColor: Style.backgroundwhite,
       activeIndex: _bottomNavIndex,
-      splashColor: Color(0xFFED2736),
+      splashColor: Style.systemblue,
       notchAndCornersAnimation: borderRadiusAnimation,
       splashSpeedInMilliseconds: 800,
       splashRadius: 30,

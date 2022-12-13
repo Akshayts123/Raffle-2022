@@ -28,7 +28,7 @@ class HomeController extends GetxController {
 
   }
   List<Color> colors = [
-    Colors.blue,
+    Colors.red,
     Colors.orangeAccent,
     Colors.grey,
     Colors.green,
@@ -73,11 +73,13 @@ class HomeController extends GetxController {
       bis: 'assets/bis1.jpg',
       people: 'assets/people1.png',
       music: 'assets/music1.jpg',
-      news: 'assets/news1.png',
+      news: 'assets/news8.png',
       offer: 'assets/offer1.jpg',
       banner: 'assets/sale1.webp',
       help: 'assets/dots.png',
       coupen: 'assets/coupen3.jpg',
+      feature: 'assets/feature1.gif',
+      vector: 'assets/vector6.jpg',
     ),
     Homes(
       Name: 'Fashion ',
@@ -99,6 +101,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale2.jpg',
       help: 'assets/user1.png',
       coupen: 'assets/coupen4.jpg',
+      feature: 'assets/feature2.gif',
+      vector: 'assets/vector1.jpg',
     ),
     Homes(
       Name: 'Game ',
@@ -120,6 +124,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale.jpg',
       help: 'assets/wifi.png',
       coupen: 'assets/coupen5.jpg',
+      feature: 'assets/feature3.gif',
+      vector: 'assets/vector3.jpg',
     ),
     Homes(
       Name: 'Food ',
@@ -141,6 +147,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale4.png',
       help: 'assets/distrub.png',
       coupen: 'assets/coupen6.jpg',
+      feature: 'assets/feature4.gif',
+      vector: 'assets/vector4.jpg',
     ),
     Homes(
       Name: 'Bar ',
@@ -162,6 +170,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale5.jpg',
       help: '',
       coupen: 'assets/coupen11.jpg',
+      feature: 'assets/feature5.gif',
+      vector: 'assets/vector8.jpg',
     ),
     Homes(
       Name: 'Home ',
@@ -183,6 +193,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale6.jpg',
       help: '',
       coupen: 'assets/coupen12.jpg',
+      feature: 'assets/feature6.gif',
+      vector: 'assets/vector2.jpg',
 
     ),
     Homes(
@@ -205,6 +217,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale7.jpg',
       help: '',
       coupen: 'assets/coupen13.jpg',
+      feature: 'assets/feature7.gif',
+      vector: 'assets/vector7.jpg',
     ),
     Homes(
       Name: 'Game ',
@@ -221,11 +235,13 @@ class HomeController extends GetxController {
       bis: '',
       backimg: "",
       people: '',
-      news: 'assets/news8.png',
+      news: 'assets/news1.png',
       offer: 'assets/offer6.webp',
       banner: 'assets/sale8.jpg',
       help: '',
       coupen: 'assets/coupen14.jpg',
+      feature: 'assets/feature8.gif',
+      vector: 'assets/vector8.jpg',
     ),
     Homes(
       Name: 'Food ',
@@ -247,6 +263,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale9.webp',
       help: '',
       coupen: 'assets/coupen3.jpg',
+      feature: 'assets/feature9.gif',
+      vector: 'assets/vector1.jpg',
     ),
     Homes(
       Name: 'Bar ',
@@ -268,6 +286,8 @@ class HomeController extends GetxController {
       banner: 'assets/sale10.webp',
       help: '',
       coupen: 'assets/coupen5.jpg',
+      feature: 'assets/feature10.gif',
+      vector: 'assets/vector2.jpg',
     ),
   ];
 

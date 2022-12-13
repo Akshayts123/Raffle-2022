@@ -50,11 +50,20 @@ dependencies:
   country_pickers: ^2.0.0
   shimmer_animation: ^2.1.0+1
   ticket_widget: ^0.0.1
+  flutter_fortune_wheel: ^1.2.0
+  delayed_display: ^2.0.0
+  introduction_screen: ^3.1.1
+  shared_preferences: ^2.0.15
+  qr_code_scanner: ^1.0.1
+  flutter_svg: ^1.1.6
+  image_picker: ^0.8.6
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

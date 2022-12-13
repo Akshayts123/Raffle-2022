@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 
 import '../../../../controller/home_controller.dart';
+import '../../../utils/style.dart';
 
 class smallbanner extends StatelessWidget {
   final HomeController _coffeeController = Get.find();
@@ -17,43 +18,10 @@ class smallbanner extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Text(
-                    "Special Offers",
-                    style: GoogleFonts.poppins(
-                        fontSize: 19,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-                RawMaterialButton(
-                  onPressed: () {},
-                  constraints: BoxConstraints(),
-                  elevation: 2.0,
-                  fillColor: Colors.white,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
-                      Icons.chevron_right,
-                      size: 20,
-                    ),
-                  ),
-                  padding: EdgeInsets.all(0.0),
-                  shape: CircleBorder(),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 200,
-            padding: EdgeInsets.only(top: 15),
+            height: 170,
+
             child: ListView.builder(
+                padding: EdgeInsets.only(top: 15,left: 15),
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -62,7 +30,7 @@ class smallbanner extends StatelessWidget {
                 if (index == 1 )
                 {
                   return Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: EdgeInsets.only(right: 10),
                     child: Stack(
                       children: [
                         Column(
@@ -70,7 +38,7 @@ class smallbanner extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: Container(
-                                width: 170,
+                                width: 160,
                                 height: 140,
                                 child: Card(
                                   color: Colors.black45,
@@ -84,7 +52,7 @@ class smallbanner extends StatelessWidget {
                                         ),
                                         child: SizedBox(
                                           width: 170,
-                                          height: 110,
+                                          height: 105,
                                           child: Image.asset(
                                             _coffeeController
                                                 .getHomesList[index].offer ??
@@ -102,7 +70,7 @@ class smallbanner extends StatelessWidget {
                                           'Sony LIV for 1 year ',
                                           style: GoogleFonts.poppins(
                                               fontSize: 10,
-                                              color: Colors.white,
+                                              color: Style.whitecolor,
                                               fontWeight: FontWeight.w500),
                                         ),
                                       )
@@ -111,9 +79,7 @@ class smallbanner extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  elevation: 5,
-                                  margin: EdgeInsets.only(left: 10),
-                                ),
+                                                                 ),
                               ),
                             ),
                           ],
@@ -125,7 +91,7 @@ class smallbanner extends StatelessWidget {
                 if (index == 4  )
                 {
                   return Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: EdgeInsets.only(right: 10),
                     child: Stack(
                       children: [
                         Column(
@@ -133,7 +99,7 @@ class smallbanner extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: Container(
-                                width: 170,
+                                width: 160,
                                 height: 140,
                                 child: Card(
                                   color: Colors.black45,
@@ -147,7 +113,7 @@ class smallbanner extends StatelessWidget {
                                         ),
                                         child: SizedBox(
                                           width: 170,
-                                          height: 110,
+                                          height: 105,
                                           child: Image.asset(
                                             _coffeeController
                                                 .getHomesList[index].offer ??
@@ -165,7 +131,7 @@ class smallbanner extends StatelessWidget {
                                           'Sony LIV for 1 year ',
                                           style: GoogleFonts.poppins(
                                               fontSize: 10,
-                                              color: Colors.white,
+                                              color: Style.whitecolor,
                                               fontWeight: FontWeight.w500),
                                         ),
                                       )
@@ -174,8 +140,7 @@ class smallbanner extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  elevation: 5,
-                                  margin: EdgeInsets.only(left: 10),
+
                                 ),
                               ),
                             ),
@@ -188,7 +153,7 @@ class smallbanner extends StatelessWidget {
                 if (index ==7  )
                 {
                   return Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: EdgeInsets.only(right: 10),
                     child: Stack(
                       children: [
                         Column(
@@ -196,7 +161,7 @@ class smallbanner extends StatelessWidget {
                             GestureDetector(
                               onTap: () {},
                               child: Container(
-                                width: 170,
+                                width: 160,
                                 height: 140,
                                 child: Card(
                                   color: Colors.black45,
@@ -210,7 +175,7 @@ class smallbanner extends StatelessWidget {
                                         ),
                                         child: SizedBox(
                                           width: 170,
-                                          height: 110,
+                                          height: 105,
                                           child: Image.asset(
                                             _coffeeController
                                                 .getHomesList[index].offer ??
@@ -228,7 +193,7 @@ class smallbanner extends StatelessWidget {
                                           'Sony LIV for 1 year ',
                                           style: GoogleFonts.poppins(
                                               fontSize: 10,
-                                              color: Colors.white,
+                                              color: Style.whitecolor,
                                               fontWeight: FontWeight.w500),
                                         ),
                                       )
@@ -237,8 +202,7 @@ class smallbanner extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  elevation: 5,
-                                  margin: EdgeInsets.only(left: 10),
+
                                 ),
                               ),
                             ),
@@ -249,7 +213,7 @@ class smallbanner extends StatelessWidget {
                   );
                 }
                 return Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: EdgeInsets.only(right: 10),
                   child: Stack(
                     children: [
                       Column(
@@ -257,7 +221,7 @@ class smallbanner extends StatelessWidget {
                           GestureDetector(
                             onTap: () {},
                             child: Container(
-                              width: 170,
+                              width: 160,
                               height: 140,
                               child: Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -275,10 +239,10 @@ class smallbanner extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 6,
+                                      height: 5,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       child: Column(children: [
                                         Text(
                                           'On \$3099 recharge',
@@ -299,8 +263,7 @@ class smallbanner extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                elevation: 5,
-                                margin: EdgeInsets.only(left: 10),
+                                elevation: 0,
                               ),
                             ),
                           ),

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Style{
-  static const systemblue =  Color(0xFFD258AB);
-  static const greycolor=   Color(0xFF9B1A99);
-  static const darkgrey=   Color(0xFF402AB0);
-  static const whitegrey=   Color(0xFFB364D1);
-  static const integos=    Color(0xff251f34);
+  static const systemblue =  Color(0xFFED2736);
+  static const greycolor=   Colors.grey;
+  static const whitecolor=   Colors.white;
+  static const blackcolor=   Colors.black;
+  static const backgroundwhite=   Colors.white;
   static const headerText = TextStyle(color: systemblue, fontSize: 28, fontWeight: FontWeight.w700);
   static const normalText = TextStyle(color: Colors.white, fontWeight: FontWeight.bold);
-  static const hintText =  TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500);
+  static TextStyle mainheading  =  GoogleFonts.poppins(color: Colors.black, fontSize: 19, fontWeight: FontWeight.w600);
 
 }
 

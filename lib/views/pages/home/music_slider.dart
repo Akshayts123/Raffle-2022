@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
+import '../../../utils/style.dart';
 
 class trendingmusic extends StatelessWidget {
   final HomeController _coffeeController = Get.find();
@@ -18,51 +19,51 @@ class trendingmusic extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.only(left: 15, top: 10),
+            padding: EdgeInsets.only(left: 20, top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   child: Text(
                     "trending music",
-                    style: GoogleFonts.poppins(
-                        fontSize: 19,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
+                    style: Style.mainheading,
                   ),
                 ),
-                RawMaterialButton(
-                  onPressed: () {},
-                  constraints: BoxConstraints(),
-                  elevation: 2.0,
-                  fillColor: Colors.white,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
-                      Icons.chevron_right,
-                      size: 20,
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: RawMaterialButton(
+                    onPressed: () {},
+                    constraints: BoxConstraints(),
+                    elevation: 0.0,
+                    fillColor:Style.whitecolor,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Style.blackcolor),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 20,
+                      ),
                     ),
+                    padding: EdgeInsets.all(0.0),
+                    shape: CircleBorder(),
                   ),
-                  padding: EdgeInsets.all(0.0),
-                  shape: CircleBorder(),
                 ),
               ],
             ),
           ),
           Container(
             height: 200,
-            padding: EdgeInsets.only(top: 15),
+
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 15,left: 20),
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: _coffeeController.getHomesList.length,
               itemBuilder: (BuildContext context, int index) =>
                   Container(
-                    margin: EdgeInsets.only(left:20 ),
+                    margin: EdgeInsets.only(right:15 ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -70,14 +71,14 @@ class trendingmusic extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(
                             _coffeeController.getHomesList[index].music??"",
-                            height: 150,
-                            width: 150,
+                            height: 140,
+                            width: 140,
                             fit: BoxFit.cover,
                           ),
                         ),
                         Container(
                           margin: EdgeInsets.only(top: 10),
-                          padding: EdgeInsets.only(left: 10),
+                          padding: EdgeInsets.only(left: 0),
                           child: Text(
                             "Music",
                             style: GoogleFonts.poppins(

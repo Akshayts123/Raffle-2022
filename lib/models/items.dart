@@ -409,6 +409,7 @@ class Homes {
   late final String? help;
   late final String? coupen;
   late final String? feature;
+  late final String? vector;
 
 
   Homes({
@@ -432,6 +433,7 @@ class Homes {
     required this.help,
     required this.coupen,
     required this.feature,
+    required this.vector,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -453,6 +455,7 @@ class Homes {
       this.offer,
       this.coupen,
       this.help,
+      this.vector,
       this.feature,
       this.bis) {
     Name = json['Name'];
@@ -475,6 +478,7 @@ class Homes {
     help = json['help'];
     coupen = json['coupen'];
     feature = json['feature'];
+    vector = json['vector'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -497,6 +501,7 @@ class Homes {
     data['help'] = this.help;
     data['coupen'] = this.coupen;
     data['feature'] = this.feature;
+    data['vector'] = this.vector;
 
     return data;
   }

@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:country_pickers/country_pickers.dart';
 
+import '../../../utils/style.dart';
+
 class DemoPage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,7 +23,7 @@ class _HomePageState extends State<DemoPage> {
               height: 46,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
+                color:Style.whitecolor,
                 boxShadow: kElevationToShadow[2],
               ),
               child: Row(

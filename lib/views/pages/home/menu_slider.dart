@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
+import '../../../utils/style.dart';
 
 class menuslider extends StatelessWidget {
   final HomeController _coffeeController = Get.find();
@@ -15,15 +16,16 @@ class menuslider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 120,
       child: ListView.builder(
         shrinkWrap: true,
+        padding: EdgeInsets.only(left: 10),
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: _coffeeController.getHomesList.length,
         itemBuilder: (BuildContext context, int index) =>
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: EdgeInsets.only(left:3),
               child: Row(
                 children: [
                   Column(
@@ -35,11 +37,11 @@ class menuslider extends StatelessWidget {
                         onPressed: () {},
                         constraints: BoxConstraints(),
                         elevation: 3.0,
-                        fillColor: Colors.white,
+                        fillColor: Style.whitecolor,
                         child:Image.asset(
                           _coffeeController.getHomesList[index].img??"",
                           width: 26.0,
-                          color: Colors.red,
+                          color: Style.systemblue,
                           height: 26.0,
                           fit: BoxFit.cover,
                         ),
@@ -79,16 +81,16 @@ class menuslider extends StatelessWidget {
                       //   ),
                       // ),
                       SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
                       Center(
                         child: Container(
                           padding: EdgeInsets.only(left: 13),
-                          width: 85,
+                          width: 80,
                           child: Text(
                             _coffeeController.getHomesList[index].btndesc??"",
                             style: GoogleFonts.poppins(
-                                fontSize: 13, color: Colors.black),
+                                fontSize: 13, color: Style.blackcolor),
                           ),
                         ),
                       ),

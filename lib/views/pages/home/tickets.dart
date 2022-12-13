@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
+import '../../../utils/style.dart';
 
 class tickets extends StatelessWidget {
   final HomeController _coffeeController = Get.find();
@@ -14,52 +15,52 @@ class tickets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
 
-      height: 390,
+      height: 360,
       color: Colors.grey[200],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 15, top: 10, right: 0, bottom: 0),
+            padding: EdgeInsets.only(left: 20, top: 10, right: 0, bottom: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "watch live performances",
-                  style: GoogleFonts.poppins(
-                      fontSize: 19,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600),
+                  style: Style.mainheading,
                 ),
-                RawMaterialButton(
-                  onPressed: () {},
-                  constraints: BoxConstraints(),
-                  elevation: 2.0,
-                  fillColor: Colors.white,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
-                      Icons.chevron_right,
-                      size: 20,
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: RawMaterialButton(
+                    onPressed: () {},
+                    constraints: BoxConstraints(),
+                    elevation: 0.0,
+                    fillColor: Style.whitecolor,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Style.blackcolor),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 20,
+                      ),
                     ),
+                    padding: EdgeInsets.all(0.0),
+                    shape: CircleBorder(),
                   ),
-                  padding: EdgeInsets.all(0.0),
-                  shape: CircleBorder(),
                 ),
               ],
             ),
           ),
           SizedBox(
-            height: 5,
+            height: 2,
           ),
           Container(
-            padding: EdgeInsets.only(left: 15, top: 0, right: 0, bottom: 0),
+            padding: EdgeInsets.only(left: 20, top: 0, right: 0, bottom: 0),
             child: Text("source framework by Google for building beautiful",
                 style: GoogleFonts.poppins(
                   fontSize: 14,
-                  color: Colors.black,
+                  color: Style.blackcolor,
                 )),
           ),
           SizedBox(
@@ -67,15 +68,15 @@ class tickets extends StatelessWidget {
           ),
           Container(
             height: 250,
-            margin: EdgeInsets.only(top: 15,),
             child: ListView.builder(
               shrinkWrap: true,
+              padding: EdgeInsets.only(left: 15),
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  margin: EdgeInsets.only(top: 20,left: 10 , right: 7),
+                  margin: EdgeInsets.only(top: 20, right: 10),
                   width: 175,
                   height: 250,
                   decoration: BoxDecoration(
@@ -99,8 +100,7 @@ class tickets extends StatelessWidget {
                                   end: FractionalOffset.bottomCenter,
                                   colors: [
                                     Colors.transparent,
-                                    Colors
-                                        .black // I don't know what Color this will be, so I can't use this
+                                    Style.blackcolor // I don't know what Color this will be, so I can't use this
                                   ]),
                             ),
                           ),
@@ -124,14 +124,14 @@ class tickets extends StatelessWidget {
                                         "Elvin loyd",
                                         style: GoogleFonts.poppins(
                                             fontSize: 13,
-                                            color: Colors.white,
+                                            color: Style.whitecolor,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       Text(
                                         "\$ 30",
                                         style: GoogleFonts.poppins(
                                             fontSize: 13,
-                                            color: Colors.white,
+                                            color: Style.whitecolor,
                                             fontWeight: FontWeight.w600),
                                       )
                                     ],
@@ -146,14 +146,14 @@ class tickets extends StatelessWidget {
                                         "9th Dec",
                                         style: GoogleFonts.poppins(
                                             fontSize: 11,
-                                            color: Colors.white,
+                                            color: Style.whitecolor,
                                             fontWeight: FontWeight.w600),
                                       ),
                                       Text(
                                         ". 10:00 pm",
                                         style: GoogleFonts.poppins(
                                             fontSize: 11,
-                                            color: Colors.white,
+                                            color: Style.whitecolor,
                                             fontWeight: FontWeight.w600),
                                       )
                                     ],
