@@ -1,10 +1,12 @@
 import 'package:draw_idea/utils/style.dart';
+import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:draw_idea/views/pages/register_login/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/register_controller.dart';
 import 'Widget/bezierContainer.dart';
@@ -23,19 +25,26 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final RegisterController loginController = Get.find();
   Widget _backButton() {
-    return InkWell(
-      onTap: () {
-        Navigator.pop(context);
+    return  new WillPopScope(
+      onWillPop: () async {
+        Get.offNamed('/loginPage');
+        return true;
       },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left,size: 30, color: Style.whitecolor),
-            ),
-          ],
+      child: InkWell(
+        onTap: () {
+          // Navigator.pop(context);
+          // Get.to(SignUpPage());
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
+                child: Icon(Icons.keyboard_arrow_left,size: 30, color: Style.whitecolor),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -91,9 +100,12 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _submitButton() {
     return GestureDetector(
-      onTap: () async{
-        await loginController.Login();
-
+      onTap: () {
+        // final response = await loginController.Login();
+        // if(response == 200) {
+        //   Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+        // }
+        loginController.Login();
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -155,54 +167,124 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _facebookButton() {
-    return Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(vertical: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+  Widget _guestButton() {
+    return InkWell(
+      onTap: (){
+        logoutUser();
+      },
+      child: Container(
+        height: 50,
+        margin: EdgeInsets.symmetric(vertical: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(5),
+                      topLeft: Radius.circular(5)),
+                ),
+                alignment: Alignment.center,
+                child: Icon(Icons.account_circle,size: 30,color: Style.whitecolor,)
+              ),
+            ),
+            Expanded(
+              flex: 5,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Style.greycolor,
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(5),
+                      topRight: Radius.circular(5)),
+                ),
+                alignment: Alignment.center,
+                child: Text('Log in as Guest',
+                    style: GoogleFonts.poppins(
+                    fontSize: 16,
+                    color:Style.whitecolor,
+                    fontWeight: FontWeight.w400),),
+              ),
+            ),
+          ],
+        ),
       ),
+    );
+  }
+
+  Widget socialMedia(){
+    return Container(
       child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xff1959a9),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(5),
-                    topLeft: Radius.circular(5)),
-              ),
-              alignment: Alignment.center,
-              child: Text('f',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400)),
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          RawMaterialButton(
+
+            onPressed: () {},
+            constraints: BoxConstraints(),
+            elevation: 3.0,
+            fillColor: Style.whitecolor,
+            child:Image.asset(
+              "assets/google.png",
+              width: 30.0,
+              height: 30.0,
+              fit: BoxFit.cover,
             ),
+            padding: EdgeInsets.all(10.0),
+            shape: CircleBorder(),
           ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Color(0xff2872ba),
-                borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(5),
-                    topRight: Radius.circular(5)),
-              ),
-              alignment: Alignment.center,
-              child: Text('Log in with Facebook',
-                  style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  color:Style.whitecolor,
-                  fontWeight: FontWeight.w400),),
+          RawMaterialButton(
+
+            onPressed: () {},
+            constraints: BoxConstraints(),
+            elevation: 3.0,
+            fillColor: Style.whitecolor,
+            child:Image.asset(
+              "assets/face.png",
+              width: 30.0,
+              height: 30.0,
+              fit: BoxFit.cover,
             ),
+            padding: EdgeInsets.all(10.0),
+            shape: CircleBorder(),
+          ),
+          RawMaterialButton(
+
+            onPressed: () {},
+            constraints: BoxConstraints(),
+            elevation: 3.0,
+            fillColor: Style.whitecolor,
+            child:Image.asset(
+              "assets/twitter.png",
+              width: 30.0,
+              height: 30.0,
+              fit: BoxFit.cover,
+            ),
+            padding: EdgeInsets.all(10.0),
+            shape: CircleBorder(),
+          ),
+          RawMaterialButton(
+
+            onPressed: () {},
+            constraints: BoxConstraints(),
+            elevation: 3.0,
+            fillColor: Style.whitecolor,
+            child:Image.asset(
+              "assets/insta.png",
+              width: 30.0,
+              height: 30.0,
+              fit: BoxFit.cover,
+            ),
+            padding: EdgeInsets.all(10.0),
+            shape: CircleBorder(),
           ),
         ],
       ),
     );
   }
-
   Widget _createAccountLabel() {
     return InkWell(
       onTap: () {
@@ -285,8 +367,12 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w600),),
                   ),
                   _divider(),
-                  _facebookButton(),
-                  SizedBox(height: height * .055),
+                  _guestButton(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  socialMedia(),
+                  SizedBox(height: height * .0),
                   _createAccountLabel(),
                 ],
               ),
@@ -297,4 +383,20 @@ class _LoginPageState extends State<LoginPage> {
       ),
     ));
   }
+  Future<void> logoutUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs?.setBool("guest", true);
+    prefs?.setBool("isLoggedIn", true);
+    Get.to(HomeScreen());
+  }
+  // Future<void> main() async {
+  //    SharedPreferences prefs = await SharedPreferences.getInstance();
+  //    var status = prefs.getBool('isLoggedIn') ?? false;
+  //   var isLoggedIn = (prefs.getBool('isLoggedIn') == null) ? false : prefs.getBool('isLoggedIn');
+  //    runApp(MaterialApp(
+  //      debugShowCheckedModeBanner: false,
+  //      home: isLoggedIn ? HomeScreen() : loginPage(),
+  //    ));
+  // }
+
 }

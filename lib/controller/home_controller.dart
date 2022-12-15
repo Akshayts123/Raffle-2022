@@ -79,7 +79,7 @@ class HomeController extends GetxController {
       help: 'assets/dots.png',
       coupen: 'assets/coupen3.jpg',
       feature: 'assets/feature1.gif',
-      vector: 'assets/vector6.jpg',
+      vector: 'assets/bannerslider9.png',
     ),
     Homes(
       Name: 'Fashion ',
@@ -102,7 +102,7 @@ class HomeController extends GetxController {
       help: 'assets/user1.png',
       coupen: 'assets/coupen4.jpg',
       feature: 'assets/feature2.gif',
-      vector: 'assets/vector1.jpg',
+      vector: 'assets/bannerslider2.png',
     ),
     Homes(
       Name: 'Game ',
@@ -125,7 +125,7 @@ class HomeController extends GetxController {
       help: 'assets/wifi.png',
       coupen: 'assets/coupen5.jpg',
       feature: 'assets/feature3.gif',
-      vector: 'assets/vector3.jpg',
+      vector: 'assets/bannerslider3.png',
     ),
     Homes(
       Name: 'Food ',
@@ -148,7 +148,7 @@ class HomeController extends GetxController {
       help: 'assets/distrub.png',
       coupen: 'assets/coupen6.jpg',
       feature: 'assets/feature4.gif',
-      vector: 'assets/vector4.jpg',
+      vector: 'assets/bannerslider4.png',
     ),
     Homes(
       Name: 'Bar ',
@@ -171,7 +171,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen11.jpg',
       feature: 'assets/feature5.gif',
-      vector: 'assets/vector8.jpg',
+      vector: 'assets/bannerslider5.png',
     ),
     Homes(
       Name: 'Home ',
@@ -194,7 +194,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen12.jpg',
       feature: 'assets/feature6.gif',
-      vector: 'assets/vector2.jpg',
+      vector: 'assets/bannerslider6.png',
 
     ),
     Homes(
@@ -218,7 +218,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen13.jpg',
       feature: 'assets/feature7.gif',
-      vector: 'assets/vector7.jpg',
+      vector: 'assets/bannerslider7.png',
     ),
     Homes(
       Name: 'Game ',
@@ -241,7 +241,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen14.jpg',
       feature: 'assets/feature8.gif',
-      vector: 'assets/vector8.jpg',
+      vector: 'assets/bannerslider8.png',
     ),
     Homes(
       Name: 'Food ',
@@ -264,7 +264,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen3.jpg',
       feature: 'assets/feature9.gif',
-      vector: 'assets/vector1.jpg',
+      vector: 'assets/bannerslider1.png',
     ),
     Homes(
       Name: 'Bar ',
@@ -287,7 +287,7 @@ class HomeController extends GetxController {
       help: '',
       coupen: 'assets/coupen5.jpg',
       feature: 'assets/feature10.gif',
-      vector: 'assets/vector2.jpg',
+      vector: 'assets/bannerslider10.png',
     ),
   ];
 

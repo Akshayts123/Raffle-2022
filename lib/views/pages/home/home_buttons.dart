@@ -5,26 +5,100 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
+import '../../../controller/register_controller.dart';
 import '../../../utils/style.dart';
 
-class homemenu extends StatelessWidget {
-  final HomeController _coffeeController = Get.find();
+class homemenu extends StatefulWidget {
+
   homemenu({Key? key}) : super(key: key);
+
+  @override
+  State<homemenu> createState() => _homemenuState();
+}
+
+class _homemenuState extends State<homemenu> {
+  main() async {
+    loginController.guest.value = await loginController.main();
+  }
+  @override
+  void initState() {
+    setState((){
+      main();
+    });
+    super.initState();
+  }
+  final RegisterController loginController = Get.find();
+
+  final HomeController _coffeeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Container(
         height: 85,
-        child: ListView.builder(
-          shrinkWrap: true,
-          padding: EdgeInsets.only(left: 5),
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemCount: _coffeeController.getHomesList.length,
-          itemBuilder: (BuildContext context, int index) {
+        child:   Obx(() =>
+        loginController.guest.value == true ? guesticon():user() ,),
+      ),
+    );
+  }
 
-           if(index == 0){
+  Widget guesticon () {
+    return ListView.builder(
+        shrinkWrap: true,
+        padding: EdgeInsets.only(left: 5),
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount:3,
+        itemBuilder: (BuildContext context, int index) {
+
+          return Container(
+            child: Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: TextButton(
+                    style: ButtonStyle(),
+                    onPressed: () {},
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          _coffeeController.getHomesList[index].gif ?? "",
+                          width: 35.0,
+                          height: 35.0,
+                          color: Style.whitecolor,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Text(
+                          _coffeeController.getHomesList[index].Name ?? "",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              color: Style.whitecolor,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+    );
+  }
+
+  Widget user (){
+    return ListView.builder(
+        shrinkWrap: true,
+        padding: EdgeInsets.only(left: 5),
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: _coffeeController.getHomesList.length,
+        itemBuilder: (BuildContext context, int index) {
+
+          if(index == 0){
             return Container(
               child: Column(
                 children: [
@@ -65,8 +139,8 @@ class homemenu extends StatelessWidget {
                 ],
               ),
             );
-           }
-            return  Container(
+          }
+          return  Container(
             child: Row(
               children: [
                 Container(
@@ -98,9 +172,7 @@ class homemenu extends StatelessWidget {
               ],
             ),
           );
-          }
-        ),
-      ),
+        }
     );
   }
 }

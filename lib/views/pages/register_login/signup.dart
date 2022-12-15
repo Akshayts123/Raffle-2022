@@ -25,6 +25,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return InkWell(
       onTap: () {
         Navigator.pop(context);
+        // Get.to(LoginPage());
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -196,10 +197,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: height * .18),
+                    SizedBox(height: height * .2),
                     _title(),
                     // SizedBox(height: height * .1),
-
                     SizedBox(
                       height: 80,
                     ),

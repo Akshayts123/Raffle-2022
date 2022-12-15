@@ -1,13 +1,19 @@
 
 
+import 'package:draw_idea/views/pages/register_login/loginPage.dart';
 import 'package:draw_idea/views/widgets/floatingpopup/popup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../controller/register_controller.dart';
 import '../badge/badge.dart';
 
 class drawer extends StatelessWidget {
-  const drawer({Key? key}) : super(key: key);
+  final RegisterController loginController = Get.find();
+   drawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +29,16 @@ class drawer extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                const EdgeInsets.only(right: 20.0,top: 15),
+                const EdgeInsets.only(right: 20.0,top: 20,bottom: 20),
                 child: badge(),
               ),
-              // Container(
-              //   width: 128.0,
-              //   height: 128.0,
-              //   margin: const EdgeInsets.only(
-              //     top: 24.0,
-              //     bottom: 64.0,
-              //   ),
-              //   clipBehavior: Clip.antiAlias,
-              //   decoration: BoxDecoration(
-              //     color: Colors.black26,
-              //     shape: BoxShape.circle,
-              //   ),
-              //   child: Image.asset(
-              //     'assets/images/flutter_logo.png',
-              //   ),
-              // ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                },
                 leading: Icon(Icons.home),
                 title: Container(child: Row(
                   children: [
-                    Text(' home screen'),
+                   Text('Home Screen '),
                     popnew()
                   ],
                 )),
@@ -172,22 +163,22 @@ class drawer extends StatelessWidget {
                 leading: Icon(Icons.delivery_dining),
                 title: Text('Home Delivery'),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 70,right: 20),
-                width: 200,
-                height: 1,
-                color: Colors.white,
-              ),
-              ListTile(
-                onTap: () {},
-                leading: Icon(Icons.language),
-                title: Row(
-                  children: [
-                    Text('Change Language'),
-                    popnew()
-                  ],
-                ),
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(left: 70,right: 20),
+              //   width: 200,
+              //   height: 1,
+              //   color: Colors.white,
+              // ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Icon(Icons.language),
+              //   title: Row(
+              //     children: [
+              //       Text('Change Language'),
+              //       popnew()
+              //     ],
+              //   ),
+              // ),
 
               Spacer(),
               Center(
@@ -210,4 +201,5 @@ class drawer extends StatelessWidget {
       ),
     );
   }
+
 }

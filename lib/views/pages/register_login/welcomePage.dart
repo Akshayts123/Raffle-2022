@@ -24,22 +24,23 @@ class _WelcomePageState extends State<WelcomePage> {
             context, MaterialPageRoute(builder: (context) => LoginPage()));
       },
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 160,
         padding: EdgeInsets.symmetric(vertical: 13),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(5)),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                  color: Color(0xffdf8e33).withAlpha(100),
-                  offset: Offset(2, 4),
-                  blurRadius: 8,
-                  spreadRadius: 2)
-            ],
-            color: Colors.white),
+            border: Border.all(color: Style.whitecolor, width: 2),
+            // boxShadow: <BoxShadow>[
+            //   BoxShadow(
+            //       color: Color(0xffdf8e33).withAlpha(100),
+            //       offset: Offset(2, 4),
+            //       blurRadius: 8,
+            //       spreadRadius: 2)
+            // ],
+            color: Style.whitecolor),
         child: Text(
           'Login',
-          style: TextStyle(fontSize: 20, color: Style.systemblue),
+          style: TextStyle(fontSize: 20, color: Style.blackcolor),
         ),
       ),
     );
@@ -52,16 +53,16 @@ class _WelcomePageState extends State<WelcomePage> {
             context, MaterialPageRoute(builder: (context) => SignUpPage()));
       },
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: 160,
         padding: EdgeInsets.symmetric(vertical: 13),
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          border: Border.all(color: Colors.white, width: 2),
+          border: Border.all(color: Style.whitecolor, width: 2),
         ),
         child: Text(
           'Register now',
-          style: TextStyle(fontSize: 20, color: Colors.white),
+          style: TextStyle(fontSize: 20, color: Style.whitecolor),
         ),
       ),
     );
@@ -101,21 +102,40 @@ class _WelcomePageState extends State<WelcomePage> {
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: [Style.systemblue,Style.systemblue])),
+                        colors: [Color(0xFF070A0F),Color(0xFF070A0F)])),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+
                     _title(),
 
                     SizedBox(
-                      height: 480,
+                      height: 50,
                     ),
-                    _submitButton(),
+                    Container(
+                      child: Image.asset(
+                       "assets/purchase.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                     SizedBox(
-                      height: 20,
+                      height: 250,
                     ),
-                    _signUpButton(),
+                    Row(
+                      children: [
+                        _submitButton(),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        _signUpButton(),
+                      ],
+                    )
+
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
+
 
                   ],
                 ),

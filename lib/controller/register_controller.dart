@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart ' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/register.dart';
 
 class RegisterController extends GetxController{
@@ -15,6 +16,7 @@ class RegisterController extends GetxController{
   TextEditingController emailtext = TextEditingController();
   TextEditingController passwordtext = TextEditingController();
   String baseurl = "https://reqres.in/api/registe";
+  RxBool guest = true.obs;
 
   // Login()async {
   //   if (emailtext.text.isNotEmpty && passwordtext.text.isNotEmpty) {
@@ -43,7 +45,16 @@ class RegisterController extends GetxController{
   //     Get.snackbar("error", "empty");
   //   }
   // }
-  Future<void> Login() async {
+
+  main() async {
+    var guest = false;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    guest = prefs.getBool('guest') ?? false;
+    return guest;
+
+    // user = (guest == true) ? prefs.getBool('guest') ?? true :prefs.getBool('isLoggedIn') ?? true;
+  }
+  Future Login() async {
     if (emailtext.text.isNotEmpty && passwordtext.text.isNotEmpty) {
 
       var response = await http.post(Uri.parse("https://reqres.in/api/register"),
@@ -53,13 +64,21 @@ class RegisterController extends GetxController{
           }));
 
       if (response.statusCode == 200) {
+
         Get.snackbar("post", "successfully");
         Get.to(HomeScreen());
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs?.setBool("guest", false);
+        prefs?.setBool("isLoggedIn", true);
+
+        print('shared prefs ::::::: '+ prefs.getBool('guest').toString());
         // print("============================");
         // print(response);
         Center(child: CircularProgressIndicator());
+        // return response.statusCode;
       } else {
-        Get.snackbar("error", "Invalid Credentials.");
+        Get.snackbar("error", "Invalid Credentials.",);
+        return 400;
       }
     } else {
       Get.snackbar("error", "Invalid Credentials null value ");

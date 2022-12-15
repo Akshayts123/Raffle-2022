@@ -15,7 +15,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../controller/home_controller.dart';
+import '../../../controller/register_controller.dart';
 import '../../widgets/drawer/drawer.dart';
 import 'app_banner.dart';
 import 'featured_offer.dart';
@@ -40,6 +42,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  final RegisterController loginController = Get.find();
+  // final RegisterController loginController = Get.find();
+  // SharedPreferences? prefs;
+  RxBool guest = true.obs;
+  late final user;
   var variable = 0;
   final Duration initialDelay = Duration(milliseconds: 500);
   final HomeController _coffeeController = Get.find();
@@ -65,62 +72,129 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   ];
   Country _selectedDialogCountry =
   CountryPickerUtils.getCountryByPhoneCode('91');
+
+  main() async {
+    guest.value = await loginController.main();
+  }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    setState((){
+      main();
+    });
+
+
+    final systemTheme = SystemUiOverlayStyle.light.copyWith(
+      systemNavigationBarColor: Colors.black54,
+      systemNavigationBarIconBrightness: Brightness.light,
+    );
+    SystemChrome.setSystemUIOverlayStyle(systemTheme);
+
+    _fabAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _borderRadiusAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    fabCurve = CurvedAnimation(
+      parent: _fabAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+    borderRadiusCurve = CurvedAnimation(
+      parent: _borderRadiusAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+
+    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
+    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
+      borderRadiusCurve,
+    );
+
+    _hideBottomBarAnimationController = AnimationController(
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _fabAnimationController.forward(),
+    );
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _borderRadiusAnimationController.forward(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      backdropColor: Color(0xFF2F3044),
-      controller: _advancedDrawerController,
-      animationCurve: Curves.easeInOut,
-      animationDuration: const Duration(milliseconds: 300),
-      animateChildDecoration: true,
-      rtlOpening: true,
-      disabledGestures: false,
-      childDecoration: const BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-      ),
-      drawer: drawer(),
-      child: RefreshIndicator(
-        onRefresh: _coffeeController.refreshLocalGallery,
-        child: DraggableHome(
-
-          leading: const Icon(Icons.arrow_back_ios),
-          title: const Text("Raffle Draw"),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-          ],
-          headerWidget: headerWidget(context),
-          // headerBottomBar: headerBottomBarWidget(),
-          body: [
-            listView(),
-          ],
-          headerExpandedHeight: 0.21,
-          fullyStretchable: false,
-          bottomNavigationBar: bottomnavbar(),
-          floatingActionButton: Visibility(
-            visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
-            child: FloatingActionButton(
-              backgroundColor: Style.systemblue,
-              child: Icon(
-                Icons.ac_unit,
-                color:Style.whitecolor,
-              ),
-              onPressed: () {
-                Get.to(Spinner());
-                _fabAnimationController.reset();
-                _borderRadiusAnimationController.reset();
-                _borderRadiusAnimationController.forward();
-                _fabAnimationController.forward();
-              },
-            ),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          // expandedBody: const CameraPreview(),
-          backgroundColor: Color(0xFFFFF9E9),
-          appBarColor: Style.systemblue,
+    return  new WillPopScope(
+      onWillPop: () async {
+        Get.offNamed('/home_screen');
+        return true;
+      },
+      child: AdvancedDrawer(
+        backdropColor: Color(0xFF2F3044),
+        controller: _advancedDrawerController,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 300),
+        animateChildDecoration: true,
+        rtlOpening: true,
+        disabledGestures: false,
+        childDecoration: const BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
         ),
+        drawer: drawer(),
+        child: RefreshIndicator(
+          onRefresh: _coffeeController.refreshLocalGallery,
+          child: DraggableHome(
+
+            leading: const Icon(Icons.arrow_back_ios),
+            title: const Text("Raffle Draw"),
+            actions: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+            ],
+            headerWidget: headerWidget(context),
+            // headerBottomBar: headerBottomBarWidget(),
+            body: [
+               Obx(() =>
+              guest.value == true ? listViewguest():listView() ,),
+            ],
+            headerExpandedHeight: 0.21,
+            fullyStretchable: false,
+            bottomNavigationBar: bottomnavbar(),
+            floatingActionButton: Visibility(
+              visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
+              child: FloatingActionButton(
+                backgroundColor: Style.systemblue,
+                child: Icon(
+                  Icons.ac_unit,
+                  color:Style.whitecolor,
+                ),
+                onPressed: () {
+                  Get.to(Spinner());
+                  _fabAnimationController.reset();
+                  _borderRadiusAnimationController.reset();
+                  _borderRadiusAnimationController.forward();
+                  _fabAnimationController.forward();
+                },
+              ),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            // expandedBody: const CameraPreview(),
+            backgroundColor: Color(0xFFFFF9E9),
+            appBarColor: Style.systemblue,
+          ),
+        ),
+
       ),
     );
+
   }
 
   Widget headerWidget(BuildContext context) {
@@ -195,10 +269,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
 
   Widget listView() {
-    return Container(
+
+    return  Container(
       color: Color(0xFFFFF9E9),
       child: Column(
         children: [
+
           DelayedDisplay(
             delay: Duration(milliseconds: initialDelay.inSeconds + 1100),
             child: appbanner(),
@@ -261,9 +337,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
 
         ],
-      ),
+      )
+    );
+
+  }
+
+  Widget listViewguest() {
+
+    return Container(
+        color: Color(0xFFFFF9E9),
+        child: Column(
+          children: [
+
+            DelayedDisplay(
+              delay: Duration(milliseconds: initialDelay.inSeconds + 1100),
+              child: appbanner(),
+            ),
+
+            DelayedDisplay(
+              delay: Duration(milliseconds: initialDelay.inSeconds + 1700),
+              child:imageview(),
+            ),
+
+          ],
+        )
     );
   }
+
+
 
   Widget bottomnavbar() {
     return AnimatedBottomNavigationBar.builder(
@@ -320,51 +421,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     _advancedDrawerController.showDrawer();
   }
 
-  @override
-  void initState() {
-    super.initState();
-    final systemTheme = SystemUiOverlayStyle.light.copyWith(
-      systemNavigationBarColor: Colors.black54,
-      systemNavigationBarIconBrightness: Brightness.light,
-    );
-    SystemChrome.setSystemUIOverlayStyle(systemTheme);
 
-    _fabAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    _borderRadiusAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    fabCurve = CurvedAnimation(
-      parent: _fabAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-    borderRadiusCurve = CurvedAnimation(
-      parent: _borderRadiusAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-
-    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
-    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
-      borderRadiusCurve,
-    );
-
-    _hideBottomBarAnimationController = AnimationController(
-      duration: Duration(milliseconds: 200),
-      vsync: this,
-    );
-
-    Future.delayed(
-      Duration(seconds: 1),
-      () => _fabAnimationController.forward(),
-    );
-    Future.delayed(
-      Duration(seconds: 1),
-      () => _borderRadiusAnimationController.forward(),
-    );
-  }
   Widget _buildDialog(Country country) => Row(
     children: <Widget>[
       CountryPickerUtils.getDefaultFlagImage(country),
@@ -401,5 +458,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
     ),
   );
+  Future<void> logoutUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs?.setBool("guest", false);
+    Get.to(HomeScreen());
+  }
+
+// Future<bool> main() async {
+//    SharedPreferences prefs = await SharedPreferences.getInstance();
+//    var status = prefs.getBool('guest') == true;
+//    return status;
+//   //  if(prefs.getBool('guest') == true){
+//   //    listViewguest();
+//   //  }
+//   //  else{
+//   //    listView();
+//   //  }
+//   // var isLoggedIn = (prefs.getBool('isLoggedIn') == true) ? false : prefs.getBool('isLoggedIn');
+//   //  Container(
+//   //    child: status ? listView() : listViewguest(),
+//   //  );
+// }
+//   Future<bool> _loadCounter() async {
+//     SharedPreferences prefs = await SharedPreferences.getInstance();
+//     setState(() {
+//       _email = (prefs.getString('guest')??'');
+//     });
+//   }
 
 }

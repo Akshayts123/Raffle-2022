@@ -53,7 +53,7 @@ class latestmovies extends StatelessWidget {
           Container(
             height: 220,
             child: ListView.builder(
-              padding: EdgeInsets.only(top: 15,left: 40),
+              padding: EdgeInsets.only(top: 15,left: 30),
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,

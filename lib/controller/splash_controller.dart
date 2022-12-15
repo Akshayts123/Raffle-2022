@@ -1,7 +1,4 @@
-
-
 import 'dart:async';
-
 
 import 'package:draw_idea/views/pages/home/home.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
@@ -14,12 +11,11 @@ import '../views/pages/home/fade.dart';
 import '../views/pages/on_board/on_board.dart';
 import '../views/pages/qr_code/qr_code.dart';
 
+import '../views/pages/register_login/loginPage.dart';
+import '../views/pages/register_login/signup.dart';
 import '../views/pages/register_login/welcomePage.dart';
 
-
-
-
-class SplashController extends GetxController  {
+class SplashController extends GetxController {
   final splashDelay = 5;
 
   _loadWidget() async {
@@ -30,18 +26,34 @@ class SplashController extends GetxController  {
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _introSeen = (prefs.getBool('intro_seen') ?? false);
+    var status = prefs.getBool('isLoggedIn') ?? false;
 
-    if (_introSeen) {
-      Get.to(WelcomePage());
+    if (status && _introSeen) {
+      Get.to(HomeScreen());
+    } else if (_introSeen) {
+      Get.to(LoginPage());
     } else {
       await prefs.setBool('intro_seen', true);
       Get.to(OnBoardingPage());
     }
   }
+
+  // void navigateUser() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   var status = prefs.getBool('isLoggedIn') ?? false;
+  //   print(status);
+  //   if (status) {
+  //     Get.to(HomeScreen());
+  //   } else {
+  //     await prefs?.setBool("isLoggedIn", true);
+  //     Get.to(LoginPage());
+  //   }
+  // }
+
   @override
   void onInit() {
     _loadWidget();
-        super.onInit();
+    // navigateUser();
+    super.onInit();
   }
-
 }
