@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:delayed_display/delayed_display.dart';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:draw_idea/utils/style.dart';
+import 'package:draw_idea/views/pages/home/progress_circle.dart';
 import 'package:draw_idea/views/pages/home/small_banner.dart';
 import 'package:draw_idea/views/pages/spinner/spinner.dart';
 import 'package:draw_idea/views/pages/home/stacked_banner.dart';
@@ -15,14 +16,17 @@ import 'package:flutter/services.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:scratcher/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
 import '../../widgets/drawer/drawer.dart';
+import '../Coupens/coupens.dart';
 import 'app_banner.dart';
 import 'featured_offer.dart';
 import 'help_support.dart';
 import 'image_view.dart';
+import 'main_banner.dart';
 import 'searchbar.dart';
 import 'enjoy_gaming.dart';
 import 'home_buttons.dart';
@@ -72,63 +76,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   ];
   Country _selectedDialogCountry =
   CountryPickerUtils.getCountryByPhoneCode('91');
-
-  main() async {
-    guest.value = await loginController.main();
-  }
-
-
-
-  @override
-  void initState() {
-    super.initState();
-    setState((){
-      main();
-    });
-
-
-    final systemTheme = SystemUiOverlayStyle.light.copyWith(
-      systemNavigationBarColor: Colors.black54,
-      systemNavigationBarIconBrightness: Brightness.light,
-    );
-    SystemChrome.setSystemUIOverlayStyle(systemTheme);
-
-    _fabAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    _borderRadiusAnimationController = AnimationController(
-      duration: Duration(milliseconds: 500),
-      vsync: this,
-    );
-    fabCurve = CurvedAnimation(
-      parent: _fabAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-    borderRadiusCurve = CurvedAnimation(
-      parent: _borderRadiusAnimationController,
-      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
-    );
-
-    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
-    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
-      borderRadiusCurve,
-    );
-
-    _hideBottomBarAnimationController = AnimationController(
-      duration: Duration(milliseconds: 200),
-      vsync: this,
-    );
-
-    Future.delayed(
-      Duration(seconds: 1),
-          () => _fabAnimationController.forward(),
-    );
-    Future.delayed(
-      Duration(seconds: 1),
-          () => _borderRadiusAnimationController.forward(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -277,11 +224,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
           DelayedDisplay(
             delay: Duration(milliseconds: initialDelay.inSeconds + 1100),
+            child: MainBanner(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 1100),
             child: appbanner(),
           ),
           DelayedDisplay(
             delay: Duration(milliseconds: initialDelay.inSeconds + 1400),
             child:menuslider(),
+          ),
+          DelayedDisplay(
+            delay: Duration(milliseconds: initialDelay.inSeconds + 1700),
+            child:ProgressCircles(),
           ),
           DelayedDisplay(
             delay: Duration(milliseconds: initialDelay.inSeconds + 1700),
@@ -409,11 +364,68 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               : (_bottomNavIndex == 2)
                   ? Get.to(HomeScreen())
                   : (_bottomNavIndex == 3)
-                      ? Get.to(HomeScreen())
+                      ? Get.to(ScrachCoupens())
                       : Get.to(HomeScreen());
         });
       },
       hideAnimationController: _hideBottomBarAnimationController,
+    );
+  }
+
+  main() async {
+    guest.value = await loginController.main();
+  }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    setState((){
+      main();
+    });
+
+
+    final systemTheme = SystemUiOverlayStyle.light.copyWith(
+      systemNavigationBarColor: Colors.black54,
+      systemNavigationBarIconBrightness: Brightness.light,
+    );
+    SystemChrome.setSystemUIOverlayStyle(systemTheme);
+
+    _fabAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _borderRadiusAnimationController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    );
+    fabCurve = CurvedAnimation(
+      parent: _fabAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+    borderRadiusCurve = CurvedAnimation(
+      parent: _borderRadiusAnimationController,
+      curve: Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+    );
+
+    fabAnimation = Tween<double>(begin: 0, end: 1).animate(fabCurve);
+    borderRadiusAnimation = Tween<double>(begin: 0, end: 1).animate(
+      borderRadiusCurve,
+    );
+
+    _hideBottomBarAnimationController = AnimationController(
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _fabAnimationController.forward(),
+    );
+    Future.delayed(
+      Duration(seconds: 1),
+          () => _borderRadiusAnimationController.forward(),
     );
   }
 

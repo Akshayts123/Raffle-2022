@@ -1,9 +1,13 @@
+import 'package:draw_idea/utils/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/items.dart';
+import '../models/language_model.dart';
 import '../services/api.dart';
 
 class HomeController extends GetxController {
+
+
   @override
   bool get wantKeepAlive => true;
   // var index = 0.obs;
@@ -27,6 +31,30 @@ class HomeController extends GetxController {
 
 
   }
+  List percent = [
+    0.7,
+    0.12,
+    0.35,
+    0.2,
+    0.9,
+    0.4,
+    0.5,
+    0.6,
+    0.33,
+    0.77
+  ];
+  static List<Color> cources = [
+    Colors.red,
+    Colors.green,
+    Colors.grey,
+    Colors.orangeAccent,
+    Colors.redAccent,
+    Colors.pinkAccent,
+    Colors.indigoAccent,
+    Colors.black54,
+    Colors.brown,
+    Colors.deepPurple
+  ];
   List<Color> colors = [
     Colors.red,
     Colors.orangeAccent,
@@ -35,11 +63,11 @@ class HomeController extends GetxController {
     Colors.redAccent,
     Colors.pinkAccent,
     Colors.indigoAccent,
-    Colors.yellowAccent,
+    Colors.black54,
     Colors.brown,
   ];
   List<Color> coloring = [
-    Colors.red,
+    Style.systemblue,
     Colors.yellowAccent,
     Colors.orangeAccent,
     Colors.grey,
@@ -50,13 +78,8 @@ class HomeController extends GetxController {
     Colors.yellowAccent,
     Colors.brown,
   ];
-  final List<String> imgList = [
-    'assets/banner1.png',
-    'assets/banner2.jpg',
-    'assets/banner3.jpg',
-    'assets/banner6.jpg',
-    'assets/banner7.png',
-  ];
+  final List<LanguageModel> CourceColor = List.generate(cources.length, (index) => LanguageModel(cources[index]));
+
   var list = [
     Homes(
       Name: 'Home',
@@ -80,9 +103,14 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen3.jpg',
       feature: 'assets/feature1.gif',
       vector: 'assets/bannerslider9.png',
+      cources: 'Spanish',
+      courcesub: 'Begginer',
+      percent: '70.0%',
+      reward: 'assets/reward1.png',
+      scrach: 'assets/innerscrach.png',
     ),
     Homes(
-      Name: 'Fashion ',
+      Name: 'QrCode ',
       img: "assets/btn2.png",
       ban: "assets/ban2.png",
       btndesc: "Help & Support",
@@ -90,7 +118,7 @@ class HomeController extends GetxController {
       title: "Super sonic",
       backimg: "assets/meroon.jpg",
       movie: "assets/movie5.jpeg",
-      gif: "assets/gif2.gif",
+      gif: "assets/qrcode.gif",
       no: "assets/2.png",
       no2: "assets/22.png",
       bis: 'assets/bis2.jpg',
@@ -103,6 +131,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen4.jpg',
       feature: 'assets/feature2.gif',
       vector: 'assets/bannerslider2.png',
+      cources: 'German',
+      courcesub: 'Advanced',
+      percent: '10.0%',
+      reward: 'assets/reward2.png',
+      scrach: 'assets/innerscrach2.png',
     ),
     Homes(
       Name: 'Game ',
@@ -126,6 +159,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen5.jpg',
       feature: 'assets/feature3.gif',
       vector: 'assets/bannerslider3.png',
+      cources: 'Italian',
+      courcesub: 'intermediate',
+      percent: '30.0%',
+      reward: 'assets/reward3.png',
+      scrach: 'assets/innerscrach3.png',
     ),
     Homes(
       Name: 'Food ',
@@ -149,6 +187,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen6.jpg',
       feature: 'assets/feature4.gif',
       vector: 'assets/bannerslider4.png',
+      cources: 'Spanish',
+      courcesub: 'Begginer',
+      percent: '20.0%',
+      reward: 'assets/reward4.png',
+      scrach: 'assets/innerscrach4.png',
     ),
     Homes(
       Name: 'Bar ',
@@ -172,6 +215,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen11.jpg',
       feature: 'assets/feature5.gif',
       vector: 'assets/bannerslider5.png',
+      cources: 'German',
+      courcesub: 'Begginer',
+      percent: '90.0%',
+      reward: 'assets/reward1.png',
+      scrach: 'assets/innerscrach5.png',
     ),
     Homes(
       Name: 'Home ',
@@ -181,7 +229,7 @@ class HomeController extends GetxController {
       game: "assets/game1.png",
       title: "Super sonic",
       movie: "assets/movie8.jpeg",
-      gif: "assets/gif1.gif",
+      gif: "assets/gif2.gif",
       no: "assets/6.png",
       no2: "assets/66.png",
       music: 'assets/music6.jpg',
@@ -195,6 +243,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen12.jpg',
       feature: 'assets/feature6.gif',
       vector: 'assets/bannerslider6.png',
+      cources: 'Italian',
+      courcesub: 'Advanced',
+      percent: '40.0%',
+      reward: 'assets/reward2.png',
+      scrach: 'assets/innerscrach6.png',
 
     ),
     Homes(
@@ -219,6 +272,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen13.jpg',
       feature: 'assets/feature7.gif',
       vector: 'assets/bannerslider7.png',
+      cources: 'Spanish',
+      courcesub: 'Begginer',
+      percent: '50.0%',
+      reward: 'assets/reward3.png',
+      scrach: 'assets/innerscrach7.png',
     ),
     Homes(
       Name: 'Game ',
@@ -242,6 +300,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen14.jpg',
       feature: 'assets/feature8.gif',
       vector: 'assets/bannerslider8.png',
+      cources: 'German',
+      courcesub: 'Begginer',
+      percent: '60.0%',
+      reward: 'assets/reward4.png',
+      scrach: 'assets/innerscrach8.png',
     ),
     Homes(
       Name: 'Food ',
@@ -265,6 +328,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen3.jpg',
       feature: 'assets/feature9.gif',
       vector: 'assets/bannerslider1.png',
+      cources: 'Spanish',
+      courcesub: 'Begginer',
+      percent: '40.0%',
+      reward: 'assets/reward1.png',
+      scrach: 'assets/innerscrach9.png',
     ),
     Homes(
       Name: 'Bar ',
@@ -288,6 +356,11 @@ class HomeController extends GetxController {
       coupen: 'assets/coupen5.jpg',
       feature: 'assets/feature10.gif',
       vector: 'assets/bannerslider10.png',
+      cources: 'Spanish',
+      courcesub: 'Intermediate',
+      percent: '80.0%',
+      reward: 'assets/reward2.png',
+      scrach: 'assets/innerscrach2.png',
     ),
   ];
 

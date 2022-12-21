@@ -86,7 +86,7 @@ class menuslider extends StatelessWidget {
                       Center(
                         child: Container(
                           padding: EdgeInsets.only(left: 13),
-                          width: 80,
+                          width: 85,
                           child: Text(
                             _coffeeController.getHomesList[index].btndesc??"",
                             style: GoogleFonts.poppins(

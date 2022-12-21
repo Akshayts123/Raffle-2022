@@ -59,7 +59,7 @@ class jobeducation extends StatelessWidget {
             height: 0,
           ),
           Container(
-            padding: EdgeInsets.only(right: 15),
+            padding: EdgeInsets.only(right: 8),
             height: 400,
             child: ListView.builder(
               itemCount: 3,

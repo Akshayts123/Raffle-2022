@@ -13,7 +13,6 @@ import 'dart:convert';
 //
 //     final random = randomFromJson(jsonString);
 
-import 'dart:convert';
 
 
 class Plane {
@@ -410,6 +409,12 @@ class Homes {
   late final String? coupen;
   late final String? feature;
   late final String? vector;
+  late final String? cources;
+  late final String? courcesub;
+  late final String? percent;
+  late final String? reward;
+  late final String? scrach;
+
 
 
   Homes({
@@ -434,6 +439,11 @@ class Homes {
     required this.coupen,
     required this.feature,
     required this.vector,
+    required this.cources,
+    required this.courcesub,
+    required this.percent,
+    required this.reward,
+    required this.scrach,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -457,6 +467,11 @@ class Homes {
       this.help,
       this.vector,
       this.feature,
+      this.cources,
+      this.courcesub,
+      this.percent,
+      this.reward,
+      this.scrach,
       this.bis) {
     Name = json['Name'];
     img = json['img'];
@@ -479,6 +494,11 @@ class Homes {
     coupen = json['coupen'];
     feature = json['feature'];
     vector = json['vector'];
+    cources = json['cources'];
+    courcesub = json['courcesub'];
+    percent = json['percent'];
+    reward = json['reward'];
+    scrach = json['scrach'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -502,6 +522,11 @@ class Homes {
     data['coupen'] = this.coupen;
     data['feature'] = this.feature;
     data['vector'] = this.vector;
+    data['cources'] = this.cources;
+    data['courcesub'] = this.courcesub;
+    data['percent'] = this.percent;
+    data['reward'] = this.reward;
+    data['scrach'] = this.scrach;
 
     return data;
   }

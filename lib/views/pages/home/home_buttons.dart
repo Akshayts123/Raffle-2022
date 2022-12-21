@@ -1,3 +1,4 @@
+import 'package:draw_idea/views/pages/qr_code/qr_code.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
 import '../../../utils/style.dart';
+import 'home_screen.dart';
 
 class homemenu extends StatefulWidget {
 
@@ -20,6 +22,7 @@ class _homemenuState extends State<homemenu> {
   main() async {
     loginController.guest.value = await loginController.main();
   }
+  var navigation =0;
   @override
   void initState() {
     setState((){
@@ -58,7 +61,9 @@ class _homemenuState extends State<homemenu> {
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: TextButton(
                     style: ButtonStyle(),
-                    onPressed: () {},
+                    onPressed: () {
+
+                    },
                     child: Column(
                       children: [
                         Image.asset(
@@ -106,7 +111,8 @@ class _homemenuState extends State<homemenu> {
                     padding: EdgeInsets.symmetric(horizontal: 5),
                     child: TextButton(
                       style: ButtonStyle(),
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                       child: Column(
                         children: [
                           Image.asset(
@@ -147,7 +153,14 @@ class _homemenuState extends State<homemenu> {
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: TextButton(
                     style: ButtonStyle(),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        navigation = index;
+                        (navigation == 1)
+                            ? Get.to(QRScanner())
+                            : Get.to(HomeScreen());
+                      });
+                    },
                     child: Column(
                       children: [
                         Image.asset(

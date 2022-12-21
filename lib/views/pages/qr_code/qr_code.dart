@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import '../../../utils/style.dart';
@@ -62,7 +63,7 @@ class _QRScannerState extends State<QRScanner> {
                 // else
                 //   const Text('Scan a code'),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     GestureDetector(
@@ -107,6 +108,20 @@ class _QRScannerState extends State<QRScanner> {
                           },
                         ),
                       ),
+                    ),
+                    SizedBox(width: 20,),
+                    GestureDetector(
+                      onTap: () async {
+                        Get.back();
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(8),
+                        child:Text("Skip",style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            color: Style.whitecolor,
+                            fontWeight: FontWeight.w500),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -119,15 +134,15 @@ class _QRScannerState extends State<QRScanner> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    var scanArea = (Get.width < 400 || Get.height < 400) ? 230.0 : 330.0;
+    var scanArea = (Get.width < 400 || Get.height < 400) ? 300.0 : 300.0;
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,
       overlay: QrScannerOverlayShape(
-        // borderColor: buttonColor,
-          borderRadius: 2,
+        borderColor: Style.whitecolor,
+          borderRadius: 10,
           borderLength: 35,
-          borderWidth: 6,
+          borderWidth: 10,
           cutOutSize: scanArea),
       onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
     );

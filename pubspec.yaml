@@ -51,7 +51,9 @@ dependencies:
   introduction_screen: ^3.1.1
   shared_preferences: ^2.0.15
   qr_code_scanner: ^1.0.1
-
+  percent_indicator: ^4.2.2
+  scratcher: ^2.3.0
+  confetti: ^0.7.0
 
 
 

@@ -53,7 +53,7 @@ class enjoygaming extends StatelessWidget {
             ],
           ),
           Container(
-            height: 170,
+            height: 180,
             child: ListView.builder(
               padding: EdgeInsets.only(top: 10,left: 5),
               shrinkWrap: true,
