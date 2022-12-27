@@ -27,15 +27,15 @@ class appbanner extends StatelessWidget {
         height: 300,
         child: ListView.builder(
           shrinkWrap: true,
-          padding: EdgeInsets.only(left: 10),
+          padding: EdgeInsets.only(left: 6),
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: _coffeeController.getHomesList.length,
           itemBuilder: (BuildContext context, int index) => Container(
+            padding: EdgeInsets.zero,
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(right: 0),
                   child: TextButton(
                     style: ButtonStyle(),
                     onPressed: () {},
@@ -49,7 +49,8 @@ class appbanner extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10.0),
                             child: Image.asset(
-                              _coffeeController.getHomesList[index].vector ?? "",
+                              _coffeeController.getHomesList[index].vector ??
+                                  "",
                               width: 280.0,
                               height: 280.0,
                               fit: BoxFit.cover,
@@ -63,37 +64,46 @@ class appbanner extends StatelessWidget {
                           child: Transform.translate(
                             offset: Offset(10, -5),
                             child: (index % 2 == 0)
-                                ?TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                height: 45,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                    color: Style.systemblue,
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Center(child: Text("Watch Now",style:GoogleFonts.poppins(
-                                    fontSize: 13,
-                                    color: Style.whitecolor,
-                                    fontWeight: FontWeight.w600),)),
-                              ),
-                            ):TextButton(
-                              onPressed: (){},
-                              child: Container(
-                                height: 45,
-                                width: 150,
-                                decoration: BoxDecoration(
-                                    color: Colors.yellow,
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Center(child: Text("Watch Now",style:GoogleFonts.poppins(
-                                    fontSize: 13,
-                                    color: Style.blackcolor,
-                                    fontWeight: FontWeight.w600),)),
-                              ),
-                            ),
+                                ? TextButton(
+                                    onPressed: () {},
+                                    child: Container(
+                                      height: 45,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                          color: Style.systemblue,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Center(
+                                          child: Text(
+                                        "Watch Now",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 13,
+                                            color: Style.whitecolor,
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                    ),
+                                  )
+                                : TextButton(
+                                    onPressed: () {},
+                                    child: Container(
+                                      height: 45,
+                                      width: 150,
+                                      decoration: BoxDecoration(
+                                          color: Colors.yellow,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Center(
+                                          child: Text(
+                                        "Watch Now",
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 13,
+                                            color: Style.blackcolor,
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                    ),
+                                  ),
                           ),
                         ),
-
-
                       ],
                     ),
                   ),

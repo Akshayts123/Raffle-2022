@@ -16,21 +16,21 @@ class ProgressCircles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.only(bottom: 10,),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.only(left: 20),
+                padding:  Pods.HEADING_PADDING,
                 child: Text(
                   "Your Cources",
                   style: Style.mainheading,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.only(right: 0.0),
                 child: RawMaterialButton(
                   onPressed: () {},
                   constraints: BoxConstraints(),
@@ -55,7 +55,7 @@ class ProgressCircles extends StatelessWidget {
             height: 120,
             child: ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.only(left: 15, right: 0, bottom: 0),
+              padding:  Pods.LEFT_PADDING,
               scrollDirection: Axis.horizontal,
               itemCount:_coffeeController.getHomesList.length,
               physics: BouncingScrollPhysics(),
@@ -66,7 +66,7 @@ class ProgressCircles extends StatelessWidget {
 
                 },
                 child: Container(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: EdgeInsets.only(right: 5),
                   height: 120,
                   width: 150,
                   child: Card(

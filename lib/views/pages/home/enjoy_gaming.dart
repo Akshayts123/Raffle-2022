@@ -16,7 +16,6 @@ class enjoygaming extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top:10,left: 0, right: 0, bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -24,14 +23,14 @@ class enjoygaming extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.only(left: 20),
+                padding: Pods.HEADING_PADDING,
                 child: Text(
-                  "enjoy non-stop gaming",
+                  "Enjoy non-stop gaming",
                   style:Style.mainheading,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.only(right: 0.0),
                 child: RawMaterialButton(
                   onPressed: () {},
                   constraints: BoxConstraints(),
@@ -68,7 +67,7 @@ class enjoygaming extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.symmetric(
-                                  vertical: 15, horizontal: 15),
+                                  vertical: 15, horizontal: 10),
                               child: Container(
                                 height: 110,
                                 width: 110,

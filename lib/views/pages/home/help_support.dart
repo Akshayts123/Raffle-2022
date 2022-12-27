@@ -19,7 +19,7 @@ class helpsupport extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -30,7 +30,7 @@ class helpsupport extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: const EdgeInsets.only(right: 0.0),
                   child: RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
@@ -53,7 +53,7 @@ class helpsupport extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 0, top: 10),
+            padding: EdgeInsets.only(left: 0, top: 0),
             height: 115,
             child: ListView.builder(
               shrinkWrap: true,
@@ -62,7 +62,7 @@ class helpsupport extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 if (index == 0) {
                  return Container(
-                    margin: EdgeInsets.only(left: 10),
+                    margin: EdgeInsets.only(left: 5),
                     child: Row(
                       children: [
 

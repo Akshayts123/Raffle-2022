@@ -14,7 +14,7 @@ class featuredoffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10,),
+      padding: Pods.TOP_PADDING,
       child: Column(
         children: [
           Container(
@@ -22,14 +22,14 @@ class featuredoffer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: Pods.LEFT_PADDING,
                   child: Text(
                     "featured offers for you",
                     style: Style.mainheading,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: const EdgeInsets.only(right: 0.0),
                   child: RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
@@ -54,13 +54,13 @@ class featuredoffer extends StatelessWidget {
           Container(
             height: 185,
             margin: EdgeInsets.only(
-              bottom: 20,),
+              bottom: 15,),
 
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 10,
-              padding: EdgeInsets.only(left: 20),
+              padding: Pods.LEFT_WIDE_PADDING,
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
                 return Container(

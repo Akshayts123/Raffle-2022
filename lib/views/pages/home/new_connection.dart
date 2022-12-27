@@ -17,7 +17,7 @@ class newconnection extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 20,top: 10),
+            padding: EdgeInsets.only(left: 10,top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -28,7 +28,7 @@ class newconnection extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: const EdgeInsets.only(right: 0.0),
                   child: RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
@@ -51,7 +51,7 @@ class newconnection extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 0,left: 15),
+            padding: EdgeInsets.only(left: 5),
             child: Row(
               children: [
                 Column(
@@ -170,7 +170,7 @@ class newconnection extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 20,
                 ),
                 Container(
                   height: 190,

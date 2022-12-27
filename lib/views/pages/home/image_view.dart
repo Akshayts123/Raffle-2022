@@ -6,6 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
+import '../../../utils/style.dart';
 
 
 class imageview extends StatelessWidget {
@@ -19,15 +20,15 @@ class imageview extends StatelessWidget {
         children: [
           Container(
             height: 200,
-            padding: EdgeInsets.only(top: 15,bottom: 15),
+            padding:Pods.TOP_SMALL_PADDING,
             child: ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.only(left: 20),
+              padding: Pods.LEFT_WIDE_PADDING,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: _coffeeController.getHomesList.length,
               itemBuilder: (BuildContext context, int index) => Container(
-                margin: EdgeInsets.only(right: 15),
+                padding: EdgeInsets.only(right: 15),
                 child:  Center(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),

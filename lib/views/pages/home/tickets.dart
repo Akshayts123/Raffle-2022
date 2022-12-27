@@ -21,7 +21,7 @@ class tickets extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(left: 20, top: 10, right: 0, bottom: 0),
+            padding: EdgeInsets.only(left: 10, top: 10, right: 0, bottom: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -30,7 +30,7 @@ class tickets extends StatelessWidget {
                   style: Style.mainheading,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: const EdgeInsets.only(right: 0.0),
                   child: RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
@@ -56,7 +56,7 @@ class tickets extends StatelessWidget {
             height: 2,
           ),
           Container(
-            padding: EdgeInsets.only(left: 20, top: 0, right: 0, bottom: 0),
+            padding: EdgeInsets.only(left: 10, top: 0, right: 0, bottom: 0),
             child: Text("source framework by Google for building beautiful",
                 style: GoogleFonts.poppins(
                   fontSize: 14,
@@ -70,14 +70,14 @@ class tickets extends StatelessWidget {
             height: 250,
             child: ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.only(left: 15),
+              padding: Pods.LEFT_WIDE_PADDING,
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               physics: BouncingScrollPhysics(),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  margin: EdgeInsets.only(top: 20, right: 10),
-                  width: 175,
+                  margin: EdgeInsets.only(top: 20, right: 15),
+                  width: 170,
                   height: 250,
                   decoration: BoxDecoration(
                     image: new DecorationImage(

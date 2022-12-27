@@ -14,23 +14,23 @@ class trendingnews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        top: 15,
-      ),
+      // padding: EdgeInsets.only(
+      //   top: 15,
+      // ),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: EdgeInsets.only(left: 20),
+                padding: Pods.HEADING_PADDING,
                 child: Text(
-                  "trending news",
+                  "Trending news",
                   style:Style.mainheading,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 10.0),
+                padding: const EdgeInsets.only(right: 0.0),
                 child: RawMaterialButton(
                   onPressed: () {},
                   constraints: BoxConstraints(),
@@ -55,7 +55,7 @@ class trendingnews extends StatelessWidget {
             height: 130,
             child: ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.only(left: 15, right: 0, bottom: 0),
+              padding: Pods.LEFT_WIDE_PADDING,
               scrollDirection: Axis.horizontal,
               itemCount: _coffeeController.getHomesList.length,
               physics: BouncingScrollPhysics(),

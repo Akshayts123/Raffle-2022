@@ -16,7 +16,7 @@ class jobeducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, top: 10, right: 10, bottom: 0),
+      padding: EdgeInsets.only(left: 10, top: 10, right: 0, bottom: 0),
       height: 480,
       color: Colors.grey[200],
       child: Column(
@@ -59,7 +59,7 @@ class jobeducation extends StatelessWidget {
             height: 0,
           ),
           Container(
-            padding: EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: 15,left: 5),
             height: 400,
             child: ListView.builder(
               itemCount: 3,

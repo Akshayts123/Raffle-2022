@@ -15,8 +15,8 @@ class specialoffer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Style.systemblue,
-      margin: EdgeInsets.only(top: 20),
-      padding: EdgeInsets.only(left: 15, top: 5),
+      margin: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(left: 10, top: 5),
       height: 160,
       child: Stack(
           clipBehavior: Clip.none,

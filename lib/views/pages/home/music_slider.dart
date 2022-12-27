@@ -16,21 +16,22 @@ class trendingmusic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding:  Pods.TOP_PADDING,
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(left: 20, top: 10),
+            padding:  Pods.LEFT_PADDING,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   child: Text(
-                    "trending music",
+                    "Trending music",
                     style: Style.mainheading,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: const EdgeInsets.only(right: 0.0),
                   child: RawMaterialButton(
                     onPressed: () {},
                     constraints: BoxConstraints(),
@@ -54,9 +55,9 @@ class trendingmusic extends StatelessWidget {
           ),
           Container(
             height: 200,
-
+            padding: EdgeInsets.only(top: 10),
             child: ListView.builder(
-              padding: EdgeInsets.only(top: 15,left: 20),
+              padding:  Pods.LEFT_WIDE_PADDING,
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,

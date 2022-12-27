@@ -14,5 +14,10 @@ class Style{
 }
 
 class Pods{
-  static const FULL_PADDING = EdgeInsets.symmetric(horizontal: 15);
+  static const LEFT_PADDING = EdgeInsets.only(left: 10);
+  static const LEFT_WIDE_PADDING = EdgeInsets.only(left: 15);
+  static const TOP_PADDING = EdgeInsets.only(top: 10);
+  static const TOP_SMALL_PADDING = EdgeInsets.only(top: 5);
+  static const RIGHT_PADDING = EdgeInsets.only(top: 10);
+  static const HEADING_PADDING =EdgeInsets.only(left: 10,bottom: 15,top: 20);
 }

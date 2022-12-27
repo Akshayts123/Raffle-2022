@@ -414,6 +414,9 @@ class Homes {
   late final String? percent;
   late final String? reward;
   late final String? scrach;
+  late final DateTime? date;
+  late final String? tab;
+  late final String? category;
 
 
 
@@ -444,6 +447,9 @@ class Homes {
     required this.percent,
     required this.reward,
     required this.scrach,
+    required this.date,
+    required this.tab,
+    required this.category,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -472,6 +478,9 @@ class Homes {
       this.percent,
       this.reward,
       this.scrach,
+      this.date,
+      this.tab,
+      this.category,
       this.bis) {
     Name = json['Name'];
     img = json['img'];
@@ -499,6 +508,9 @@ class Homes {
     percent = json['percent'];
     reward = json['reward'];
     scrach = json['scrach'];
+    date = json['date'];
+    tab = json['tab'];
+    category = json['category'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -527,6 +539,9 @@ class Homes {
     data['percent'] = this.percent;
     data['reward'] = this.reward;
     data['scrach'] = this.scrach;
+    data['date'] = this.date;
+    data['tab'] = this.tab;
+    data['category'] = this.category;
 
     return data;
   }

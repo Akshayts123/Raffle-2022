@@ -7,7 +7,27 @@ import '../services/api.dart';
 
 class HomeController extends GetxController {
 
-
+  var bottomNavIndex = 0; //default index of a first screen
+  late AnimationController fabAnimationController;
+  late AnimationController borderRadiusAnimationController;
+  late Animation<double> fabAnimation;
+  late Animation<double> borderRadiusAnimation;
+  late CurvedAnimation fabCurve;
+  late CurvedAnimation borderRadiusCurve;
+  late AnimationController _hideBottomBarAnimationController;
+  final iconList = <IconData>[
+    Icons.home,
+    Icons.dashboard,
+    Icons.discount,
+    Icons.account_circle,
+  ];
+  static const List<String> reportReasons = [
+    'Home',
+    'Catogories',
+    'Coupens',
+    'User'
+  ];
+  bool  isBluetoothOn = false;
   @override
   bool get wantKeepAlive => true;
   // var index = 0.obs;
@@ -108,6 +128,9 @@ class HomeController extends GetxController {
       percent: '70.0%',
       reward: 'assets/reward1.png',
       scrach: 'assets/innerscrach.png',
+      date: DateTime(2021, 12, 22),
+      tab: "assets/ironman.png",
+      category: 'assets/category1.png' ,
     ),
     Homes(
       Name: 'QrCode ',
@@ -136,6 +159,9 @@ class HomeController extends GetxController {
       percent: '10.0%',
       reward: 'assets/reward2.png',
       scrach: 'assets/innerscrach2.png',
+      date: DateTime(2021, 12, 22) ,
+      tab: "assets/bat.png" ,
+      category: 'assets/category2.png' ,
     ),
     Homes(
       Name: 'Game ',
@@ -164,6 +190,9 @@ class HomeController extends GetxController {
       percent: '30.0%',
       reward: 'assets/reward3.png',
       scrach: 'assets/innerscrach3.png',
+      date: DateTime(2021, 12, 22) ,
+      tab: "assets/jurassic.png" ,
+      category: 'assets/category3.png' ,
     ),
     Homes(
       Name: 'Food ',
@@ -192,6 +221,9 @@ class HomeController extends GetxController {
       percent: '20.0%',
       reward: 'assets/reward4.png',
       scrach: 'assets/innerscrach4.png',
+      date: DateTime(2021, 12, 22) ,
+      tab: "assets/ironman.png" ,
+      category: 'assets/category4.png' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -220,6 +252,9 @@ class HomeController extends GetxController {
       percent: '90.0%',
       reward: 'assets/reward1.png',
       scrach: 'assets/innerscrach5.png',
+      date: DateTime(2021, 12, 20) ,
+      tab: "assets/bat.png" ,
+      category: 'assets/category5.png' ,
     ),
     Homes(
       Name: 'Home ',
@@ -248,6 +283,9 @@ class HomeController extends GetxController {
       percent: '40.0%',
       reward: 'assets/reward2.png',
       scrach: 'assets/innerscrach6.png',
+      date: DateTime(2021, 12, 21) ,
+      tab: "assets/jurassic.png" ,
+      category: 'assets/category6.png' ,
 
     ),
     Homes(
@@ -277,6 +315,9 @@ class HomeController extends GetxController {
       percent: '50.0%',
       reward: 'assets/reward3.png',
       scrach: 'assets/innerscrach7.png',
+      date: DateTime(2021, 12, 22) ,
+      tab: "assets/ironman.png" ,
+      category: 'assets/category7.png' ,
     ),
     Homes(
       Name: 'Game ',
@@ -305,6 +346,9 @@ class HomeController extends GetxController {
       percent: '60.0%',
       reward: 'assets/reward4.png',
       scrach: 'assets/innerscrach8.png',
+      date: DateTime(2021, 12, 20) ,
+      tab: "assets/bat.png" ,
+      category: 'assets/category8.png' ,
     ),
     Homes(
       Name: 'Food ',
@@ -333,6 +377,9 @@ class HomeController extends GetxController {
       percent: '40.0%',
       reward: 'assets/reward1.png',
       scrach: 'assets/innerscrach9.png',
+      date: DateTime(2021, 12, 21) ,
+      tab: "assets/jurassic.png" ,
+      category: 'assets/category9.png' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -361,6 +408,9 @@ class HomeController extends GetxController {
       percent: '80.0%',
       reward: 'assets/reward2.png',
       scrach: 'assets/innerscrach2.png',
+      date: DateTime(2021, 12, 20) ,
+      tab: "assets/ironman.png" ,
+      category: 'assets/category10.png' ,
     ),
   ];
 
