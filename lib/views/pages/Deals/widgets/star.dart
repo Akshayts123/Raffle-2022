@@ -61,7 +61,7 @@ class Star extends StatelessWidget {
                   "30 Reviews",
                   style: GoogleFonts.poppins(
                     fontSize: 11,
-                    color: Style.blackcolor,
+                    color: Style.greycolor,
                   ),
                 )),
           ],

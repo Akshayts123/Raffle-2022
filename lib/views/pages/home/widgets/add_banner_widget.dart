@@ -8,18 +8,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
+import '../../Deals/widgets/wishlist.dart';
 
-class AddBannerWidget extends StatefulWidget {
+class AddBannerWidget extends StatelessWidget {
+  final HomeController _coffeeController = Get.find();
   final index;
    AddBannerWidget({Key? key, this.index}) : super(key: key);
 
-  @override
-  State<AddBannerWidget> createState() => _AddBannerWidgetState();
-}
 
-class _AddBannerWidgetState extends State<AddBannerWidget> {
-  final HomeController _coffeeController = Get.find();
-  RxBool  isBluetoothOn = false.obs;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,43 +43,14 @@ class _AddBannerWidgetState extends State<AddBannerWidget> {
                               height: 135,
                               child: Image.asset(
                                 _coffeeController
-                                    .getHomesList[widget.index].offer ??
+                                    .getHomesList[index].offer ??
                                     "",
                                 fit: BoxFit.cover,
                               ),
                             ),
-                           Align(
-                              alignment: Alignment.topRight,
-                              child: Transform.translate(
-                                offset: Offset(0, 0),
-                                child:Obx(() => IconButton(
-                                  onPressed: () async {
-                                    print(isBluetoothOn);
-                                   //  setState(() {
-                                   isBluetoothOn.value = !isBluetoothOn.value;
-                                   //  });
-
-                                    print(isBluetoothOn);
-                                  },
-                                  icon: Container(
-
-                                    width: 25,
-                                    height: 25,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(3)
-                                    ),
-                                    child: Icon(
-                                     isBluetoothOn.value ? Icons.favorite : Icons.favorite_border,
-                                      color:Style.systemblue,
-                                      size: 20,
-                                    ),
-                                  ),
-                                ),
-                                ),
-                              ),
+                            Container(
+                              padding: EdgeInsets.all(0), child: Favourite(),
                             ),
-
                           ],
                         ),
 
