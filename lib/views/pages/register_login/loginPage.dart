@@ -1,6 +1,8 @@
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:draw_idea/views/pages/register_login/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -9,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/register_controller.dart';
+import '../../../services/firebase_auth_service.dart';
 import 'Widget/bezierContainer.dart';
 import 'Widget/wave.dart';
 
@@ -23,6 +26,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final RegisterController loginController = Get.find();
   Widget _backButton() {
     return  new WillPopScope(
@@ -68,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 10,
           ),
           TextField(
-              controller: loginController.emailtext,
+              controller: _emailController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
@@ -87,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 10,
           ),
           TextField(
-              controller: loginController.passwordtext,
+              controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -100,12 +105,47 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _submitButton() {
     return GestureDetector(
-      onTap: () {
+      onTap: ()async {
         // final response = await loginController.Login();
         // if(response == 200) {
         //   Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
         // }
-        loginController.Login();
+        try {
+          await FirebaseAuthService().login(
+              _emailController.text.trim(),
+              _passwordController.text.trim());
+          if (FirebaseAuth.instance.currentUser != null) {
+            if (!mounted) return;
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  HomeScreen()));
+          }
+        }on FirebaseException catch (e) {
+          debugPrint("error is ${e.message}");
+
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                  title: const Text(
+                      " Invalid Username or password. Please register again or make sure that username and password is correct",style: TextStyle(color: Style.blackcolor),),
+                  actions: [
+                    Container(
+                      color: Style.systemblue,
+                      child: TextButton(
+                        child: const Text("Register Now",style: TextStyle(color: Style.whitecolor),),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                   SignUpPage()));
+                        },
+                      ),
+                    )
+                  ]));
+        }
+        // loginController.Login();
       },
       child: Container(
         width: MediaQuery.of(context).size.width,

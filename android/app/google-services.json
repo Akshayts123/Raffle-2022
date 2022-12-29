@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1067992633959",
+    "project_id": "raffledraw-32e59",
+    "storage_bucket": "raffledraw-32e59.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067992633959:android:cb68e433b67c3070173ac2",
+        "android_client_info": {
+          "package_name": "com.example.draw_idea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067992633959-amkr3aa9mnp7ugln8aicq9sjbsfk3h9l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.draw_idea",
+            "certificate_hash": "779186d6e479b8cd809d257b49090a59f931afb9"
+          }
+        },
+        {
+          "client_id": "1067992633959-v7920kqh0ne7gr31p80uuh266rc87ok2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7RbZDzxPyMNEPfgJgArvxxNZLwwx90mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067992633959-v7920kqh0ne7gr31p80uuh266rc87ok2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

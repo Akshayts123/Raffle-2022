@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:draw_idea/views/pages/home/home.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class SplashController extends GetxController {
     bool _introSeen = (prefs.getBool('intro_seen') ?? false);
     var status = prefs.getBool('isLoggedIn') ?? false;
 
-    if (status && _introSeen) {
+    if (FirebaseAuth.instance.currentUser != null && _introSeen) {
       Get.to(HomeScreen());
     } else if (_introSeen) {
       Get.to(LoginPage());
@@ -38,6 +39,20 @@ class SplashController extends GetxController {
     }
   }
 
+  // Future checkFirstSeen() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   bool _introSeen = (prefs.getBool('intro_seen') ?? false);
+  //   var status = prefs.getBool('isLoggedIn') ?? false;
+  //
+  //   if (status && _introSeen) {
+  //     Get.to(HomeScreen());
+  //   } else if (_introSeen) {
+  //     Get.to(LoginPage());
+  //   } else {
+  //     await prefs.setBool('intro_seen', true);
+  //     Get.to(OnBoardingPage());
+  //   }
+  // }
   // void navigateUser() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
   //   var status = prefs.getBool('isLoggedIn') ?? false;

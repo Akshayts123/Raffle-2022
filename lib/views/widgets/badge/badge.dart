@@ -1,4 +1,5 @@
 import 'package:badges/badges.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,8 +41,13 @@ class _badgeState extends State<badge> {
 
   Widget expandedBadge() {
     return GestureDetector(
-      onTap: () {
-        logoutUser();
+      onTap: () async{
+        // logoutUser();
+        await FirebaseAuth.instance.signOut();
+        if (!mounted) return;
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return  LoginPage();
+        }));
       },
       child: Container(
         child: Obx(

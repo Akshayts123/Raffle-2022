@@ -1,3 +1,4 @@
+import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -5,7 +6,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/register_controller.dart';
+import '../../../services/firebase_auth_service.dart';
 import '../../../utils/style.dart';
+import '../home/home_screen.dart';
 import 'Widget/bezierContainer.dart';
 import 'Widget/wave.dart';
 import 'loginPage.dart';
@@ -21,11 +24,16 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+  TextEditingController();
   Widget _backButton() {
     return InkWell(
       onTap: () {
-        Navigator.pop(context);
-        // Get.to(LoginPage());
+        // Navigator.pop(context);
+        Get.to(LoginPage());
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -59,6 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
             height: 10,
           ),
           TextField(
+            controller: _usernameController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
@@ -77,6 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
             height: 10,
           ),
           TextField(
+            controller: _emailController,
               decoration: InputDecoration(
                   border: InputBorder.none,
                   fillColor: Color(0xfff3f3f4),
@@ -95,6 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
             height: 10,
           ),
           TextField(
+            controller: _passwordController,
               obscureText: true,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -106,28 +117,44 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.shade200,
-                offset: Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
-          ],
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Style.systemblue, Style.systemblue])),
-      child: Text(
-        'Register Now',style: GoogleFonts.poppins(
-          fontSize: 16,
-          color:Style.whitecolor,
-          fontWeight: FontWeight.w600),
+    return GestureDetector(
+      onTap: () async{
+        try {
+          await FirebaseAuthService().signup(
+              _emailController.text.trim(),
+              _passwordController.text.trim());
+
+          if (!mounted) return;
+
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) =>  HomeScreen()));
+        } on FirebaseException catch (e) {
+          debugPrint(e.message);
+        }
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 15),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                  color: Colors.grey.shade200,
+                  offset: Offset(2, 4),
+                  blurRadius: 5,
+                  spreadRadius: 2)
+            ],
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Style.systemblue, Style.systemblue])),
+        child: Text(
+          'Register Now',style: GoogleFonts.poppins(
+            fontSize: 16,
+            color:Style.whitecolor,
+            fontWeight: FontWeight.w600),
+        ),
       ),
     );
   }
