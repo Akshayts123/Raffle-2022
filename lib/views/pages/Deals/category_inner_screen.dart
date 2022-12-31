@@ -5,14 +5,19 @@ import 'package:draw_idea/views/pages/Deals/widgets/wishlist_transparent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../controller/home_controller.dart';
 import '../../../utils/style.dart';
 
 class CategoryInnerScreen extends StatelessWidget {
+  final HomeController coffeeController = Get.find();
+
   final index;
   final categorypicture;
-  const CategoryInnerScreen(
+   CategoryInnerScreen(
       {Key? key, required this.categorypicture, this.index})
       : super(key: key);
 
@@ -46,7 +51,9 @@ class CategoryInnerScreen extends StatelessWidget {
                         ),
                         Container(
                           child: Image.asset(
-                            categorypicture,
+                            coffeeController
+                                .getHomesList[index].category ??
+                                "",
                             width: 80.0,
                             height: 80.0,
                             fit: BoxFit.cover,

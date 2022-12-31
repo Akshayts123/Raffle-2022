@@ -2,12 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/product_controller.dart';
+import '../../../models/product_model.dart';
 
-class text extends StatelessWidget {
+class text extends StatefulWidget {
+  @override
+  State<text> createState() => _textState();
+}
+
+class _textState extends State<text> {
   final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   final TodoController productController = Get.put(TodoController());
+  late Future<Products> futureAlbum;
 
+  @override
+  void initState() {
+    super.initState();
+    futureAlbum = productController.fetchAlbum();
+  }
   @override
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
@@ -126,7 +138,7 @@ class text extends StatelessWidget {
               ],
             ),
           ),
-          
+
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -180,12 +192,32 @@ class text extends StatelessWidget {
                 return Center(child: CircularProgressIndicator());
               else
                 print("---------------------");
-              print(productController.productList?.data?.length.toString());
+              print("${
+                productController.productList?.result?.resultList?.length
+                    .toString()
+              }");
               return ListView.builder(
-                itemCount: productController.productList?.data?.length,
+                itemCount: productController.productList?.result?.resultList?.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
+                  // Center(
+                  // child: FutureBuilder<Products>(
+                  //   future: futureAlbum,
+                  //   builder: (context, snapshot) {
+                  //     print("---------*************************************------------");
+                  //     print(snapshot.data?.result?.resultList?.length.toString());
+                  //     if (snapshot.hasData) {
+                  //       return Text(snapshot.data?.result?.resultList?[index].item?.title??"");
+                  //     } else if (snapshot.hasError) {
+                  //       return Text('${snapshot.error}');
+                  //     }
+                  //
+                  //     // By default, show a loading spinner.
+                  //     return const CircularProgressIndicator();
+                  //   },
+                  // ),
+                  // ),
 
                       Row(
                         children: [
@@ -197,7 +229,7 @@ class text extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8),
                               child: Image.network(
-                                productController.productList?.data?[index].avatar??"",
+                                productController.productList?.result?.resultList?[index].item?.image??"",
                                 width: 150,
                                 height: 100,
                                 fit: BoxFit.fill,
@@ -213,11 +245,12 @@ class text extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    productController.productList?.data?[index].firstName??"",
+                                    productController.productList?.result?.resultList?[index].item?.title??"",
                                     style: TextStyle(fontSize: 18),
                                   ),
+
                                   Text(
-                                    productController.productList?.data?[index].email??"",
+                                    productController.productList?.result?.resultList?[index].item?.title??"",
                                     style: TextStyle(fontSize: 18),
                                   ),
                                 ],

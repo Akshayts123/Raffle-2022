@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart ' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../models/product_model.dart';
 import '../models/register.dart';
 
 class RegisterController extends GetxController{
@@ -54,10 +55,12 @@ class RegisterController extends GetxController{
 
     // user = (guest == true) ? prefs.getBool('guest') ?? true :prefs.getBool('isLoggedIn') ?? true;
   }
+
   Future Login() async {
     if (emailtext.text.isNotEmpty && passwordtext.text.isNotEmpty) {
 
       var response = await http.post(Uri.parse("https://reqres.in/api/register"),
+          
           body: ({
             "email": emailtext.text,
             "password": passwordtext.text
@@ -84,4 +87,6 @@ class RegisterController extends GetxController{
       Get.snackbar("error", "Invalid Credentials null value ");
     }
   }
+
+
 }

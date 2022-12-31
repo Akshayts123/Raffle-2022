@@ -8,6 +8,7 @@ import '../../../controller/coupen_controller.dart';
 import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
 import '../../../controller/splash_controller.dart';
+import '../../../utils/app_constants.dart';
 
 class BaseBindings implements Bindings {
   @override
