@@ -9,7 +9,6 @@ import '../../../controller/category_controller.dart';
 import '../../../controller/home_controller.dart';
 import '../home/widgets/bottom_nav_bar.dart';
 import '../home/widgets/floating_action.dart';
-import '../spinner/spinner.dart';
 import 'widgets/catogory_heading.dart';
 import 'widgets/catogory_items.dart';
 import 'widgets/catogory_search.dart';

@@ -31,7 +31,7 @@ class SecondPage extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) => ClipPath(
                   clipper: CurveClipper(),
                   child: Container(
-                    color: courcecolor.courcecolor,
+                    // color: courcecolor.courcecolor,
                     height: 200.0,
                   ),
                 ),

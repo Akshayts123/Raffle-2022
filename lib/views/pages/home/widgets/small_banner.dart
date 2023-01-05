@@ -1,27 +1,24 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
 
 import '../../../../controller/home_controller.dart';
-import '../../../utils/style.dart';
-
-class smallbanner extends StatelessWidget {
+import '../../../../utils/style.dart';
+Widget SmallBanner(){
   final HomeController _coffeeController = Get.find();
-  smallbanner({Key? key}) : super(key: key);
   var banner =true;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            height: 170,
+  return Container(
+    child: Column(
+      children: [
+        Container(
+          height: 160,
 
-            child: ListView.builder(
-                padding: EdgeInsets.only(top: 15,left: 15),
+          child: ListView.builder(
+              padding: EdgeInsets.only(top: 20,left: 13),
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -79,7 +76,7 @@ class smallbanner extends StatelessWidget {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                                                 ),
+                                ),
                               ),
                             ),
                           ],
@@ -273,10 +270,10 @@ class smallbanner extends StatelessWidget {
                   ),
                 );
               }
-            ),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
+
 }

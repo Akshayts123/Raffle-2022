@@ -129,7 +129,7 @@ class HomeController extends GetxController {
       reward: 'assets/reward1.png',
       scrach: 'assets/innerscrach.png',
       date: DateTime(2021, 12, 22),
-      tab: "assets/ironman.png",
+      tab: "assets/bat.png",
       category: 'assets/category1.png' ,
     ),
     Homes(
@@ -160,7 +160,7 @@ class HomeController extends GetxController {
       reward: 'assets/reward2.png',
       scrach: 'assets/innerscrach2.png',
       date: DateTime(2021, 12, 22) ,
-      tab: "assets/bat.png" ,
+      tab: "assets/ironman.png" ,
       category: 'assets/category2.png' ,
     ),
     Homes(

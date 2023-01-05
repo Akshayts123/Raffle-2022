@@ -15,23 +15,23 @@ class TabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
 
-      height: 300,
+      height: 270,
       child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: EdgeInsets.only(left: 15,top: 0),
-            child: Text("Up Next", style: GoogleFonts.poppins(
-                fontSize: 15,
-                color: Style.blackcolor,
-                fontWeight: FontWeight.w600),),
-          ),
+          // Container(
+          //   padding: EdgeInsets.only(left: 20,top: 0),
+          //   child: Text("Up Next", style: GoogleFonts.poppins(
+          //       fontSize: 15,
+          //       color: Style.blackcolor,
+          //       fontWeight: FontWeight.w600),),
+          // ),
           Container(
             height:265,
             padding:Pods.TOP_SMALL_PADDING,
             child: ListView.builder(
               shrinkWrap: true,
-              padding: Pods.LEFT_WIDE_PADDING,
+              padding: Pods.LEFT_PADDING,
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: _coffeeController.getHomesList.length,
@@ -39,7 +39,7 @@ class TabWidget extends StatelessWidget {
                 return Card(
                   shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   child: Container(
-                    padding: EdgeInsets.only(left: 5,right: 5,top: 0,bottom: 15),
+                    padding: EdgeInsets.only(left: 5,right: 5,top: 5,bottom: 15),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

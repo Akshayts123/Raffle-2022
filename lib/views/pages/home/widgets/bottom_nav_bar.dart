@@ -67,7 +67,7 @@ class _Bottom_navState extends State<Bottom_nav> with TickerProviderStateMixin {
       activeIndex: _coffeeController.bottomNavIndex,
       splashColor: Style.systemblue,
       notchAndCornersAnimation:_coffeeController. borderRadiusAnimation,
-      splashSpeedInMilliseconds: 800,
+      splashSpeedInMilliseconds: 200,
       splashRadius: 30,
       notchSmoothness: NotchSmoothness.defaultEdge,
       gapLocation: GapLocation.center,

@@ -6,62 +6,58 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../controller/home_controller.dart';
-import '../../../utils/style.dart';
+import '../../../../controller/home_controller.dart';
+import '../../../../utils/style.dart';
 
-class helpsupport extends StatelessWidget {
+Widget HelpSupport(){
   final HomeController _coffeeController = Get.find();
-   helpsupport({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(left: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: Text(
-                    "Help and Support",
-                    style: Style.mainheading,
-                  ),
+  return Container(
+    child: Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Text(
+                  "Help and Support",
+                  style: Style.mainheading,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 0.0),
-                  child: RawMaterialButton(
-                    onPressed: () {},
-                    constraints: BoxConstraints(),
-                    elevation: 0.0,
-                    fillColor: Style.whitecolor,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color:Style.blackcolor),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 20,
-                      ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 0.0),
+                child: RawMaterialButton(
+                  onPressed: () {},
+                  constraints: BoxConstraints(),
+                  elevation: 0.0,
+                  fillColor: Style.whitecolor,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color:Style.blackcolor),
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Icon(
+                      Icons.chevron_right,
+                      size: 20,
                     ),
-                    padding: EdgeInsets.all(0.0),
-                    shape: CircleBorder(),
                   ),
+                  padding: EdgeInsets.all(0.0),
+                  shape: CircleBorder(),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Container(
-            padding: EdgeInsets.only(left: 0, top: 0),
-            height: 115,
-            child: ListView.builder(
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 0, top: 0),
+          height: 115,
+          child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
                 if (index == 0) {
-                 return Container(
+                  return Container(
                     margin: EdgeInsets.only(left: 5),
                     child: Row(
                       children: [
@@ -179,10 +175,9 @@ class helpsupport extends StatelessWidget {
                   ),
                 );
               }
-            ),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
 }

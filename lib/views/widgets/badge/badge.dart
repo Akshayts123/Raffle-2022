@@ -44,6 +44,9 @@ class _badgeState extends State<badge> {
       onTap: () async{
         // logoutUser();
         await FirebaseAuth.instance.signOut();
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs?.setBool("guest", false);
+        prefs?.setBool("isLoggedIn", false);
         if (!mounted) return;
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return  LoginPage();

@@ -34,19 +34,20 @@ class TodoController extends GetxController {
       //     Uri.tryParse('http://dummyapi.io/data/v1/user')!,
       //     headers: {'app-id': '6218809df11d1d412af5bac4'}
       // );
+      final String url = "http://rapidoo.cignescrm.in/";
 
-      final String url = "https://aliexpress-datahub.p.rapidapi.com/item_search_2?q=iphone&page=1";
-
-      Map<String, String> qParams = {
-        "q": 'iphone', "page": '1'
-      };
+      // Map<String, String> qParams = {
+      //   "q": 'iphone', "page": '1'
+      // };
       Map<String, String> header = {
-        'X-RapidAPI-Key': '1b1e5fbf89msha474d0f517a9504p1f3656jsn124c7f7dca5e',
-        'X-RapidAPI-Host': 'aliexpress-datahub.p.rapidapi.com'
+        'Content-Type': 'application/json; charset=UTF-8',
+        "zoneId":"",
+        'X-localization':'English',
+        'Authorization': 'Bearer '
       };
 
       Uri uri = Uri.parse(url);
-      final finalUri = uri.replace(queryParameters: qParams); //USE THIS
+      final finalUri = uri.replace(); //USE THIS
 
       final response = await http.get(
         finalUri,
