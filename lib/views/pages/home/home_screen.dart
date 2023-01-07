@@ -19,6 +19,7 @@ import 'package:draw_idea/views/pages/home/widgets/progress_circles.dart';
 import 'package:country_pickers/country.dart';
 import 'package:draw_idea/views/pages/home/widgets/small_banner.dart';
 import 'package:draw_idea/views/pages/home/widgets/stacked_banner.dart';
+import 'package:draw_idea/views/pages/home/widgets/super_dialog.dart';
 import 'package:draw_idea/views/pages/home/widgets/tab_view.dart';
 import 'package:draw_idea/views/pages/home/widgets/tickets.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,6 +30,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
@@ -69,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+
     return new WillPopScope(
       onWillPop: () async {
         Get.offNamed('/home_screen');
@@ -116,6 +119,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
+  void showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => Theme(
+          data:
+              Theme.of(context).copyWith(dialogBackgroundColor: Colors.black87),
+          child: Dialog(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            child: SuperDialog(),
+          )),
+    );
+  }
+
   Widget headerWidget(BuildContext context) {
     return Container(
       height: 80,
@@ -131,14 +148,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               backgroundColor: Style.systemblue,
               leading: folded
                   ? Container(
-                margin: EdgeInsets.only(top: 5),
-                height: 30,
-                // width: 75,
-                child: ListTile(
-                  onTap: _openCountryPickerDialog,
-                  title: _buildDialog(_selectedDialogCountry),
-                ),
-              )
+                      margin: EdgeInsets.only(top: 5),
+                      height: 30,
+                      // width: 75,
+                      child: ListTile(
+                        onTap: _openCountryPickerDialog,
+                        title: _buildDialog(_selectedDialogCountry),
+                      ),
+                    )
                   : null,
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -227,6 +244,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     super.initState();
     setState(() {
       main();
+      Future.delayed(Duration.zero, () => showAlert(context));
     });
 
     final systemTheme = SystemUiOverlayStyle.light.copyWith(

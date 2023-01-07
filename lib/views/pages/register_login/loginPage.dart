@@ -1,6 +1,7 @@
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:draw_idea/views/pages/register_login/signup.dart';
+import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/register_controller.dart';
 import '../../../services/firebase_auth_service.dart';
+import '../../../utils/utility.dart';
 import 'Widget/bezierContainer.dart';
 import 'Widget/wave.dart';
 
@@ -29,15 +31,17 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final RegisterController loginController = Get.find();
+  bool isLoadingOtp = false;
+  FirebaseAuth auth = FirebaseAuth.instance;
   Widget _backButton() {
     return  new WillPopScope(
       onWillPop: () async {
-        Get.offNamed('/loginPage');
+        Get.to(WelcomeScreen());
         return true;
       },
       child: InkWell(
         onTap: () {
-          // Navigator.pop(context);
+          Navigator.pop(context);
           // Get.to(SignUpPage());
         },
         child: Container(
@@ -104,18 +108,21 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
-    return GestureDetector(
+    return  GestureDetector(
       onTap: ()async {
+
         // final response = await loginController.Login();
         // if(response == 200) {
         //   Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
         // }
+
         try {
           await FirebaseAuthService().login(
               _emailController.text.trim(),
               _passwordController.text.trim());
           if (FirebaseAuth.instance.currentUser != null) {
             if (!mounted) return;
+            setState((){isLoadingOtp = true;});
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -123,31 +130,35 @@ class _LoginPageState extends State<LoginPage> {
           }
         }on FirebaseException catch (e) {
           debugPrint("error is ${e.message}");
-
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                  title: const Text(
-                      " Invalid Username or password. Please register again or make sure that username and password is correct",style: TextStyle(color: Style.blackcolor),),
-                  actions: [
-                    Container(
-                      color: Style.systemblue,
-                      child: TextButton(
-                        child: const Text("Register Now",style: TextStyle(color: Style.whitecolor),),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                   SignUpPage()));
-                        },
-                      ),
-                    )
-                  ]));
+          Utility.showToast(msg: "Please enter valid Email and Password .");
+          // showDialog(
+          //     context: context,
+          //     builder: (context) => AlertDialog(
+          //         title: const Text(
+          //             " Invalid Username or password. Please register again or make sure that username and password is correct",style: TextStyle(color: Style.blackcolor),),
+          //         actions: [
+          //           Container(
+          //             color: Style.systemblue,
+          //             child: TextButton(
+          //               child: const Text("Register Now",style: TextStyle(color: Style.whitecolor),),
+          //               onPressed: () {
+          //                 Navigator.push(
+          //                     context,
+          //                     MaterialPageRoute(
+          //                         builder: (context) =>
+          //                          SignUpPage()));
+          //               },
+          //             ),
+          //           )
+          //         ]));
         }
         // loginController.Login();
       },
-      child: Container(
+      child:  isLoadingOtp ? Center(
+        child: CircularProgressIndicator(
+          color: Style.systemblue,
+        ),
+      ):Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
@@ -174,157 +185,157 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _divider() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: <Widget>[
-          SizedBox(
-            width: 20,
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          Text('or'),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Divider(
-                thickness: 1,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _guestButton() {
-    return InkWell(
-      onTap: (){
-        logoutUser();
-      },
-      child: Container(
-        height: 50,
-        margin: EdgeInsets.symmetric(vertical: 20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(5),
-                      topLeft: Radius.circular(5)),
-                ),
-                alignment: Alignment.center,
-                child: Icon(Icons.account_circle,size: 30,color: Style.whitecolor,)
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Style.greycolor,
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(5),
-                      topRight: Radius.circular(5)),
-                ),
-                alignment: Alignment.center,
-                child: Text('Log in as Guest',
-                    style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color:Style.whitecolor,
-                    fontWeight: FontWeight.w400),),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget socialMedia(){
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          RawMaterialButton(
-
-            onPressed: () {},
-            constraints: BoxConstraints(),
-            elevation: 3.0,
-            fillColor: Style.whitecolor,
-            child:Image.asset(
-              "assets/google.png",
-              width: 30.0,
-              height: 30.0,
-              fit: BoxFit.cover,
-            ),
-            padding: EdgeInsets.all(10.0),
-            shape: CircleBorder(),
-          ),
-          RawMaterialButton(
-
-            onPressed: () {},
-            constraints: BoxConstraints(),
-            elevation: 3.0,
-            fillColor: Style.whitecolor,
-            child:Image.asset(
-              "assets/face.png",
-              width: 30.0,
-              height: 30.0,
-              fit: BoxFit.cover,
-            ),
-            padding: EdgeInsets.all(10.0),
-            shape: CircleBorder(),
-          ),
-          RawMaterialButton(
-
-            onPressed: () {},
-            constraints: BoxConstraints(),
-            elevation: 3.0,
-            fillColor: Style.whitecolor,
-            child:Image.asset(
-              "assets/twitter.png",
-              width: 30.0,
-              height: 30.0,
-              fit: BoxFit.cover,
-            ),
-            padding: EdgeInsets.all(10.0),
-            shape: CircleBorder(),
-          ),
-          RawMaterialButton(
-
-            onPressed: () {},
-            constraints: BoxConstraints(),
-            elevation: 3.0,
-            fillColor: Style.whitecolor,
-            child:Image.asset(
-              "assets/insta.png",
-              width: 30.0,
-              height: 30.0,
-              fit: BoxFit.cover,
-            ),
-            padding: EdgeInsets.all(10.0),
-            shape: CircleBorder(),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _divider() {
+  //   return Container(
+  //     margin: EdgeInsets.symmetric(vertical: 10),
+  //     child: Row(
+  //       children: <Widget>[
+  //         SizedBox(
+  //           width: 20,
+  //         ),
+  //         Expanded(
+  //           child: Padding(
+  //             padding: EdgeInsets.symmetric(horizontal: 10),
+  //             child: Divider(
+  //               thickness: 1,
+  //             ),
+  //           ),
+  //         ),
+  //         Text('or'),
+  //         Expanded(
+  //           child: Padding(
+  //             padding: EdgeInsets.symmetric(horizontal: 10),
+  //             child: Divider(
+  //               thickness: 1,
+  //             ),
+  //           ),
+  //         ),
+  //         SizedBox(
+  //           width: 20,
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+  //
+  // Widget _guestButton() {
+  //   return InkWell(
+  //     onTap: (){
+  //       logoutUser();
+  //     },
+  //     child: Container(
+  //       height: 50,
+  //       margin: EdgeInsets.symmetric(vertical: 20),
+  //       decoration: BoxDecoration(
+  //         borderRadius: BorderRadius.all(Radius.circular(10)),
+  //       ),
+  //       child: Row(
+  //         children: <Widget>[
+  //           Expanded(
+  //             flex: 1,
+  //             child: Container(
+  //               decoration: BoxDecoration(
+  //                 color: Colors.black54,
+  //                 borderRadius: BorderRadius.only(
+  //                     bottomLeft: Radius.circular(5),
+  //                     topLeft: Radius.circular(5)),
+  //               ),
+  //               alignment: Alignment.center,
+  //               child: Icon(Icons.account_circle,size: 30,color: Style.whitecolor,)
+  //             ),
+  //           ),
+  //           Expanded(
+  //             flex: 5,
+  //             child: Container(
+  //               decoration: BoxDecoration(
+  //                 color: Style.greycolor,
+  //                 borderRadius: BorderRadius.only(
+  //                     bottomRight: Radius.circular(5),
+  //                     topRight: Radius.circular(5)),
+  //               ),
+  //               alignment: Alignment.center,
+  //               child: Text('Log in as Guest',
+  //                   style: GoogleFonts.poppins(
+  //                   fontSize: 16,
+  //                   color:Style.whitecolor,
+  //                   fontWeight: FontWeight.w400),),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+  //
+  // Widget socialMedia(){
+  //   return Container(
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //       children: [
+  //         RawMaterialButton(
+  //
+  //           onPressed: () {},
+  //           constraints: BoxConstraints(),
+  //           elevation: 3.0,
+  //           fillColor: Style.whitecolor,
+  //           child:Image.asset(
+  //             "assets/google.png",
+  //             width: 30.0,
+  //             height: 30.0,
+  //             fit: BoxFit.cover,
+  //           ),
+  //           padding: EdgeInsets.all(10.0),
+  //           shape: CircleBorder(),
+  //         ),
+  //         RawMaterialButton(
+  //
+  //           onPressed: () {},
+  //           constraints: BoxConstraints(),
+  //           elevation: 3.0,
+  //           fillColor: Style.whitecolor,
+  //           child:Image.asset(
+  //             "assets/face.png",
+  //             width: 30.0,
+  //             height: 30.0,
+  //             fit: BoxFit.cover,
+  //           ),
+  //           padding: EdgeInsets.all(10.0),
+  //           shape: CircleBorder(),
+  //         ),
+  //         RawMaterialButton(
+  //
+  //           onPressed: () {},
+  //           constraints: BoxConstraints(),
+  //           elevation: 3.0,
+  //           fillColor: Style.whitecolor,
+  //           child:Image.asset(
+  //             "assets/twitter.png",
+  //             width: 30.0,
+  //             height: 30.0,
+  //             fit: BoxFit.cover,
+  //           ),
+  //           padding: EdgeInsets.all(10.0),
+  //           shape: CircleBorder(),
+  //         ),
+  //         RawMaterialButton(
+  //
+  //           onPressed: () {},
+  //           constraints: BoxConstraints(),
+  //           elevation: 3.0,
+  //           fillColor: Style.whitecolor,
+  //           child:Image.asset(
+  //             "assets/insta.png",
+  //             width: 30.0,
+  //             height: 30.0,
+  //             fit: BoxFit.cover,
+  //           ),
+  //           padding: EdgeInsets.all(10.0),
+  //           shape: CircleBorder(),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
   Widget _createAccountLabel() {
     return InkWell(
       onTap: () {
@@ -406,12 +417,12 @@ class _LoginPageState extends State<LoginPage> {
                         color:Style.blackcolor,
                         fontWeight: FontWeight.w600),),
                   ),
-                  _divider(),
-                  _guestButton(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  socialMedia(),
+                  // _divider(),
+                  // _guestButton(),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  // socialMedia(),
                   SizedBox(height: height * .0),
                   _createAccountLabel(),
                 ],

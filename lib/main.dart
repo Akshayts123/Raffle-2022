@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         ),
         title: 'Billion Dollar App',
         debugShowCheckedModeBanner: false,
-        defaultTransition: Transition.rightToLeft,
+        defaultTransition: Transition.fadeIn,
         getPages: AppPages.routes,
         initialRoute: Routes.SPLASH,
       );

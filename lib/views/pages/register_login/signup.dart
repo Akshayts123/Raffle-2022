@@ -1,3 +1,4 @@
+import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,11 +30,12 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
   TextEditingController();
+  bool isLoadingOtp = false;
   Widget _backButton() {
     return InkWell(
       onTap: () {
         // Navigator.pop(context);
-        Get.to(LoginPage());
+        Get.to(WelcomeScreen());
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -119,20 +121,26 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _submitButton() {
     return GestureDetector(
       onTap: () async{
+
+
         try {
           await FirebaseAuthService().signup(
               _emailController.text.trim(),
               _passwordController.text.trim());
 
           if (!mounted) return;
-
+            setState((){isLoadingOtp = true;});
           Navigator.push(context,
               MaterialPageRoute(builder: (context) =>  HomeScreen()));
         } on FirebaseException catch (e) {
           debugPrint(e.message);
         }
       },
-      child: Container(
+      child: isLoadingOtp ? Center(
+        child: CircularProgressIndicator(
+          color: Style.systemblue,
+        ),
+      ): Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,

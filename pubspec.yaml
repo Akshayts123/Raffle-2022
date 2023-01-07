@@ -58,6 +58,11 @@ dependencies:
   firebase_core: ^1.20.0
   firebase_core_platform_interface: 4.5.1
   cached_network_image: ^3.2.1
+  fluttertoast: ^8.1.2
+  connectivity: ^3.0.3
+  flutter_rating_bar: ^4.0.1
+
+
 
 
 

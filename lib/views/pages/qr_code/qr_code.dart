@@ -2,6 +2,7 @@
 
 import 'dart:developer';
 import 'dart:io' show Platform;
+import 'package:draw_idea/views/pages/Deals/category_screen.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +49,14 @@ class _QRScannerState extends State<QRScanner> {
       // appBar:
       // appBar(context, backbutton: true, icon: true, notifications: true),
       body: Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(top: 0),
         child: Stack(
           children: <Widget>[
             _buildQrView(context),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
+
                 // if (result != null)
                 //   Text(
                 //     'Barcode Type: ${describeEnum(result!.format)}   Data: ${result!.code}',
@@ -62,68 +64,84 @@ class _QRScannerState extends State<QRScanner> {
                 //   )
                 // else
                 //   const Text('Scan a code'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () async {
-                        isflash = !isflash;
-                        await controller?.toggleFlash();
-                        setState(() {});
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(8),
-                        child: FutureBuilder(
-                          future: controller?.getFlashStatus(),
-                          builder: (context, snapshot) {
-                            return snapshot.data == false
-                                ? const Icon(
-                              Icons.flash_off,
-                              color: Style.whitecolor,
+                Container(
 
-                            )
-                                : const Icon(Icons.flash_on, color: Style.whitecolor);
-                          },
+                  height: 220,
+                  // color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () async {
+                          isflash = !isflash;
+                          await controller?.toggleFlash();
+                          setState(() {});
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          child: FutureBuilder(
+                            future: controller?.getFlashStatus(),
+                            builder: (context, snapshot) {
+                              return snapshot.data == false
+                                  ? const Icon(
+                                Icons.flash_off,
+                                color: Style.whitecolor,
+
+                              )
+                                  : const Icon(Icons.flash_on, color: Style.whitecolor);
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 20,),
-                    GestureDetector(
-                      onTap: () async {
-                        await controller?.flipCamera();
-                        setState(() {});
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(8),
-                        child: FutureBuilder(
-                          future: controller?.getCameraInfo(),
-                          builder: (context, snapshot) {
-                            if (snapshot.data != null) {
-                              return const Icon(Icons.cameraswitch_rounded,
-                                  color: Style.whitecolor);
-                            } else {
-                              return const SizedBox();
-                            }
-                          },
+                      SizedBox(width: 20,),
+
+                      GestureDetector(
+                        onTap: () async {
+                          Get.back();
+                        },
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: Style.whitecolor),
+                            borderRadius: BorderRadius.circular(50)
+                                
+                          ),
+                          margin: const EdgeInsets.all(8),
+                          child:Center(
+                            child: Text("Skip",style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                color: Style.whitecolor,
+                                fontWeight: FontWeight.w500),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 20,),
-                    GestureDetector(
-                      onTap: () async {
-                        Get.back();
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(8),
-                        child:Text("Skip",style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: Style.whitecolor,
-                            fontWeight: FontWeight.w500),
+                      SizedBox(width: 20,),
+                      GestureDetector(
+                        onTap: () async {
+                          await controller?.flipCamera();
+                          setState(() {});
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          child: FutureBuilder(
+                            future: controller?.getCameraInfo(),
+                            builder: (context, snapshot) {
+                              if (snapshot.data != null) {
+                                return const Icon(Icons.cameraswitch_rounded,
+                                    color: Style.whitecolor);
+                              } else {
+                                return const SizedBox();
+                              }
+                            },
+                          ),
                         ),
                       ),
-                    )
-                  ],
+
+                    ],
+                  ),
                 ),
               ],
             )
@@ -134,7 +152,8 @@ class _QRScannerState extends State<QRScanner> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    var scanArea = (Get.width < 400 || Get.height < 400) ? 300.0 : 300.0;
+    var scanArea = (Get.width < 300 || Get.height < 300) ? 300.0 : 300.0;
+
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,
@@ -143,6 +162,8 @@ class _QRScannerState extends State<QRScanner> {
           borderRadius: 10,
           borderLength: 35,
           borderWidth: 10,
+          overlayColor: Colors.black87,
+          cutOutBottomOffset: 120,
           cutOutSize: scanArea),
       onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
     );
@@ -158,20 +179,21 @@ class _QRScannerState extends State<QRScanner> {
           result = scanData;
         });
         // Get.find<QRService>().updateResult(scanData.code);
-        Get.defaultDialog(
-          content: Text("${scanData.code}"),
-        );
+        // Get.defaultDialog(
+        //   content: Text("${scanData.code}"),
+        // );
         // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         //   content: Text('${scanData.code}'),
         // ));
-        Get.snackbar(
-          "${scanData.code}",
-          "Successfull",
-          icon: Icon(Icons.person, color: Style.whitecolor),
-          snackPosition: SnackPosition.TOP,
-        );
+        Get.to(HomeScreen());
+        // Get.snackbar(
+        //   "${scanData.code}",
+        //   "Successfull",
+        //   icon: Icon(Icons.person, color: Style.whitecolor),
+        //   snackPosition: SnackPosition.TOP,
+        // );
         //
-        Get.back();
+        // Get.back();
         // Get.offAll(() =>  HomeScreen());
       }
     });

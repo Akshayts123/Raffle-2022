@@ -9,12 +9,14 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 
+import '../views/pages/home/widgets/rating.dart';
 import '../views/pages/on_board/on_board.dart';
 import '../views/pages/qr_code/qr_code.dart';
 
 import '../views/pages/register_login/loginPage.dart';
+import '../views/pages/register_login/phone_page.dart';
 import '../views/pages/register_login/signup.dart';
-import '../views/pages/register_login/welcomePage.dart';
+import '../views/pages/register_login/welcome_page.dart';
 
 class SplashController extends GetxController {
   final splashDelay = 5;
@@ -34,7 +36,7 @@ class SplashController extends GetxController {
       prefs?.setBool("guest", false);
       prefs?.setBool("isLoggedIn", true);
     } else if (_introSeen) {
-      Get.to(LoginPage());
+      Get.to(WelcomeScreen());
     } else {
       await prefs.setBool('intro_seen', true);
       Get.to(OnBoardingPage());

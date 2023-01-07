@@ -1,4 +1,5 @@
 import 'package:badges/badges.dart';
+import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _badgeState extends State<badge> {
         prefs?.setBool("isLoggedIn", false);
         if (!mounted) return;
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return  LoginPage();
+          return  WelcomeScreen();
         }));
       },
       child: Container(

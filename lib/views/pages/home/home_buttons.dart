@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
 import '../../../utils/style.dart';
+import 'fade.dart';
 import 'home_screen.dart';
 
 class homemenu extends StatefulWidget {

@@ -1,5 +1,6 @@
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/register_login/loginPage.dart';
+import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +22,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => LoginPage()),
+      MaterialPageRoute(builder: (_) => WelcomeScreen()),
     );
   }
 
@@ -78,7 +79,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 color: Style.whitecolor,
                 fontWeight: FontWeight.w600),
           ),
-          onPressed: () => Get.to(LoginPage()),
+          onPressed: () => Get.to(WelcomeScreen()),
         ),
       ),
       pages: [
@@ -221,7 +222,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           // reverse: false,
         ),
       ],
-      onDone: () => Get.to(LoginPage()),
+      onDone: () => Get.to(WelcomeScreen()),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: false,
       skipOrBackFlex: 0,
