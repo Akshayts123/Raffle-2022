@@ -1,5 +1,6 @@
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
+import 'package:draw_idea/views/pages/qr_code/qr_code.dart';
 import 'package:draw_idea/views/pages/register_login/signup.dart';
 import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   final RegisterController loginController = Get.find();
   bool isLoadingOtp = false;
+  final _formKey = GlobalKey<FormState>();
   FirebaseAuth auth = FirebaseAuth.instance;
   Widget _backButton() {
     return  new WillPopScope(
@@ -62,47 +64,69 @@ class _LoginPageState extends State<LoginPage> {
   Widget _entryField() {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
 
-          Text(
-            "Email id",
-            style: GoogleFonts.poppins(
-                fontSize: 14,
-                color:Style.blackcolor,
-                fontWeight: FontWeight.w500),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true)),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Password",
-            style: GoogleFonts.poppins(
-                fontSize: 14,
-                color:Style.blackcolor,
-                fontWeight: FontWeight.w500),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true))
-        ],
+            Text(
+              "Email id",
+              style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  color:Style.blackcolor,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+                validator: (value) {
+                  // add your custom validation here.
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  if(value == null || value.isEmpty || !value.contains('@') || !value.contains('.')){
+                    return 'Please enter valid Email';
+                  }
+                  return null;
+                },
+                controller: _emailController,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    fillColor: Color(0xfff3f3f4),
+                    filled: true)),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "Password",
+              style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  color:Style.blackcolor,
+                  fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextFormField(
+                validator: (value) {
+                  // add your custom validation here.
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  if (value!.length < 6) {
+                    return 'Must be more than 6 charater';
+                  }
+                },
+                controller: _passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    fillColor: Color(0xfff3f3f4),
+                    filled: true))
+          ],
+        ),
       ),
     );
   }
@@ -126,11 +150,12 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>  HomeScreen()));
+                    builder: (context) =>  QRScanner()));
           }
         }on FirebaseException catch (e) {
           debugPrint("error is ${e.message}");
-          Utility.showToast(msg: "Please enter valid Email and Password .");
+          _formKey.currentState!.validate();
+          // Utility.showToast(msg: "Please enter valid Email and Password .");
           // showDialog(
           //     context: context,
           //     builder: (context) => AlertDialog(

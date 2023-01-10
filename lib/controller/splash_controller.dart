@@ -9,7 +9,9 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 
-import '../views/pages/home/widgets/rating.dart';
+import '../views/pages/detail_pages/details_page.dart';
+import '../views/pages/detail_pages/shimmer.dart';
+import '../views/pages/home/searchbar.dart';
 import '../views/pages/on_board/on_board.dart';
 import '../views/pages/qr_code/qr_code.dart';
 
@@ -32,7 +34,7 @@ class SplashController extends GetxController {
     var status = prefs.getBool('isLoggedIn') ?? false;
 
     if (FirebaseAuth.instance.currentUser != null && _introSeen) {
-      Get.to( HomeScreen());
+      Get.to(HomeScreen());
       prefs?.setBool("guest", false);
       prefs?.setBool("isLoggedIn", true);
     } else if (_introSeen) {

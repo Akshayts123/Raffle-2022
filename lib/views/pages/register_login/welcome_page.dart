@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/register_controller.dart';
 import '../../../services/firebase_auth_service.dart';
+import '../qr_code/qr_code.dart';
 import 'Widget/bezierContainer.dart';
 import 'Widget/wave.dart';
 import 'loginPage.dart';
@@ -258,7 +259,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget _guestButton() {
     return InkWell(
       onTap: (){
-        logoutUser();
+        Get.to(QRScanner());
+        // logoutUser();
       },
       child: Container(
         height: 50,

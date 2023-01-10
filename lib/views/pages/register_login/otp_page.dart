@@ -1,3 +1,4 @@
+import 'package:draw_idea/views/pages/qr_code/qr_code.dart';
 import 'package:draw_idea/views/pages/register_login/phone_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
@@ -135,7 +136,7 @@ class _OtpPageState extends State<OtpPage> {
 
     await auth.signInWithCredential(credential).then((value){
       print("::::::::::::::::::You are logged in successfully:::::::::::::::::::::");
-      Get.to(HomeScreen());
+      Get.to(QRScanner());
       Fluttertoast.showToast(
           msg: "You are logged in successfully",
           toastLength: Toast.LENGTH_SHORT,

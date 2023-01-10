@@ -91,7 +91,9 @@ class _SuperDialogState extends State<SuperDialog> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RawMaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+
+                              },
                               constraints: BoxConstraints(),
                               elevation: 2.0,
                               fillColor: Colors.blue,

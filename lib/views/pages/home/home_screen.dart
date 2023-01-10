@@ -72,10 +72,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
 
-    return new WillPopScope(
+    return  WillPopScope(
       onWillPop: () async {
-        Get.offNamed('/home_screen');
-        return true;
+        return false;
       },
       child: AdvancedDrawer(
         backdropColor: Color(0xFF2F3044),
