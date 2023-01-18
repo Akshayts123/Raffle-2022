@@ -88,10 +88,7 @@ Widget EnjoyGaming(){
                       Container(
                         child: Text(
                           _coffeeController.getHomesList[index].title??"",
-                          style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            color:Style.blackcolor,
-                          ),
+                          style: Style.text3,
                         ),
                       ),
                     ],

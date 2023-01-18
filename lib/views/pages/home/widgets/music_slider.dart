@@ -78,9 +78,8 @@ Widget MusicSlider(){
                         padding: EdgeInsets.only(left: 0),
                         child: Text(
                           "Music",
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                          ),
+                          style: Style.text3,
+
                         ),
                       ),
                     ],

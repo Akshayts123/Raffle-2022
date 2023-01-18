@@ -67,10 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
           children: <Widget>[
             Text(
               "Username",
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: Style.blackcolor,
-                  fontWeight: FontWeight.w500),
+              style: Style.text911
             ),
             SizedBox(
               height: 10,
@@ -86,10 +83,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Text(
               "Email id",
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: Style.blackcolor,
-                  fontWeight: FontWeight.w500),
+              style: Style.text911
             ),
             SizedBox(
               height: 10,
@@ -115,10 +109,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             Text(
               "Password",
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: Style.blackcolor,
-                  fontWeight: FontWeight.w500),
+              style: Style.text911
             ),
             SizedBox(
               height: 10,
@@ -190,10 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       colors: [Style.systemblue, Style.systemblue])),
               child: Text(
                 'Register Now',
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: Style.whitecolor,
-                    fontWeight: FontWeight.w600),
+                style: Style.text22,
               ),
             ),
     );
@@ -214,20 +202,14 @@ class _SignUpPageState extends State<SignUpPage> {
           children: <Widget>[
             Text(
               'Already have an account ?',
-              style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  color: Style.blackcolor,
-                  fontWeight: FontWeight.w600),
+              style: Style.text23
             ),
             SizedBox(
               width: 10,
             ),
             Text(
               'Login',
-              style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  color: Style.systemblue,
-                  fontWeight: FontWeight.w600),
+              style:Style.text24
             ),
           ],
         ),
@@ -239,8 +221,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Container(
       child: Text(
         "Raffle Draw",
-        style: GoogleFonts.poppins(
-            fontSize: 25, color: Style.whitecolor, fontWeight: FontWeight.w600),
+        style: Style.text16
       ),
     );
   }

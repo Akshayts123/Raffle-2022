@@ -218,10 +218,7 @@ class _OtpPageState extends State<OtpPage> {
                 end: Alignment.centerRight,
                 colors: [Style.systemblue, Style.systemblue])),
         child: Text(
-          'Continue',style: GoogleFonts.poppins(
-            fontSize: 16,
-            color:Style.whitecolor,
-            fontWeight: FontWeight.w600),
+          'Continue',style: Style.text22
         ),
       ),
     );
@@ -240,19 +237,13 @@ class _OtpPageState extends State<OtpPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Didnt receive any code?',style: GoogleFonts.poppins(
-                fontSize: 12,
-                color:Style.blackcolor,
-                fontWeight: FontWeight.w600),
+              'Didnt receive any code?',style: Style.text23
             ),
             SizedBox(
               width: 10,
             ),
             Text(
-              'Resend New Code',style: GoogleFonts.poppins(
-                fontSize: 12,
-                color:Style.systemblue,
-                fontWeight: FontWeight.w600),
+              'Resend New Code',style:Style.text24
             ),
           ],
         ),
@@ -262,10 +253,7 @@ class _OtpPageState extends State<OtpPage> {
 
   Widget _title() {
     return Container(
-      child: Text("Raffle Draw",style: GoogleFonts.poppins(
-          fontSize: 25,
-          color:Style.whitecolor,
-          fontWeight: FontWeight.w600),),
+      child: Text("Raffle Draw",style:Style.text16),
     );
   }
 
@@ -461,10 +449,7 @@ class _OtpPageState extends State<OtpPage> {
                                   " with the verification code has been sent to your registered " +
                               "mobile number",
                           textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                        fontSize: 14,
-                            color:Style.blackcolor,
-                            fontWeight: FontWeight.w600),
+                            style: Style.text91
                         ),
                       ),
                     ),
@@ -501,10 +486,7 @@ class _OtpPageState extends State<OtpPage> {
                       child: Center(
                         child: Text(
                           "Enter 6 digits code",
-                            style: GoogleFonts.poppins(
-                        fontSize: 12,
-                            color:Style.blackcolor,
-                            fontWeight: FontWeight.w600),
+                            style:Style.text23
                         ),
                       ),
                     ),

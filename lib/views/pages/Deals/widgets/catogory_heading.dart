@@ -12,10 +12,7 @@ class Heading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(text, style: GoogleFonts.poppins(
-          fontSize: 19,
-          color: Style.blackcolor,
-          fontWeight: FontWeight.w600),),
+      child: Text(text, style: Style.text151),
     );
   }
 }

@@ -141,28 +141,28 @@ class drawer extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 70,right: 20),
-                width: 200,
-                height: 1,
-                color: Colors.white,
-              ),
-              ListTile(
-                onTap: () {},
-                leading: Icon(Icons.flight),
-                title: Text('International Draw'),
-              ),
-              Container(
-                margin: EdgeInsets.only(left: 70,right: 20),
-                width: 200,
-                height: 1,
-                color: Colors.white,
-              ),
-              ListTile(
-                onTap: () {},
-                leading: Icon(Icons.delivery_dining),
-                title: Text('Home Delivery'),
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(left: 70,right: 20),
+              //   width: 200,
+              //   height: 1,
+              //   color: Colors.white,
+              // ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Icon(Icons.flight),
+              //   title: Text('International Draw'),
+              // ),
+              // Container(
+              //   margin: EdgeInsets.only(left: 70,right: 20),
+              //   width: 200,
+              //   height: 1,
+              //   color: Colors.white,
+              // ),
+              // ListTile(
+              //   onTap: () {},
+              //   leading: Icon(Icons.delivery_dining),
+              //   title: Text('Home Delivery'),
+              // ),
               // Container(
               //   margin: EdgeInsets.only(left: 70,right: 20),
               //   width: 200,

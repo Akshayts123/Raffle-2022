@@ -74,10 +74,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         child: TextButton(
           child:  Text(
             'Let\'s go right away!',
-            style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: Style.whitecolor,
-                fontWeight: FontWeight.w600),
+            style:Style.text25
           ),
           onPressed: () => Get.to(WelcomeScreen()),
         ),

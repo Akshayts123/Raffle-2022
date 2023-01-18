@@ -96,8 +96,7 @@ Widget NewConnection(){
                                           _coffeeController
                                               .getHomesList[index].btndesc ??
                                               "",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 13, color:Style.blackcolor),
+                                          style: Style.text3,
                                         ),
                                       ),
                                     ),
@@ -153,8 +152,7 @@ Widget NewConnection(){
                                           _coffeeController
                                               .getHomesList[index].btndesc ??
                                               "",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 13, color:Style.blackcolor),
+                                          style: Style.text3,
                                         ),
                                       ),
                                     ),

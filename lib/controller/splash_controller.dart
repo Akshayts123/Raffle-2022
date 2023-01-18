@@ -1,23 +1,11 @@
 import 'dart:async';
-
-import 'package:draw_idea/views/pages/home/home.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../main.dart';
-
-import '../views/pages/detail_pages/details_page.dart';
-import '../views/pages/detail_pages/shimmer.dart';
-import '../views/pages/home/searchbar.dart';
+import '../views/pages/home/home.dart';
+import '../views/pages/home/main_screen.dart';
 import '../views/pages/on_board/on_board.dart';
-import '../views/pages/qr_code/qr_code.dart';
-
-import '../views/pages/register_login/loginPage.dart';
-import '../views/pages/register_login/phone_page.dart';
-import '../views/pages/register_login/signup.dart';
 import '../views/pages/register_login/welcome_page.dart';
 
 class SplashController extends GetxController {
@@ -34,7 +22,7 @@ class SplashController extends GetxController {
     var status = prefs.getBool('isLoggedIn') ?? false;
 
     if (FirebaseAuth.instance.currentUser != null && _introSeen) {
-      Get.to(HomeScreen());
+      Get.to(MainScreen());
       prefs?.setBool("guest", false);
       prefs?.setBool("isLoggedIn", true);
     } else if (_introSeen) {

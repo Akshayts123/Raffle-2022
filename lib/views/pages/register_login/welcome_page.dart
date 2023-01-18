@@ -101,10 +101,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 alignment: Alignment.center,
                 child: Text('Phone Verification',
-                  style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color:Style.whitecolor,
-                      fontWeight: FontWeight.w600),),
+                  style: Style.text22,),
               ),
             ),
           ],
@@ -156,10 +153,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 alignment: Alignment.center,
                 child: Text('Email Registration',
-                  style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color:Style.whitecolor,
-                      fontWeight: FontWeight.w600),),
+                  style: Style.text22,),
               ),
             ),
           ],
@@ -211,10 +205,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 alignment: Alignment.center,
                 child: Text('Email Login',
-                  style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color:Style.whitecolor,
-                      fontWeight: FontWeight.w600),),
+                  style: Style.text22,),
               ),
             ),
           ],
@@ -294,10 +285,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 alignment: Alignment.center,
                 child: Text('Log in as Guest',
-                  style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color:Style.whitecolor,
-                      fontWeight: FontWeight.w600),),
+                  style: Style.text22,),
               ),
             ),
           ],
@@ -378,10 +366,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
   Widget _title() {
     return Container(
-      child: Text("Raffle Draw",style: GoogleFonts.poppins(
-          fontSize: 25,
-          color:Style.whitecolor,
-          fontWeight: FontWeight.w600),),
+      child: Text("Raffle Draw",style:Style.text16),
     );
   }
 

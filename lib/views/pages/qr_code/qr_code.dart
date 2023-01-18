@@ -15,6 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/style.dart';
 import '../detail_pages/details_page.dart';
+import '../home/main_screen.dart';
 import '../register_login/welcome_page.dart';
 
 class QRScanner extends StatefulWidget {
@@ -109,7 +110,7 @@ class _QRScannerState extends State<QRScanner> {
                             Get.back();
                             SharedPreferences prefs = await SharedPreferences.getInstance();
                             if (FirebaseAuth.instance.currentUser != null ) {
-                              Get.to( HomeScreen());
+                              Get.to( MainScreen());
                               prefs?.setBool("guest", false);
                               prefs?.setBool("isLoggedIn", true);
                             }else{

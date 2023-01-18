@@ -35,17 +35,11 @@ Widget StackedBanner(){
                         children: [
                           Text(
                             "Flutter is an open",
-                            style: GoogleFonts.poppins(
-                              fontSize: 13,
-                              color: Style.whitecolor,
-                            ),
+                            style: Style.text1,
                           ),
                           Text(
                             "source framework by Google for building beautiful",
-                            style: GoogleFonts.poppins(
-                              fontSize: 11,
-                              color: Style.whitecolor,
-                            ),),
+                            style:Style.text8,),
                         ],
                       ),
                     ),
@@ -62,10 +56,7 @@ Widget StackedBanner(){
                           child: Row(
                             children: [
                               Text("Watch now ",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 14,
-                                      color: Style.whitecolor,
-                                      fontWeight: FontWeight.w600)),
+                                  style:Style.text9),
                               Icon(
                                 Icons.double_arrow_rounded,
                                 size: 14,

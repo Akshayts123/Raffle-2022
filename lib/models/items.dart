@@ -417,6 +417,9 @@ class Homes {
   late final DateTime? date;
   late final String? tab;
   late final String? category;
+  late final String? services;
+  late final String? servicestext;
+
 
 
 
@@ -450,6 +453,8 @@ class Homes {
     required this.date,
     required this.tab,
     required this.category,
+    required this.services,
+    required this.servicestext,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -481,6 +486,8 @@ class Homes {
       this.date,
       this.tab,
       this.category,
+      this.services,
+      this.servicestext,
       this.bis) {
     Name = json['Name'];
     img = json['img'];
@@ -511,6 +518,8 @@ class Homes {
     date = json['date'];
     tab = json['tab'];
     category = json['category'];
+    services = json['services'];
+    servicestext = json['servicestext'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -542,6 +551,8 @@ class Homes {
     data['date'] = this.date;
     data['tab'] = this.tab;
     data['category'] = this.category;
+    data['services'] = this.services;
+    data['servicestext'] = this.servicestext;
 
     return data;
   }

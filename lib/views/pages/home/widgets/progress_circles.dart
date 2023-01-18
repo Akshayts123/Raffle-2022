@@ -81,17 +81,11 @@ Widget ProgressCircles(){
                       children: [
                         Text(
                           _coffeeController.getHomesList[index].cources??"",
-                          style: GoogleFonts.poppins(
-                              fontSize: 17,
-                              color: Style.whitecolor,
-                              fontWeight: FontWeight.w500),
+                          style:Style.text411,
                         ),
                         Text(
                           _coffeeController.getHomesList[index].courcesub??"",
-                          style: GoogleFonts.poppins(
-                              fontSize: 12,
-                              color: Style.whitecolor,
-                              fontWeight: FontWeight.w500),
+                          style:Style.text511
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -104,10 +98,7 @@ Widget ProgressCircles(){
                                 percent:_coffeeController.percent[index],
                                 center: new Text(
                                   _coffeeController.getHomesList[index].percent??"",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 10,
-                                      color: Style.whitecolor,
-                                      fontWeight: FontWeight.w500),
+                                  style:Style.text6
                                 ),
                                 circularStrokeCap: CircularStrokeCap.round,
                                 progressColor: Style.whitecolor,

@@ -42,40 +42,9 @@ Widget MenuSlider(){
                         fit: BoxFit.cover,
                       ),
                       padding: EdgeInsets.all(12.0),
-                      shape: CircleBorder(),
+                      shape: RoundedRectangleBorder(),
                     ),
-                    // Container(
-                    //   width: 55,
-                    //   height: 55,
-                    //   decoration: BoxDecoration(
-                    //       color: Colors.white,
-                    //       borderRadius: BorderRadius.circular(50)),
-                    //   margin: EdgeInsets.symmetric(horizontal: 15),
-                    //   child: ElevatedButton(
-                    //     onPressed: () {},
-                    //     child: Image.asset(
-                    //       _coffeeController.getHomesList[index].img??"",
-                    //       width: 35.0,
-                    //       color: Colors.red,
-                    //       height: 35.0,
-                    //       fit: BoxFit.cover,
-                    //     ),
-                    //     style: ButtonStyle(
-                    //       elevation: MaterialStatePropertyAll(2.8),
-                    //       shape: MaterialStateProperty.all(CircleBorder()),
-                    //       padding: MaterialStateProperty.all(EdgeInsets.all(
-                    //           13)),
-                    //       backgroundColor: MaterialStateProperty.all(
-                    //           Colors.white),
-                    //       // <-- Button color
-                    //       overlayColor:
-                    //       MaterialStateProperty.resolveWith<Color?>((states) {
-                    //         if (states.contains(MaterialState.pressed))
-                    //           return Colors.black12;
-                    //       }),
-                    //     ),
-                    //   ),
-                    // ),
+
                     SizedBox(
                       height: 10,
                     ),
@@ -85,8 +54,7 @@ Widget MenuSlider(){
                         width: 85,
                         child: Text(
                           _coffeeController.getHomesList[index].btndesc??"",
-                          style: GoogleFonts.poppins(
-                              fontSize: 13, color: Style.blackcolor),
+                          style:Style.text2,
                         ),
                       ),
                     ),

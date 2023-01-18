@@ -45,10 +45,7 @@ Widget JobEducation(){
         ),
         Container(
           child: Text("source framework by Google for building beautiful",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color: Style.blackcolor,
-              )),
+              style: Style.text3,),
         ),
         SizedBox(
           height: 0,
@@ -91,12 +88,7 @@ Widget JobEducation(){
                               width: 150,
                               child: Text(
                                 "2 Pizza starting at \$10 each",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 17,
-                                  height: 1.2,
-                                  color: Style.blackcolor,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style:Style.text4,
                               ),
                             ),
                             SizedBox(
@@ -106,12 +98,7 @@ Widget JobEducation(){
                               // width:210,
                               child: Text(
                                 "EXPLORE TO OF EATRIES NEARBY",
-                                style: GoogleFonts.poppins(
-                                  fontSize: 11,
-                                  height: 1.2,
-                                  color: Style.blackcolor,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                style: Style.text5,
                               ),
                             ),
                           ],
@@ -181,12 +168,7 @@ Widget JobEducation(){
                             width: 150,
                             child: Text(
                               "2 Pizza starting at \$10 each",
-                              style: GoogleFonts.poppins(
-                                fontSize: 17,
-                                height: 1.2,
-                                color: Style.whitecolor,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: Style.text41,
                             ),
                           ),
                           SizedBox(
@@ -198,12 +180,7 @@ Widget JobEducation(){
                                 // width:210,
                                 child: Text(
                                   "EXPLORE TO OF EATRIES NEARBY",
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 11,
-                                    height: 1.2,
-                                    color: Style.whitecolor,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                  style:Style.text51
                                 ),
                               ),
                             ],

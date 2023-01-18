@@ -1,6 +1,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/coupens/show_scrached.dart';
+import 'package:draw_idea/views/pages/home/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Bottom_nav(),
+      // bottomNavigationBar: Bottom_nav(),
       body: SafeArea(
         child: CustomScrollView(
           controller: scrollController,
@@ -51,7 +52,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
                   color: isShrink ? Colors.black : Colors.black,
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainScreen()));
                 },
               ),
               title: Container(
@@ -114,10 +115,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
                                 children: [
                                   Text(
                                     "Upcoming rewards on your path",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        color: Style.blackcolor,
-                                        fontWeight: FontWeight.w500),
+                                    style: Style.text911
                                   ),
                                   Icon(
                                     Icons.arrow_forward,
@@ -136,10 +134,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
                             left: 20.0, top: 10, bottom: 10),
                         child: Text(
                           "My Rewards",
-                          style: GoogleFonts.poppins(
-                              fontSize: 15,
-                              color: Style.blackcolor,
-                              fontWeight: FontWeight.w500),
+                          style: Style.text911
                         ),
                       ),
                     ),

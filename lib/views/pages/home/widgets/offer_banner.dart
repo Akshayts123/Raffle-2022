@@ -42,8 +42,7 @@ Widget OfferBanner(){
                                 child: Center(
                                     child: Text(
                                       "Special offer",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 11, fontWeight: FontWeight.bold),
+                                      style:Style.text5
                                     )),
                               ),
                               Container(
@@ -67,10 +66,7 @@ Widget OfferBanner(){
                           ),
                           Container(
                             child: Text("6 OTT'S in 1 app!",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 17,
-                                    color: Style.whitecolor,
-                                    fontWeight: FontWeight.bold)),
+                                style: Style.text41),
                           ),
                           Container(
                             width: 190,

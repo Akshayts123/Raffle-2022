@@ -117,10 +117,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                 colors: [Style.systemblue, Style.systemblue])),
         child: Text(
           'Continue',
-          style: GoogleFonts.poppins(
-              fontSize: 17,
-              color: Style.whitecolor,
-              fontWeight: FontWeight.w600),
+          style:Style.text41
         ),
       ),
     );

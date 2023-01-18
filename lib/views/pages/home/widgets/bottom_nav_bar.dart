@@ -10,6 +10,7 @@ import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
 import '../../Coupens/coupens.dart';
 import '../../Deals/catogories.dart';
+import '../../offers/offer_screen.dart';
 import '../home_screen.dart';
 
 class Bottom_nav extends StatefulWidget {
@@ -70,7 +71,7 @@ class _Bottom_navState extends State<Bottom_nav> with TickerProviderStateMixin {
       splashSpeedInMilliseconds: 200,
       splashRadius: 30,
       notchSmoothness: NotchSmoothness.defaultEdge,
-      gapLocation: GapLocation.center,
+      gapLocation: GapLocation.end,
       onTap: (index) {
         setState(() {
           _coffeeController.bottomNavIndex = index;
@@ -78,8 +79,10 @@ class _Bottom_navState extends State<Bottom_nav> with TickerProviderStateMixin {
               ? Get.to( Catogories())
               : (_coffeeController.bottomNavIndex == 2)
               ? Get.to(ScrachCoupens())
-              : (_coffeeController.bottomNavIndex == 3)
+              : (_coffeeController.bottomNavIndex == 0)
               ? Get.to(HomeScreen())
+              : (_coffeeController.bottomNavIndex == 3)
+              ? Get.to(OffersScreen())
               : Get.to(HomeScreen());
         });
       },

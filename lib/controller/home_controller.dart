@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:draw_idea/utils/style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,12 +20,14 @@ class HomeController extends GetxController {
     Icons.home,
     Icons.dashboard,
     Icons.discount,
+    Icons.add_chart_outlined,
     Icons.account_circle,
   ];
   static const List<String> reportReasons = [
     'Home',
     'Catogories',
     'Coupens',
+    'Offers',
     'User'
   ];
   bool  isBluetoothOn = false;
@@ -75,6 +78,18 @@ class HomeController extends GetxController {
     Colors.brown,
     Colors.deepPurple
   ];
+  static List<Color> cources1 = [
+    Colors.indigo,
+    Colors.green,
+    Colors.grey,
+    Colors.orangeAccent,
+    Colors.redAccent,
+    Colors.pinkAccent,
+    Colors.indigoAccent,
+    Colors.black54,
+    Colors.brown,
+    Colors.deepPurple
+  ];
   List<Color> colors = [
     Colors.red,
     Colors.orangeAccent,
@@ -99,7 +114,16 @@ class HomeController extends GetxController {
     Colors.brown,
   ];
   final List<LanguageModel> CourceColor = List.generate(cources.length, (index) => LanguageModel(cources[index]));
+  final List<String> imgList = [
+    'assets/images/banner.png',
+    'assets/images/banner.png',
+    'assets/images/banner.png',
+    'assets/images/banner.png',
+    'assets/images/banner.png',
+  ];
 
+  int current = 0;
+  final CarouselController controller1 = CarouselController();
   var list = [
     Homes(
       Name: 'Home',
@@ -130,7 +154,9 @@ class HomeController extends GetxController {
       scrach: 'assets/innerscrach.png',
       date: DateTime(2021, 12, 22),
       tab: "assets/bat.png",
-      category: 'assets/category1.png' ,
+      category: 'assets/category1.png',
+      services: 'assets/s1.png',
+      servicestext: 'Government Affairs' ,
     ),
     Homes(
       Name: 'QrCode ',
@@ -162,6 +188,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 22) ,
       tab: "assets/ironman.png" ,
       category: 'assets/category2.png' ,
+      services: 'assets/s2.png' ,
+      servicestext: 'Medical Care ' ,
     ),
     Homes(
       Name: 'Game ',
@@ -193,6 +221,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 22) ,
       tab: "assets/jurassic.png" ,
       category: 'assets/category3.png' ,
+      services: 'assets/s3.png' ,
+      servicestext: 'Car Owner' ,
     ),
     Homes(
       Name: 'Food ',
@@ -224,6 +254,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 22) ,
       tab: "assets/ironman.png" ,
       category: 'assets/category4.png' ,
+      services: 'assets/s4.png' ,
+      servicestext: 'Traffic Travel' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -255,6 +287,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 20) ,
       tab: "assets/bat.png" ,
       category: 'assets/category5.png' ,
+      services: 'assets/s5.png' ,
+      servicestext: 'Social Security' ,
     ),
     Homes(
       Name: 'Home ',
@@ -286,6 +320,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 21) ,
       tab: "assets/jurassic.png" ,
       category: 'assets/category6.png' ,
+      services: 'assets/s6.png' ,
+      servicestext: 'More Services' ,
 
     ),
     Homes(
@@ -318,6 +354,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 22) ,
       tab: "assets/ironman.png" ,
       category: 'assets/category7.png' ,
+      services: 'assets/s7.png' ,
+      servicestext: 'More Services' ,
     ),
     Homes(
       Name: 'Game ',
@@ -349,6 +387,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 20) ,
       tab: "assets/bat.png" ,
       category: 'assets/category8.png' ,
+      services: 'assets/s8.png' ,
+      servicestext: 'More Services' ,
     ),
     Homes(
       Name: 'Food ',
@@ -380,6 +420,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 21) ,
       tab: "assets/jurassic.png" ,
       category: 'assets/category9.png' ,
+      services: 'assets/s9.png' ,
+      servicestext: 'More Services' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -411,6 +453,8 @@ class HomeController extends GetxController {
       date: DateTime(2021, 12, 20) ,
       tab: "assets/ironman.png" ,
       category: 'assets/category10.png' ,
+      services: 'assets/s1.png' ,
+      servicestext: 'More Services' ,
     ),
   ];
 

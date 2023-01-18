@@ -72,10 +72,7 @@ Widget AppBanner(){
                               child: Center(
                                   child: Text(
                                     "Watch Now",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 13,
-                                        color: Style.whitecolor,
-                                        fontWeight: FontWeight.w600),
+                                    style:Style.text1,
                                   )),
                             ),
                           )
@@ -91,10 +88,7 @@ Widget AppBanner(){
                               child: Center(
                                   child: Text(
                                     "Watch Now",
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 13,
-                                        color: Style.blackcolor,
-                                        fontWeight: FontWeight.w600),
+                                    style: Style.text,
                                   )),
                             ),
                           ),

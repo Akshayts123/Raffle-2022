@@ -15,6 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../utils/style.dart';
 import '../Deals/widgets/wishlist.dart';
+import '../home/main_screen.dart';
 import 'detail_shimmer.dart';
 
 class Details extends StatefulWidget {
@@ -676,7 +677,7 @@ class _DetailsState extends State<Details> {
                         fontWeight: FontWeight.w500)),
                   ): TextButton(
                     onPressed: () {
-                      Get.to(HomeScreen());
+                      Get.to(MainScreen());
                     },
                     child: Text("View Shop",style: GoogleFonts.poppins(
                         fontSize: 16,

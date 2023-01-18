@@ -2,7 +2,6 @@ import 'package:draw_idea/controller/home_controller.dart';
 import 'package:draw_idea/services/api.dart';
 import 'package:draw_idea/utils/app_pages.dart';
 import 'package:draw_idea/utils/app_routes.dart';
-import 'package:draw_idea/views/pages/home/fade.dart';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

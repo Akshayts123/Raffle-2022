@@ -100,10 +100,7 @@ Widget NewsSlider(){
                           child: Center(
                             child: Text(
                               "LIVE",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  color: Style.whitecolor,
-                                  fontWeight: FontWeight.w600),
+                              style: Style.text1
                             ),
                           ),
                         ),

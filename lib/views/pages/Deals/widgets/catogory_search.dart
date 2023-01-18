@@ -11,7 +11,7 @@ class CategorySearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 70,
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
         child: Row(
           children: [
             Flexible(
@@ -22,12 +22,12 @@ class CategorySearch extends StatelessWidget {
                     fillColor: Colors.white,
                     filled: true,
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(5),
                         borderSide:
                         BorderSide(width: 0.5, color: Colors.grey)),
                     hintText: 'Search',
                     hintStyle:
-                    TextStyle(color: Colors.grey, fontSize: 15),
+                    TextStyle(color: Colors.grey, fontSize: 14,height: 1),
                     prefixIcon: Container(
                       padding: EdgeInsets.all(10),
                       child: Icon(Icons.search),

@@ -4,6 +4,8 @@ import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/widgets/add_banner.dart';
 import 'package:draw_idea/views/pages/home/widgets/appbanner.dart';
 import 'package:draw_idea/views/pages/home/widgets/bottom_nav_bar.dart';
+import 'package:draw_idea/views/pages/home/widgets/carousel_slider.dart';
+import 'package:draw_idea/views/pages/home/widgets/category_list.dart';
 import 'package:draw_idea/views/pages/home/widgets/enjoy_gaming.dart';
 import 'package:draw_idea/views/pages/home/widgets/featured_offer.dart';
 import 'package:draw_idea/views/pages/home/widgets/help_support.dart';
@@ -38,6 +40,7 @@ import '../../../controller/splash_controller.dart';
 import '../../widgets/drawer/drawer.dart';
 import 'searchbar.dart';
 import 'home_buttons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   // static String id = 'HomeScreen';
@@ -63,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final AdvancedDrawerController _advancedDrawerController =
       AdvancedDrawerController();
   final ScrollController controller = ScrollController();
-
+  final isDisplayed = 'isDisplayed';
   int switcherIndex4 = 0;
   int switcherIndex2 = 0;
   Country _selectedDialogCountry =
@@ -105,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ],
             headerExpandedHeight: 0.21,
             fullyStretchable: false,
-            bottomNavigationBar: Bottom_nav(),
+            // bottomNavigationBar: Bottom_nav(),
             // floatingActionButton: FloatingAction(),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
@@ -200,9 +203,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       color: Color(0xFFFFF9E9),
       child: Column(
         children: [
+          // CarouselSliders(),
           AppBanner(),
+          CategoryList(),
           AddBanner(),
-          MenuSlider(),
+          // MenuSlider(),
           ProgressCircles(),
           ImageView(),
           SmallBanner(),
@@ -230,6 +235,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           children: [
             AppBanner(),
             ImageView(),
+            SmallBanner(),
           ],
         ));
   }
@@ -240,10 +246,21 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    SharedPreferences.getInstance().then((prefs) {
+      final int dialogOpen = prefs.getInt('dialog_open') ?? 0;
+      if (dialogOpen == 0) {//show dialog for one time only
+        Future.delayed(const Duration(milliseconds: 1000), () {
+          showAlert(context);
+          prefs.setInt("dialog_open", 1);
+        });
+      }
+    });
     super.initState();
+
     setState(() {
       main();
-      Future.delayed(Duration.zero, () => showAlert(context));
+
+      // Future.delayed(Duration.zero, () => showAlert(context));
     });
 
     final systemTheme = SystemUiOverlayStyle.light.copyWith(

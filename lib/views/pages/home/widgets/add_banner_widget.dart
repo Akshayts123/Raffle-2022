@@ -66,9 +66,7 @@ class AddBannerWidget extends StatelessWidget {
                                 Container(
                                   child: Text(
                                     'Lorem Ipsum',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600),
+                                    style: Style.text,
                                   ),
                                 ),
                                 SizedBox(

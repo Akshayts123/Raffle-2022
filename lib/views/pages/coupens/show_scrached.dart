@@ -43,19 +43,13 @@ class ShowScrached extends StatelessWidget {
                     Container(
                       child: Text(
                         "25% upto \$500",
-                        style: GoogleFonts.poppins(
-                            fontSize: 23,
-                            color: Style.blackcolor,
-                            fontWeight: FontWeight.w500),
+                        style:Style.text20
                       ),
                     ),
                     Container(
                       child: Text(
                         "off on your 1st 5 uber rides",
-                        style: GoogleFonts.poppins(
-                            fontSize: 13,
-                            color: Style.blackcolor,
-                            fontWeight: FontWeight.w500),
+                        style:Style.text2
                       ),
                     ),
                     SizedBox(

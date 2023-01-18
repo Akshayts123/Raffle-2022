@@ -101,14 +101,7 @@ class openScrach extends StatelessWidget {
                                         .none),
                                 child: Text(
                                   "25% upto \$500",
-                                  style: GoogleFonts
-                                      .poppins(
-                                      fontSize: 30,
-                                      color: Style
-                                          .blackcolor,
-                                      fontWeight:
-                                      FontWeight
-                                          .w500),
+                                  style:Style.text19
                                 ),
                               ),
                             ),
@@ -120,14 +113,7 @@ class openScrach extends StatelessWidget {
                                         .none),
                                 child: Text(
                                   "off on your 1st 5 uber rides",
-                                  style: GoogleFonts
-                                      .poppins(
-                                      fontSize: 13,
-                                      color: Style
-                                          .blackcolor,
-                                      fontWeight:
-                                      FontWeight
-                                          .w500),
+                                  style: Style.text2
                                 ),
                               ),
                             ),
@@ -251,14 +237,7 @@ class openScrach extends StatelessWidget {
                                   .none),
                           child: Text(
                             "Uber",
-                            style: GoogleFonts
-                                .poppins(
-                                fontSize: 17,
-                                color: Style
-                                    .greycolor,
-                                fontWeight:
-                                FontWeight
-                                    .w500),
+                            style: Style.text4111
                           ),
                         ),
                       ),
@@ -275,14 +254,7 @@ class openScrach extends StatelessWidget {
                               .none),
                       child: Text(
                         "Congrats! 25% upto \$500 off on your 1st 5 uber rides",
-                        style: GoogleFonts
-                            .poppins(
-                            fontSize: 22,
-                            color: Style
-                                .blackcolor,
-                            fontWeight:
-                            FontWeight
-                                .w500),
+                        style: Style.text20
                       ),
                     ),
                   ),
@@ -297,14 +269,7 @@ class openScrach extends StatelessWidget {
                               .none),
                       child: Text(
                         "Copy code and use at checkout",
-                        style: GoogleFonts
-                            .poppins(
-                            fontSize: 14,
-                            color: Style
-                                .blackcolor,
-                            fontWeight:
-                            FontWeight
-                                .w500),
+                        style: Style.text911
                       ),
                     ),
                   ),

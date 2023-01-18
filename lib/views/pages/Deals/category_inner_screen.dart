@@ -133,21 +133,14 @@ class CategoryInnerScreen extends StatelessWidget {
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
                         "Description",
-                        style: GoogleFonts.poppins(
-                            fontSize: 15,
-                            color: Style.blackcolor,
-                            fontWeight: FontWeight.w600),
+                        style: Style.text7
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                        style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            height: 2,
-                            color: Style.greycolor,
-                            fontWeight: FontWeight.w500),
+                        style:Style.text21
                       ),
                     ),
                   ],

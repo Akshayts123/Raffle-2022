@@ -65,10 +65,7 @@ Widget SmallBanner(){
                                         padding: const EdgeInsets.all(5.0),
                                         child: Text(
                                           'Sony LIV for 1 year ',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              color: Style.whitecolor,
-                                              fontWeight: FontWeight.w500),
+                                          style:Style.text6
                                         ),
                                       )
                                     ],
@@ -126,10 +123,7 @@ Widget SmallBanner(){
                                         padding: const EdgeInsets.all(5.0),
                                         child: Text(
                                           'Sony LIV for 1 year ',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              color: Style.whitecolor,
-                                              fontWeight: FontWeight.w500),
+                                          style: Style.text6
                                         ),
                                       )
                                     ],
@@ -188,10 +182,7 @@ Widget SmallBanner(){
                                         padding: const EdgeInsets.all(5.0),
                                         child: Text(
                                           'Sony LIV for 1 year ',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 10,
-                                              color: Style.whitecolor,
-                                              fontWeight: FontWeight.w500),
+                                          style:Style.text6
                                         ),
                                       )
                                     ],
@@ -243,15 +234,11 @@ Widget SmallBanner(){
                                       child: Column(children: [
                                         Text(
                                           'On \$3099 recharge',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w600),
+                                          style: Style.text7
                                         ),
                                         Text(
                                           'Using Credit Card',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500),
+                                          style:Style.text2
                                         )
                                       ]),
                                     )

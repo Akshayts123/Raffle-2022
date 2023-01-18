@@ -60,20 +60,14 @@ class TabWidget extends StatelessWidget {
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 10),
-                          child: Text("Lorem Ipsum", style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              color: Style.blackcolor,
-                              fontWeight: FontWeight.w600),),
+                          child: Text("Lorem Ipsum", style:Style.text91,),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Container(
                           padding: EdgeInsets.only(left: 10),
-                          child: Text("New \$300", style: GoogleFonts.poppins(
-                              fontSize: 10,
-                              color: Style.greycolor,
-                              fontWeight: FontWeight.w500),),
+                          child: Text("New \$300", style:Style.text13,),
                         ),
                       ],
                     ),

@@ -72,10 +72,7 @@ class _LoginPageState extends State<LoginPage> {
 
             Text(
               "Email id",
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color:Style.blackcolor,
-                  fontWeight: FontWeight.w500),
+              style: Style.text911
             ),
             SizedBox(
               height: 10,
@@ -101,10 +98,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Text(
               "Password",
-              style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color:Style.blackcolor,
-                  fontWeight: FontWeight.w500),
+              style: Style.text911
             ),
             SizedBox(
               height: 10,
@@ -201,10 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                 end: Alignment.centerRight,
                 colors: [Style.systemblue, Style.systemblue])),
         child: Text(
-          'Login',style: GoogleFonts.poppins(
-            fontSize: 17,
-            color:Style.whitecolor,
-            fontWeight: FontWeight.w600),
+          'Login',style: Style.text41
         ),
       ),
     );
@@ -375,19 +366,13 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Don\'t have an account ?',style: GoogleFonts.poppins(
-                fontSize: 12,
-                color:Style.blackcolor,
-                fontWeight: FontWeight.w600),
+              'Don\'t have an account ?',style: Style.text23
             ),
             SizedBox(
               width: 10,
             ),
             Text(
-              'Register',style: GoogleFonts.poppins(
-                fontSize: 12,
-                color:Style.systemblue,
-                fontWeight: FontWeight.w600),
+              'Register',style: Style.text24
             ),
           ],
         ),
@@ -397,10 +382,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _title() {
     return Container(
-      child: Text("Raffle Draw",style: GoogleFonts.poppins(
-          fontSize: 25,
-          color:Style.whitecolor,
-          fontWeight: FontWeight.w600),),
+      child: Text("Raffle Draw",style: Style.text16),
     );
   }
 
@@ -437,10 +419,7 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     alignment: Alignment.centerRight,
-                    child: Text('Forgot Password ?',style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        color:Style.blackcolor,
-                        fontWeight: FontWeight.w600),),
+                    child: Text('Forgot Password ?',style:Style.text23),
                   ),
                   // _divider(),
                   // _guestButton(),

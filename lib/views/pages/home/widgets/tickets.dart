@@ -56,10 +56,7 @@ Widget Tickets(){
         Container(
           padding: EdgeInsets.only(left: 10, top: 0, right: 0, bottom: 0),
           child: Text("source framework by Google for building beautiful",
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                color: Style.blackcolor,
-              )),
+              style: Style.text911),
         ),
         SizedBox(
           height: 0,
@@ -120,17 +117,11 @@ Widget Tickets(){
                                   children: [
                                     Text(
                                       "Elvin loyd",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 13,
-                                          color: Style.whitecolor,
-                                          fontWeight: FontWeight.w500),
+                                      style:Style.text111,
                                     ),
                                     Text(
                                       "\$ 30",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 13,
-                                          color: Style.whitecolor,
-                                          fontWeight: FontWeight.w600),
+                                      style: Style.text1
                                     )
                                   ],
                                 ),
@@ -142,17 +133,11 @@ Widget Tickets(){
                                   children: [
                                     Text(
                                       "9th Dec",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 11,
-                                          color: Style.whitecolor,
-                                          fontWeight: FontWeight.w600),
+                                      style: Style.text51
                                     ),
                                     Text(
                                       ". 10:00 pm",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 11,
-                                          color: Style.whitecolor,
-                                          fontWeight: FontWeight.w600),
+                                      style:Style.text51
                                     )
                                   ],
                                 ),

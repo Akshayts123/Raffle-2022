@@ -36,12 +36,7 @@ class CatogoryItems extends StatelessWidget {
                   // width: 150,
                   child: Text(
                     title,
-                    style: GoogleFonts.poppins(
-                      fontSize: 12,
-                      height: 1.2,
-                      color: Style.whitecolor,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: Style.text51
                   ),
                 ),
               ]),

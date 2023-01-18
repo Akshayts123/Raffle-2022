@@ -116,8 +116,7 @@ Widget HelpSupport(){
                                   _coffeeController
                                       .getHomesList[index].btndesc ??
                                       "",
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 13, color: Style.blackcolor),
+                                  style: Style.text3,
                                 ),
                               ),
                             ),
@@ -164,8 +163,7 @@ Widget HelpSupport(){
                                 _coffeeController
                                     .getHomesList[index].btndesc ??
                                     "",
-                                style: GoogleFonts.poppins(
-                                    fontSize: 13, color: Style.blackcolor),
+                                style: Style.text3,
                               ),
                             ),
                           ),

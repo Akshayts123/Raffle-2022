@@ -50,10 +50,7 @@ class _SuperDialogState extends State<SuperDialog> {
                         Text(
                           "Lorem Ipsum is simply dummy text ",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                              fontSize: 22,
-                              color: Style.blackcolor,
-                              fontWeight: FontWeight.w600),
+                          style: Style.text10,
                         ),
                         SizedBox(
                           height: 10,
@@ -62,10 +59,7 @@ class _SuperDialogState extends State<SuperDialog> {
                           child: Text(
                             "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer  .",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                                fontSize: 15,
-                                color: Style.blackcolor,
-                                fontWeight: FontWeight.w600),
+                            style:Style.text7
                           ),
                         ),
                         SizedBox(
@@ -78,10 +72,7 @@ class _SuperDialogState extends State<SuperDialog> {
                         Text(
                           "Raffledraw007",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              color: Style.blackcolor,
-                              fontWeight: FontWeight.w600),
+                          style: Style.text11
                         ),
                         SizedBox(
                           height: 10,
@@ -142,10 +133,7 @@ class _SuperDialogState extends State<SuperDialog> {
                         Text(
                           "Rate App",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              color: Style.blackcolor,
-                              fontWeight: FontWeight.w600),
+                          style: Style.text7
                         ),
                         SizedBox(
                           height: 20,
@@ -218,8 +206,7 @@ Widget _divider() {
         ),
         Text(
           'TAP TO SHARE',
-          style: GoogleFonts.poppins(
-              fontSize: 15, color: Colors.blue, fontWeight: FontWeight.w500),
+          style: Style.text12
         ),
         Expanded(
           child: Padding(
