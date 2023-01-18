@@ -26,7 +26,7 @@ CategoryList(){
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    // border: Border.all(width: 1,color: Style.systemblue),
+                    border: Border.all(width: 1,color: Style.systemblue),
                     borderRadius: BorderRadius.circular(5)
                   ),
                   child: RawMaterialButton(
@@ -37,12 +37,12 @@ CategoryList(){
                     fillColor: Style.whitecolor,
                     child:Image.asset(
                       _coffeeController.getHomesList[index].img??"",
-                      width: 26.0,
+                      width: 25.0,
                       color: Style.systemblue,
-                      height: 26.0,
+                      height: 25.0,
                       fit: BoxFit.cover,
                     ),
-                    padding: EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(15.0),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)
                     ),
@@ -57,7 +57,7 @@ CategoryList(){
                     // padding: EdgeInsets.only(left: 13),
                     // width: 85,
                     child: Text(
-                      "lorem",
+                      "lorem ",
                       style:Style.text2,
                     ),
                   ),

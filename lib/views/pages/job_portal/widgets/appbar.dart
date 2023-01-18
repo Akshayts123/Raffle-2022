@@ -5,24 +5,25 @@ import '../../../../utils/style.dart';
 
 
 
-Appbar(context, height) {
+Appbar(context, height,String text) {
   return PreferredSize(
-    preferredSize: Size(MediaQuery.of(context).size.width, height + 60),
+    preferredSize: Size(MediaQuery.of(context).size.width, height + 50),
     child: Stack(
+      clipBehavior: Clip.none,
       children: <Widget>[
         Container(
           // Background
           child: Center(
-            child: Text("Job Portal", style: Style.text41),
+            child: Text(text, style: Style.text41),
           ),
           color: Style.systemblue,
-          height: height + 55,
+          height: height + 67,
           width: MediaQuery.of(context).size.width,
         ),
         Container(), // Required some widget in between to float AppBar
         Positioned(
           // To take AppBar Size only
-          top: 80.0,
+          top: 95.0,
           left: 10.0,
           right: 10.0,
           child: Container(

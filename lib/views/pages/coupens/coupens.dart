@@ -11,8 +11,10 @@ import 'package:scratcher/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/home_controller.dart';
+import '../Deals/widgets/catogory_heading.dart';
 import '../home/widgets/bottom_nav_bar.dart';
 import '../home/widgets/floating_action.dart';
+import '../job_portal/widgets/appbar.dart';
 import 'open_scrached.dart';
 
 class ScrachCoupens extends StatefulWidget {
@@ -37,178 +39,134 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
   final expirationDate = DateTime(2021, 12, 20);
   @override
   Widget build(BuildContext context) {
+    _appBar(height) => Appbar(context, height,"COUPONS");
     return Scaffold(
+      backgroundColor:Colors.white ,
       // bottomNavigationBar: Bottom_nav(),
-      body: SafeArea(
-        child: CustomScrollView(
-          controller: scrollController,
-          slivers: [
-            SliverAppBar(
-              elevation: 2,
-              pinned: true,
-              leading: IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: isShrink ? Colors.black : Colors.black,
-                ),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainScreen()));
-                },
-              ),
-              title: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  "My Rewards",
-                  style: TextStyle(
-                    color: isShrink ? Colors.black : Colors.black,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-              expandedHeight: 200,
-              backgroundColor: Style.whitecolor,
-              flexibleSpace: FlexibleSpaceBar(
-                background: Container(
-                  height: 300.0,
-                  // child:
-                  // ClipPath(
-                  //   clipper: CurveClipper(),
-                  child: Container(
-                    child: Image.asset(
-                      "assets/simple.png",
-                      width: 300,
-                      fit: BoxFit.cover,
-                    ),
-                    width: 300.0,
-                    // ),
-                  ),
-                ),
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _appBar(AppBar().preferredSize.height),
+            SizedBox(
+              height: 40,
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                color: Colors.white,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10,
+            Container(
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(15.0),
+                  //   child: RawMaterialButton(
+                  //     onPressed: () {},
+                  //     constraints: BoxConstraints(),
+                  //     elevation: 1.0,
+                  //     fillColor: Style.whitecolor,
+                  //     child: ClipRRect(
+                  //       borderRadius: BorderRadius.circular(10.0),
+                  //       child: Container(
+                  //           padding: EdgeInsets.symmetric(horizontal: 20),
+                  //           height: 50,
+                  //           width: double.infinity,
+                  //           child: Center(
+                  //               child: Row(
+                  //             mainAxisAlignment:
+                  //                 MainAxisAlignment.spaceBetween,
+                  //             children: [
+                  //               Text(
+                  //                 "Upcoming rewards on your path",
+                  //                 style: Style.text911
+                  //               ),
+                  //               Icon(
+                  //                 Icons.arrow_forward,
+                  //                 color: Colors.blue,
+                  //               )
+                  //             ],
+                  //           ))),
+                  //     ),
+                  //     shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(10)),
+                  //   ),
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Heading(
+                      text: "My Rewards",
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: RawMaterialButton(
-                        onPressed: () {},
-                        constraints: BoxConstraints(),
-                        elevation: 1.0,
-                        fillColor: Style.whitecolor,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
-                              height: 50,
-                              width: double.infinity,
-                              child: Center(
-                                  child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Upcoming rewards on your path",
-                                    style: Style.text911
+                  ),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    physics: NeverScrollableScrollPhysics(),
+                    crossAxisSpacing: 5.0,
+                    mainAxisSpacing: 5.0,
+                    padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                    shrinkWrap: true,
+                    children: List.generate(
+                      _coffeeController.getHomesList.length,
+                          (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            alreadyAddedIndices.contains(index)
+                                ? showGeneralDialog(
+                              context: context,
+                              barrierLabel: "Barrier",
+                              barrierDismissible: false,
+                              barrierColor:
+                              Colors.black.withOpacity(0.9),
+                              transitionDuration:
+                              Duration(milliseconds: 1),
+                              pageBuilder: (_, __, ___) {
+                                return openScrach(
+                                  index: index,
+                                );
+                              },
+                            )
+                                : showGeneralDialog(
+                              context: context,
+                              barrierLabel: "Barrier",
+                              barrierDismissible: false,
+                              barrierColor:
+                              Colors.black.withOpacity(0.9),
+                              transitionDuration:
+                              Duration(milliseconds: 1),
+                              pageBuilder: (_, __, ___) {
+                                return ScracherWidget(index
+
+                                );
+                              },
+                              transitionBuilder: (_, anim, __, child) {
+                                Tween<Offset> tween;
+                                if (anim.status ==
+                                    AnimationStatus.reverse) {
+                                  tween = Tween(
+                                      begin: Offset(0, 0),
+                                      end: Offset.zero);
+                                } else {
+                                  tween = Tween(
+                                      begin: Offset(0, 0),
+                                      end: Offset.zero);
+                                }
+
+                                return SlideTransition(
+                                  position: tween.animate(anim),
+                                  child: FadeTransition(
+                                    opacity: anim,
+                                    child: child,
                                   ),
-                                  Icon(
-                                    Icons.arrow_forward,
-                                    color: Colors.blue,
-                                  )
-                                ],
-                              ))),
-                        ),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                      ),
+                                );
+                              },
+                            );
+                            // LogoutOverlay();
+                          },
+                          child: ShowScrached(alreadyAddedIndices: alreadyAddedIndices,index: index),
+                        );
+                      },
                     ),
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20.0, top: 10, bottom: 10),
-                        child: Text(
-                          "My Rewards",
-                          style: Style.text911
-                        ),
-                      ),
-                    ),
-                    GridView.count(
-                      crossAxisCount: 2,
-                      physics: NeverScrollableScrollPhysics(),
-                      crossAxisSpacing: 5.0,
-                      mainAxisSpacing: 5.0,
-                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                      shrinkWrap: true,
-                      children: List.generate(
-                        _coffeeController.getHomesList.length,
-                        (index) {
-                          return GestureDetector(
-                            onTap: () {
-                              alreadyAddedIndices.contains(index)
-                                  ? showGeneralDialog(
-                                      context: context,
-                                      barrierLabel: "Barrier",
-                                      barrierDismissible: false,
-                                      barrierColor:
-                                          Colors.black.withOpacity(0.9),
-                                      transitionDuration:
-                                          Duration(milliseconds: 1),
-                                      pageBuilder: (_, __, ___) {
-                                        return openScrach(
-                                          index: index,
-                                        );
-                                      },
-                                    )
-                                  : showGeneralDialog(
-                                      context: context,
-                                      barrierLabel: "Barrier",
-                                      barrierDismissible: false,
-                                      barrierColor:
-                                          Colors.black.withOpacity(0.9),
-                                      transitionDuration:
-                                          Duration(milliseconds: 1),
-                                      pageBuilder: (_, __, ___) {
-                                        return ScracherWidget(index
-
-                                        );
-                                      },
-                                      transitionBuilder: (_, anim, __, child) {
-                                        Tween<Offset> tween;
-                                        if (anim.status ==
-                                            AnimationStatus.reverse) {
-                                          tween = Tween(
-                                              begin: Offset(0, 0),
-                                              end: Offset.zero);
-                                        } else {
-                                          tween = Tween(
-                                              begin: Offset(0, 0),
-                                              end: Offset.zero);
-                                        }
-
-                                        return SlideTransition(
-                                          position: tween.animate(anim),
-                                          child: FadeTransition(
-                                            opacity: anim,
-                                            child: child,
-                                          ),
-                                        );
-                                      },
-                                    );
-                              // LogoutOverlay();
-                            },
-                            child: ShowScrached(alreadyAddedIndices: alreadyAddedIndices,index: index),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -319,11 +277,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
                       threshold: 75,
                       // color: Colors.red,
                       image: Image.asset(
-                        _coffeeController
-                            .getHomesList[
-                        index]
-                            .reward ??
-                            "",
+                        "assets/yy.png",
                         fit: BoxFit.fill,
                       ),
                       onChange: (value) async {

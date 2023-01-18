@@ -3,27 +3,30 @@ import 'package:draw_idea/controller/home_controller.dart';
 import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/Deals/widgets/wishlist.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/appbar.dart';
+import 'package:draw_idea/views/pages/job_portal/widgets/designation.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/tab_item.dart';
+import 'package:draw_idea/views/pages/job_portal/widgets/wishlist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'job_screen_2.dart';
 import 'widgets/job_head_slider.dart';
 
-class JobHome extends StatelessWidget {
+class JobHome extends HookWidget {
+  JobHome({Key? key}) : super(key: key);
 
-   JobHome({Key? key}) : super(key: key);
-  RxBool  isBluetoothOn = false.obs;
   @override
   Widget build(BuildContext context) {
-
-    _appBar(height) => Appbar(context, height);
+    _appBar(height) => Appbar(context, height, "JOB PORTAL");
     return Scaffold(
-      appBar: _appBar(AppBar().preferredSize.height),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            _appBar(AppBar().preferredSize.height),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Container(
               height: 120,
@@ -196,87 +199,27 @@ class JobHome extends StatelessWidget {
               ),
             ),
             ListView.builder(
-              shrinkWrap: true,
-              padding: EdgeInsets.all(10),
-              scrollDirection: Axis.vertical,
-              itemCount: 10,
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) =>
-                  Container(
-                    width: double.infinity,
-                    height: 100,
-
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: Card(
+                shrinkWrap: true,
+                padding: EdgeInsets.all(10),
+                scrollDirection: Axis.vertical,
+                itemCount: 10,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) =>
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(JobInnerScreen(
+                          Images1: "assets/hatric.png",
+                          description: "Crewmates Studio",
+                          designation: "Software Developer",
+                        ));
+                      },
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10,),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              padding: EdgeInsets.only(left: 10),
-                              width: 70.0,
-                              height: 70.0,
-                              child: Image.asset(
-                                "assets/hatric.png",
-                                width: 55.0,
-                                height: 55.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Center(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Software Developer",
-                                    style: Style.text29,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Software Developer",
-                                    style: Style.text9111,
-                                  ),
-                                  ],
-                              ),
-                            ),
-                            Spacer(),
-                            Center(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Icon(
-                                    isBluetoothOn.value ? Icons.favorite : Icons.favorite_border,
-                                    color:Style.systemblue,
-                                    size: 20,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "2h ago",
-                                    style: Style.text9111,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                        width: double.infinity,
+                        height: 100,
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Card(child: Designation()),
                       ),
-                    ),
-                  )
-            ),
+                    )),
           ],
         ),
       ),

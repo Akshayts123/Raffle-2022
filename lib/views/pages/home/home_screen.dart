@@ -205,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           // CarouselSliders(),
           AppBanner(),
-          CategoryList(),
+          // CategoryList(),
           AddBanner(),
           // MenuSlider(),
           ProgressCircles(),
@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           Tickets(),
           NewConnection(),
           FeaturedOffer(),
-          TabView(),
+          // TabView(),
           HelpSupport(),
         ],
       ),

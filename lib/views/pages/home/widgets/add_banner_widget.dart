@@ -30,7 +30,7 @@ class AddBannerWidget extends StatelessWidget {
                 onTap: () {},
                 child: Container(
                   width: 180,
-                  height: 230,
+                  height: 240,
                   child: Card(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: Column(
@@ -70,7 +70,7 @@ class AddBannerWidget extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 3,
+                                  height: 5,
                                 ),
                                 Container(
                                   child: Row(
@@ -128,7 +128,7 @@ class AddBannerWidget extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 5,
+                                  height: 10,
                                 ),
                                 Container(
                                   child: Row(
@@ -141,7 +141,7 @@ class AddBannerWidget extends StatelessWidget {
                                         width: 23,
                                         height: 20,
                                         decoration: BoxDecoration(
-                                          color: Style.greycolor,
+                                          color: Style.systemblue,
                                           borderRadius:
                                           BorderRadius.circular(3),
                                         ),
@@ -155,7 +155,7 @@ class AddBannerWidget extends StatelessWidget {
                                         width: 23,
                                         height: 20,
                                         decoration: BoxDecoration(
-                                          color: Style.greycolor,
+                                          color: Style.systemblue,
                                           borderRadius:
                                           BorderRadius.circular(3),
                                         ),
@@ -169,7 +169,7 @@ class AddBannerWidget extends StatelessWidget {
                                         width: 23,
                                         height: 20,
                                         decoration: BoxDecoration(
-                                          color: Style.greycolor,
+                                          color: Style.systemblue,
                                           borderRadius:
                                           BorderRadius.circular(3),
                                         ),

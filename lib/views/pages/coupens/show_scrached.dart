@@ -114,7 +114,7 @@ class ShowScrached extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  _coffeeController.getHomesList[index].reward ?? ""),
+                "assets/yy.png",),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.all(

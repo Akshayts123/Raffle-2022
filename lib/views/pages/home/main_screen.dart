@@ -4,6 +4,7 @@ import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 
@@ -37,100 +38,111 @@ class MainScreen extends HookWidget {
       onWillPop: () async {
         return false;
       },
-      child: Scaffold(
-        key: scaffoldKey,
-        body: screens[indexState.value],
-        bottomNavigationBar: SizedBox(
-          height: 60,
-          child: BottomNavigationBar(
-            fixedColor: Colors.black,
-            selectedFontSize: 12,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: indexState.value,
-            onTap: (e) {
-              indexState.value = e;
-              // indexState.value = e;
-              // if (e == 0) {
-              // bottom();
-              if (controller.position.pixels != 0.0) {
-                controller.animateTo(
-                  0.0,
-                  duration: Duration(seconds: 1),
-                  curve: Curves.easeIn,
-                );
-              }
-              // }
-            },
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            items: [
-              BottomNavigationBarItem(
-                label: "Home",
-                tooltip: "Home",
-                icon: iconAssetImage(
-                  "assets/home.png",
-                  null,
-                  Style.greycolor,
+      child: NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+        child: Scaffold(
+          key: scaffoldKey,
+          body: AnnotatedRegion<SystemUiOverlayStyle>(
+            value: SystemUiOverlayStyle.light.copyWith(
+                statusBarColor:Style.systemblue
+            ),
+            child:  screens[indexState.value],
+            ),
+          // body:
+          bottomNavigationBar: SizedBox(
+            height: 60,
+            child: BottomNavigationBar(
+              fixedColor: Colors.black,
+              selectedFontSize: 12,
+              type: BottomNavigationBarType.fixed,
+              currentIndex: indexState.value,
+              onTap: (e) {
+                indexState.value = e;
+                // indexState.value = e;
+                // if (e == 0) {
+                // bottom();
+                if (controller.position.pixels != 0.0) {
+                  controller.animateTo(
+                    0.0,
+                    duration: Duration(seconds: 1),
+                    curve: Curves.easeIn,
+                  );
+                }
+                // }
+              },
+              showUnselectedLabels: true,
+              showSelectedLabels: true,
+              items: [
+                BottomNavigationBarItem(
+                  label: "HOME",
+                  tooltip: "HOME",
+                  icon: iconAssetImage(
+                    "assets/home.png",
+                    null,
+                    Style.greycolor,
+                  ),
+                  activeIcon: iconAssetImage(
+                    "assets/home.png",
+                    null,
+                    Style.systemblue,
+                  ),
                 ),
-                activeIcon: iconAssetImage(
-                  "assets/home.png",
-                  null,
-                  Style.systemblue,
+                BottomNavigationBarItem(
+                  label: "CATEGORIES",
+                  icon: iconAssetImage(
+                    "assets/categories.png",
+                    null,
+                    Style.greycolor,
+                  ),
+                  activeIcon: iconAssetImage(
+                    "assets/categories.png",
+                    null,
+                    Style.systemblue,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: "Categories",
-                icon: iconAssetImage(
-                  "assets/categories.png",
-                  null,
-                  Style.greycolor,
+                BottomNavigationBarItem(
+                  label: "COUPONS",
+                  icon: iconAssetImage(
+                    "assets/voucher.png",
+                    35,
+
+                  ),
+                  activeIcon: iconAssetImage(
+                    "assets/voucher.png",
+                    null,
+                  ),
                 ),
-                activeIcon: iconAssetImage(
-                  "assets/categories.png",
-                  null,
-                  Style.systemblue,
+                BottomNavigationBarItem(
+                  label: "JOBS",
+                  icon: iconAssetImage(
+                    "assets/suitcase.png",
+                    null,
+                    Style.greycolor,
+                  ),
+                  activeIcon: iconAssetImage(
+                    "assets/suitcase.png",
+                    null,
+                    Style.systemblue,
+                  ),
                 ),
-              ),
-              BottomNavigationBarItem(
-                label: "Coupons",
-                icon: iconAssetImage(
-                  "assets/coupon.png",
-                  32,
-                  Style.greycolor,
+                BottomNavigationBarItem(
+                  label: "SERVICES",
+                  icon: iconAssetImage(
+                    "assets/service.png",
+                    null,
+                    Style.greycolor,
+                  ),
+                  activeIcon: iconAssetImage(
+                    "assets/service.png",
+                    null,
+                    Style.systemblue,
+                  ),
                 ),
-                activeIcon: iconAssetImage(
-                  "assets/coupon.png",
-                  null,
-                  Style.systemblue,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "Offers",
-                icon: iconAssetImage(
-                  "assets/discount.png",
-                  null,
-                  Style.greycolor,
-                ),
-                activeIcon: iconAssetImage(
-                  "assets/discount.png",
-                  null,
-                  Style.systemblue,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "Services",
-                icon: iconAssetImage(
-                  "assets/service.png",
-                  null,
-                  Style.greycolor,
-                ),
-                activeIcon: iconAssetImage(
-                  "assets/service.png",
-                  null,
-                  Style.systemblue,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

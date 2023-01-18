@@ -54,6 +54,7 @@ class Style {
   static TextStyle text27  =       GoogleFonts.poppins(fontSize: 12, color: Style.greycolor, fontWeight: FontWeight.w500);
   static TextStyle text28  =  GoogleFonts.poppins(color: Colors.white, fontSize: 14,fontWeight: FontWeight.w500);
   static TextStyle text29  =  GoogleFonts.poppins(color: Colors.black, fontSize: 15,fontWeight: FontWeight.w600);
+  static TextStyle text30  =  GoogleFonts.poppins(color: systemblue, fontSize: 15,fontWeight: FontWeight.w600);
 
 }
 
