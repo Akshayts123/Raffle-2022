@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/home_controller.dart';
 import '../../../utils/style.dart';
+import '../job_portal/widgets/new_appbar.dart';
 import 'category_inner_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -32,20 +33,21 @@ class CategoryScreen extends StatelessWidget {
     final orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Style.systemblue,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-        title: Text(categorytitle),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Style.systemblue,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //     icon: Icon(Icons.arrow_back),
+      //   ),
+      //   title: Text(categorytitle),
+      // ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           children: [
+            NewAppbar1(categorytitle),
             Container(
               padding: EdgeInsets.all(15),
               child: Row(
@@ -437,6 +439,64 @@ class CategoryScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+  NewAppbar1(String heading){
+    return   Stack(
+      clipBehavior: Clip.none,
+      children: <Widget>[
+        // Required some widget in between to float AppBar
+        Container(
+          padding: EdgeInsets.only(top: 35, left: 15, right: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: (){
+                  Get.back();
+                },
+                child: Container(
+                  height: 40,
+                  width: 40,
+
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1, color: Colors.white),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Icon(Icons.arrow_back_ios,
+                        color: Style.whitecolor),
+                  ),
+                ),
+              ),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.circular(3)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 0.0),
+                  child: Icon(Icons.more_vert,
+                      color: Style.whitecolor),
+                ),
+              ),
+            ],
+          ),
+          color: Style.systemblue,
+          height: 100,
+          width: double.infinity,
+        ),
+        Positioned(
+          // To take AppBar Size only
+          top: 55.0,
+          left: 10.0,
+          right: 10.0,
+          child: Center(
+              child:Text(heading,style: Style.subheading,)
+          ),
+        )
+      ],
     );
   }
 }

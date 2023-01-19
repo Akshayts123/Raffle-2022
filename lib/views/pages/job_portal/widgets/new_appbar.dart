@@ -1,5 +1,8 @@
 
 
+
+
+import 'package:draw_idea/views/pages/Deals/widgets/catogory_heading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +10,7 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../utils/style.dart';
 
-Iconsimage(String Images1 ){
+NewAppbar(String heading){
   return   Stack(
     clipBehavior: Clip.none,
     children: <Widget>[
@@ -24,6 +27,7 @@ Iconsimage(String Images1 ){
               child: Container(
                 height: 40,
                 width: 40,
+
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.white),
                     borderRadius: BorderRadius.circular(5)),
@@ -39,7 +43,7 @@ Iconsimage(String Images1 ){
               width: 40,
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.white),
-                  borderRadius: BorderRadius.circular(5)),
+                  borderRadius: BorderRadius.circular(3)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 0.0),
                 child: Icon(Icons.more_vert,
@@ -54,20 +58,11 @@ Iconsimage(String Images1 ){
       ),
       Positioned(
         // To take AppBar Size only
-        top: 45.0,
+        top: 65.0,
         left: 10.0,
         right: 10.0,
         child: Center(
-          child: Container(
-            height: 150,
-            width: 150,
-            child: Image.asset(
-              Images1,
-              width: 100.0,
-              height: 100.0,
-              fit: BoxFit.cover,
-            ),
-          ),
+          child:Text(heading,style: Style.subheading,)
         ),
       )
     ],

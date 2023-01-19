@@ -55,7 +55,9 @@ class Style {
   static TextStyle text28  =  GoogleFonts.poppins(color: Colors.white, fontSize: 14,fontWeight: FontWeight.w500);
   static TextStyle text29  =  GoogleFonts.poppins(color: Colors.black, fontSize: 15,fontWeight: FontWeight.w600);
   static TextStyle text30  =  GoogleFonts.poppins(color: systemblue, fontSize: 15,fontWeight: FontWeight.w600);
-
+  static TextStyle text31  =  GoogleFonts.poppins(fontSize: 15,fontWeight: FontWeight.w600);
+  static TextStyle text32  =  GoogleFonts.poppins(fontSize: 14,height: 2,color: blackcolor,fontWeight: FontWeight.w500);
+  static TextStyle subheading  =  GoogleFonts.poppins(color: Colors.white, fontSize: 19, fontWeight: FontWeight.w600);
 }
 
 class Pods{

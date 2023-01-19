@@ -121,7 +121,30 @@ class HomeController extends GetxController {
     'assets/images/banner.png',
     'assets/images/banner.png',
   ];
-
+  final List<String> designation = [
+    'Marketing Coordinator',
+    'Medical Assistant',
+    'Web Designer',
+    'Dog Trainer',
+    'President of Sales',
+    'Nursing Assistant',
+    'Project Manager',
+   ' Librarian',
+   ' Project Manager',
+    'Account Executive',
+  ];
+  final List<String> studio = [
+    'Catchy Portrait Studio',
+    'Page Image Co',
+    'Photo Phactory',
+    'Excellent Photographer',
+    'Impression Group',
+    'Snipers',
+    'Picture Perfect',
+    ' Ordinary Photos Co',
+    ' The Cine',
+    ' School Photographers',
+  ];
   int current = 0;
   final CarouselController controller1 = CarouselController();
   var list = [
@@ -156,7 +179,8 @@ class HomeController extends GetxController {
       tab: "assets/bat.png",
       category: 'assets/category1.png',
       services: 'assets/s1.png',
-      servicestext: 'Government Affairs' ,
+      servicestext: 'Government Affairs',
+      shop: 'assets/shop1.png' ,
     ),
     Homes(
       Name: 'QrCode ',
@@ -190,6 +214,7 @@ class HomeController extends GetxController {
       category: 'assets/category2.png' ,
       services: 'assets/s2.png' ,
       servicestext: 'Medical Care ' ,
+      shop: 'assets/shop2.png' ,
     ),
     Homes(
       Name: 'Game ',
@@ -223,6 +248,7 @@ class HomeController extends GetxController {
       category: 'assets/category3.png' ,
       services: 'assets/s3.png' ,
       servicestext: 'Car Owner' ,
+      shop: 'assets/shop3.png' ,
     ),
     Homes(
       Name: 'Food ',
@@ -256,6 +282,7 @@ class HomeController extends GetxController {
       category: 'assets/category4.png' ,
       services: 'assets/s4.png' ,
       servicestext: 'Traffic Travel' ,
+      shop: 'assets/shop4.png' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -289,6 +316,7 @@ class HomeController extends GetxController {
       category: 'assets/category5.png' ,
       services: 'assets/s5.png' ,
       servicestext: 'Social Security' ,
+      shop: 'assets/shop5.png' ,
     ),
     Homes(
       Name: 'Home ',
@@ -322,6 +350,7 @@ class HomeController extends GetxController {
       category: 'assets/category6.png' ,
       services: 'assets/s6.png' ,
       servicestext: 'More Services' ,
+      shop: 'assets/shop6.png' ,
 
     ),
     Homes(
@@ -356,6 +385,7 @@ class HomeController extends GetxController {
       category: 'assets/category7.png' ,
       services: 'assets/s7.png' ,
       servicestext: 'More Services' ,
+      shop: 'assets/shop7.png' ,
     ),
     Homes(
       Name: 'Game ',
@@ -389,6 +419,7 @@ class HomeController extends GetxController {
       category: 'assets/category8.png' ,
       services: 'assets/s8.png' ,
       servicestext: 'More Services' ,
+      shop: 'assets/shop8.png' ,
     ),
     Homes(
       Name: 'Food ',
@@ -422,6 +453,7 @@ class HomeController extends GetxController {
       category: 'assets/category9.png' ,
       services: 'assets/s9.png' ,
       servicestext: 'More Services' ,
+      shop: 'assets/shop9.png' ,
     ),
     Homes(
       Name: 'Bar ',
@@ -455,6 +487,7 @@ class HomeController extends GetxController {
       category: 'assets/category10.png' ,
       services: 'assets/s1.png' ,
       servicestext: 'More Services' ,
+      shop: 'assets/shop10.png' ,
     ),
   ];
 

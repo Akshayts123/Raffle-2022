@@ -419,6 +419,7 @@ class Homes {
   late final String? category;
   late final String? services;
   late final String? servicestext;
+  late final String? shop;
 
 
 
@@ -455,6 +456,7 @@ class Homes {
     required this.category,
     required this.services,
     required this.servicestext,
+    required this.shop,
   });
   Homes.fromJson(
       Map<String, dynamic> json,
@@ -488,6 +490,7 @@ class Homes {
       this.category,
       this.services,
       this.servicestext,
+      this.shop,
       this.bis) {
     Name = json['Name'];
     img = json['img'];
@@ -520,6 +523,7 @@ class Homes {
     category = json['category'];
     services = json['services'];
     servicestext = json['servicestext'];
+    shop = json['shop'];
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
@@ -553,6 +557,7 @@ class Homes {
     data['category'] = this.category;
     data['services'] = this.services;
     data['servicestext'] = this.servicestext;
+    data['shop'] = this.shop;
 
     return data;
   }

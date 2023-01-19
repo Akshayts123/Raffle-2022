@@ -4,6 +4,7 @@ import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/Deals/widgets/wishlist.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/appbar.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/designation.dart';
+import 'package:draw_idea/views/pages/job_portal/widgets/shops.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/tab_item.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/wishlist.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,12 +12,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'Job_screen_3.dart';
 import 'job_screen_2.dart';
 import 'widgets/job_head_slider.dart';
 
 class JobHome extends HookWidget {
   JobHome({Key? key}) : super(key: key);
-
+  final HomeController _coffeeController = Get.find();
   @override
   Widget build(BuildContext context) {
     _appBar(height) => Appbar(context, height, "JOB PORTAL");
@@ -51,8 +53,13 @@ class JobHome extends HookWidget {
                     color: HomeController.cources1[index],
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: JobHeaderSlider(
-                      "874", "Job Applicant", "98%", "assets/up.png"),
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.to(JobScreen3(heading: 'Job Applicant',));
+                    },
+                    child: JobHeaderSlider(
+                        "874", "Job Applicant", "98%", "assets/up.png"),
+                  )
                 ),
               ),
             ),
@@ -133,38 +140,12 @@ class JobHome extends HookWidget {
                     height: 270,
                     child: TabBarView(
                       children: <Widget>[
-                        Container(
-                          height: 120,
-                          child: ListView.builder(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.all(10),
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 10,
-                            physics: BouncingScrollPhysics(),
-                            itemBuilder: (BuildContext context, int index) =>
-                                TabItem(
-                              "assets/hatric.png",
-                              "Creative Studios",
-                              "Innovative ideas",
-                              "40 Vaccency",
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Icon(Icons.directions_transit),
-                        ),
-                        Center(
-                          child: Icon(Icons.directions_bike),
-                        ),
-                        Center(
-                          child: Icon(Icons.directions_car),
-                        ),
-                        Center(
-                          child: Icon(Icons.directions_transit),
-                        ),
-                        Center(
-                          child: Icon(Icons.directions_bike),
-                        ),
+                        Shops(),
+                        Shops(),
+                        Shops(),
+                        Shops(),
+                        Shops(),
+                        Shops(),
                       ],
                     ),
                   ),
@@ -199,27 +180,31 @@ class JobHome extends HookWidget {
               ),
             ),
             ListView.builder(
-                shrinkWrap: true,
-                padding: EdgeInsets.all(10),
-                scrollDirection: Axis.vertical,
-                itemCount: 10,
-                physics: BouncingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) =>
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(JobInnerScreen(
-                          Images1: "assets/hatric.png",
-                          description: "Crewmates Studio",
-                          designation: "Software Developer",
-                        ));
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 100,
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: Card(child: Designation()),
-                      ),
-                    )),
+              shrinkWrap: true,
+              padding: EdgeInsets.all(10),
+              scrollDirection: Axis.vertical,
+              itemCount: 5,
+              physics: BouncingScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+                onTap: () {
+                  Get.to(
+                    JobInnerScreen(
+                      Images1:  _coffeeController
+                          .getHomesList[index].services ??
+                          "",
+                      description: _coffeeController.studio[index],
+                      designation: _coffeeController.designation[index],
+                    ),
+                  );
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 140,
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Card(elevation: 2, child: Designation(index)),
+                ),
+              ),
+            ),
           ],
         ),
       ),

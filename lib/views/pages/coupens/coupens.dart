@@ -58,39 +58,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
                   SizedBox(
                     height: 10,
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(15.0),
-                  //   child: RawMaterialButton(
-                  //     onPressed: () {},
-                  //     constraints: BoxConstraints(),
-                  //     elevation: 1.0,
-                  //     fillColor: Style.whitecolor,
-                  //     child: ClipRRect(
-                  //       borderRadius: BorderRadius.circular(10.0),
-                  //       child: Container(
-                  //           padding: EdgeInsets.symmetric(horizontal: 20),
-                  //           height: 50,
-                  //           width: double.infinity,
-                  //           child: Center(
-                  //               child: Row(
-                  //             mainAxisAlignment:
-                  //                 MainAxisAlignment.spaceBetween,
-                  //             children: [
-                  //               Text(
-                  //                 "Upcoming rewards on your path",
-                  //                 style: Style.text911
-                  //               ),
-                  //               Icon(
-                  //                 Icons.arrow_forward,
-                  //                 color: Colors.blue,
-                  //               )
-                  //             ],
-                  //           ))),
-                  //     ),
-                  //     shape: RoundedRectangleBorder(
-                  //         borderRadius: BorderRadius.circular(10)),
-                  //   ),
-                  // ),
+                
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Heading(

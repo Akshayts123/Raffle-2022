@@ -12,7 +12,7 @@ TabItem(String hatric ,String text1,String text2,String text3){
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
       ),
-      elevation: 5,
+      elevation: 2,
       child: Container(
         height: 170,
         width: 250,
@@ -25,7 +25,7 @@ TabItem(String hatric ,String text1,String text2,String text3){
               hatric,
               width: 125.0,
               height: 125.0,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
             SizedBox(
               height: 10,

@@ -15,5 +15,6 @@ class CoupenController extends GetxController{
   var courseid = 0;
   double? closing = 0;
   var coursename = "default";
-
+  bool isExpired = true;
+  final expirationDate = DateTime(2021, 12, 20);
 }

@@ -94,11 +94,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: RefreshIndicator(
           onRefresh: _coffeeController.refreshLocalGallery,
           child: DraggableHome(
-            leading: const Icon(Icons.arrow_back_ios),
+            curvedBodyRadius: 10,
+            // alwaysShowLeadingAndAction: true,
+            leading:  Container(),
             title: const Text("Raffle Draw"),
-            actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-            ],
+            // actions: [
+            //   IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+            // ],
             headerWidget: headerWidget(context),
             // headerBottomBar: headerBottomBarWidget(),
             body: [
@@ -106,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 () => guest.value == true ? listViewguest() : listView(),
               ),
             ],
-            headerExpandedHeight: 0.21,
+            headerExpandedHeight: 0.19,
             fullyStretchable: false,
             // bottomNavigationBar: Bottom_nav(),
             // floatingActionButton: FloatingAction(),
