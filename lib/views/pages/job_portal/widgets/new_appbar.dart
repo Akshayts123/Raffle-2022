@@ -16,7 +16,7 @@ NewAppbar(String heading){
     children: <Widget>[
       // Required some widget in between to float AppBar
       Container(
-        padding: EdgeInsets.only(top: 35, left: 15, right: 15),
+        padding: EdgeInsets.only(top: 35, left: 10, right: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -28,9 +28,9 @@ NewAppbar(String heading){
                 height: 40,
                 width: 40,
 
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.white),
-                    borderRadius: BorderRadius.circular(5)),
+                // decoration: BoxDecoration(
+                //     border: Border.all(width: 1, color: Colors.white),
+                //     borderRadius: BorderRadius.circular(5)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Icon(Icons.arrow_back_ios,
@@ -41,9 +41,9 @@ NewAppbar(String heading){
             Container(
               height: 40,
               width: 40,
-              decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Colors.white),
-                  borderRadius: BorderRadius.circular(3)),
+              // decoration: BoxDecoration(
+              //     border: Border.all(width: 1, color: Colors.white),
+              //     borderRadius: BorderRadius.circular(3)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 0.0),
                 child: Icon(Icons.more_vert,
@@ -58,7 +58,7 @@ NewAppbar(String heading){
       ),
       Positioned(
         // To take AppBar Size only
-        top: 65.0,
+        top: 67.0,
         left: 10.0,
         right: 10.0,
         child: Center(

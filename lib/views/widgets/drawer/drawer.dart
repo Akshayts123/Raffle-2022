@@ -9,14 +9,29 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controller/register_controller.dart';
+import '../../../utils/darkLight.dart';
 import '../badge/badge.dart';
 
-class drawer extends StatelessWidget {
-  final RegisterController loginController = Get.find();
-   drawer({Key? key}) : super(key: key);
+class drawer extends StatefulWidget {
+
+   drawer({Key? key,}) : super(key: key);
 
   @override
+  State<drawer> createState() => _drawerState();
+}
+
+RxBool darkMode = false.obs;
+RxBool _isLightTheme = false.obs;
+class _drawerState extends State<drawer> {
+  @override
+  void initState() {
+    super.initState();
+    getThemeStatus();
+  }
+  @override
+
   Widget build(BuildContext context) {
+
     return  SafeArea(
       child: Container(
 
@@ -27,22 +42,65 @@ class drawer extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              // Container(
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Obx(() =>
+              //       _isLightTheme.value ? Text('Light Mode'.tr) : Text('Dark Mode'.tr),
+              //       ),
+              //       ObxValue(
+              //             (data) => Switch(
+              //           value: _isLightTheme.value,
+              //           onChanged: (val) {
+              //             _isLightTheme.value = val;
+              //             Get.changeThemeMode(
+              //               _isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
+              //             );
+              //             _saveThemeStatus();
+              //           },
+              //         ),
+              //         false.obs,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
               Padding(
                 padding:
                 const EdgeInsets.only(right: 20.0,top: 20,bottom: 20),
                 child: badge(),
               ),
-              ListTile(
-                onTap: () {
-                },
-                leading: Icon(Icons.home),
-                title: Container(child: Row(
-                  children: [
-                   Text('Home Screen '),
-                    popnew()
-                  ],
-                )),
-              ),
+              // ElevatedButton(
+              //     style: ElevatedButton.styleFrom(
+              //       primary: context.theme.buttonColor,
+              //       padding:
+              //       const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+              //       textStyle: const TextStyle(
+              //           fontSize: 16, fontWeight: FontWeight.bold),
+              //     ),
+              //     onPressed:(){
+              //       Get.changeThemeMode( ThemeMode.light );
+              //       Get.changeThemeMode(  ThemeMode.dark );
+              //
+              //     },
+              //     child: const Text('Change Theme')),
+              Obx(() {
+                return ListTile(
+                  leading: _isLightTheme.value ? Icon(Icons.sunny): Icon(Icons.brightness_2_rounded),
+                  title: _isLightTheme.value ? Text('Light Mode'.tr) : Text('Dark Mode'.tr),
+                  trailing: Switch(
+                    value: _isLightTheme.value,
+                    onChanged: (val) {
+                      _isLightTheme.value = val;
+                      Get.changeThemeMode(
+                        _isLightTheme.value ? ThemeMode.light : ThemeMode.dark,
+                      );
+                      _saveThemeStatus();
+                    },
+                  ),
+                );
+              }),
               Container(
                 margin: EdgeInsets.only(left: 70,right: 20),
                 width: 200,
@@ -201,5 +259,18 @@ class drawer extends StatelessWidget {
       ),
     );
   }
-
 }
+
+Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
+_saveThemeStatus() async {
+  SharedPreferences pref = await _prefs;
+  pref.setBool('theme', _isLightTheme.value);
+}
+
+getThemeStatus() async {
+  var _isLight = _prefs.then((SharedPreferences prefs) {
+    return prefs.getBool('theme') != null ? prefs.getBool('theme') : true;
+  }).obs;
+  _isLightTheme.value = (await _isLight.value)!;
+  Get.changeThemeMode(_isLightTheme.value ? ThemeMode.light : ThemeMode.dark);}

@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../controller/category_controller.dart';
 import '../../../controller/home_controller.dart';
+import '../../widgets/more/more.dart';
 import '../home/main_screen.dart';
 import '../home/widgets/bottom_nav_bar.dart';
 import '../home/widgets/floating_action.dart';
@@ -28,10 +29,10 @@ class Catogories extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    _appBar(height) => Appbar(context, height,"CATEGORIES");
+    _appBar(height) => Appbar( text:"CATEGORIES", height: height,);
     final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-        backgroundColor:Colors.white ,
+        backgroundColor: context.theme.canvasColor,
       // appBar: AppBar(
       //   backgroundColor: Style.systemblue,
       //   leading: Icon(Icons.menu),
@@ -45,19 +46,23 @@ class Catogories extends HookWidget {
               height: 40,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(top: 0.0),
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Heading(
-                        text: "Popular Category",
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding:  Pods.HEADING_PADDING,
+                            child: Heading(text: "Popular Category",)
+                        ),
+                        more()
+                      ],
                     ),
+
                     Container(
                       child: GridView.builder(
                         itemCount: 6,
@@ -82,12 +87,17 @@ class Catogories extends HookWidget {
                         },
                       ),
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Heading(
-                        text: "All Category",
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            padding:  Pods.HEADING_PADDING,
+                            child: Heading(text: "All Category",)
+                        ),
+                        more()
+                      ],
                     ),
+
                     GestureDetector(
                       onTap: (){},
                       child: Container(

@@ -66,7 +66,7 @@ class AddBannerWidget extends StatelessWidget {
                                 Container(
                                   child: Text(
                                     'Lorem Ipsum',
-                                    style: Style.text,
+                                    style: context.theme.textTheme.titleMedium,
                                   ),
                                 ),
                                 SizedBox(
@@ -119,10 +119,7 @@ class AddBannerWidget extends StatelessWidget {
                                       Container(
                                           child: Text(
                                             "30 Reviews",
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 11,
-                                              color: Style.blackcolor,
-                                            ),
+                                            style: context.theme.textTheme.titleSmall
                                           )),
                                     ],
                                   ),

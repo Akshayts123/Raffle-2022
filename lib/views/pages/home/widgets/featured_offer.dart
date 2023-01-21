@@ -9,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
+import '../../../widgets/more/more.dart';
+import '../../Deals/widgets/catogory_heading.dart';
 
 Widget FeaturedOffer(){
   final HomeController _coffeeController = Get.find();
@@ -22,31 +24,9 @@ Widget FeaturedOffer(){
             children: [
               Container(
                 padding: Pods.LEFT_PADDING,
-                child: Text(
-                  "featured offers for you",
-                  style: Style.mainheading,
-                ),
+                child: Heading(text:  "Featured offers for you",)
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0),
-                child: RawMaterialButton(
-                  onPressed: () {},
-                  constraints: BoxConstraints(),
-                  elevation: 0.0,
-                  fillColor: Style.whitecolor,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Style.blackcolor),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
-                      Icons.chevron_right,
-                      size: 20,
-                    ),
-                  ),
-                  padding: EdgeInsets.all(0.0),
-                  shape: CircleBorder(),
-                ),
-              ),
+             more()
             ],
           ),
         ),

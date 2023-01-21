@@ -1,5 +1,6 @@
 
 
+import 'package:draw_idea/views/pages/home/widgets/small_banner_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,179 +27,21 @@ Widget SmallBanner(){
               itemBuilder: (BuildContext context, int index) {
                 if (index == 1 )
                 {
-                  return Container(
-                    margin: EdgeInsets.only(right: 10),
-                    child: Stack(
-                      children: [
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                width: 160,
-                                height: 140,
-                                child: Card(
-                                  color: Colors.black45,
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  child: Column(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(15),
-                                            bottomLeft: Radius.circular(15)
-                                        ),
-                                        child: SizedBox(
-                                          width: 170,
-                                          height: 105,
-                                          child: Image.asset(
-                                            _coffeeController
-                                                .getHomesList[index].offer ??
-                                                "",
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 1,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Text(
-                                          'Sony LIV for 1 year ',
-                                          style:Style.text6
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
+                 return SmallBannerWidget(index: index, offer:  _coffeeController
+                      .getHomesList[index].offer ??
+                      "", text: 'Sony LIV for 1 year ',);
                 }
                 if (index == 4  )
                 {
-                  return Container(
-                    margin: EdgeInsets.only(right: 10),
-                    child: Stack(
-                      children: [
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                width: 160,
-                                height: 140,
-                                child: Card(
-                                  color: Colors.black45,
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  child: Column(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(15),
-                                            bottomLeft: Radius.circular(15)
-                                        ),
-                                        child: SizedBox(
-                                          width: 170,
-                                          height: 105,
-                                          child: Image.asset(
-                                            _coffeeController
-                                                .getHomesList[index].offer ??
-                                                "",
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 1,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Text(
-                                          'Sony LIV for 1 year ',
-                                          style: Style.text6
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
+                  return SmallBannerWidget(index: index, offer:  _coffeeController
+                      .getHomesList[index].offer ??
+                      "", text: 'Sony LIV for 1 year ',);
                 }
                 if (index ==7  )
                 {
-                  return Container(
-                    margin: EdgeInsets.only(right: 10),
-                    child: Stack(
-                      children: [
-                        Column(
-                          children: [
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                width: 160,
-                                height: 140,
-                                child: Card(
-                                  color: Colors.black45,
-                                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                                  child: Column(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(15),
-                                            bottomLeft: Radius.circular(15)
-                                        ),
-                                        child: SizedBox(
-                                          width: 170,
-                                          height: 105,
-                                          child: Image.asset(
-                                            _coffeeController
-                                                .getHomesList[index].offer ??
-                                                "",
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 1,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Text(
-                                          'Sony LIV for 1 year ',
-                                          style:Style.text6
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
+                  return SmallBannerWidget(index: index, offer:  _coffeeController
+                      .getHomesList[index].offer ??
+                      "", text: 'Sony LIV for 1 year ',);
                 }
                 return Container(
                   margin: EdgeInsets.only(right: 10),
@@ -230,15 +73,15 @@ Widget SmallBanner(){
                                       height: 5,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(0.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Column(children: [
                                         Text(
                                           'On \$3099 recharge',
-                                          style: Style.text7
+                                          style: context.theme.textTheme.titleMedium
                                         ),
                                         Text(
                                           'Using Credit Card',
-                                          style:Style.text2
+                                          style:context.theme.textTheme.titleSmall
                                         )
                                       ]),
                                     )

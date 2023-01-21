@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../utils/style.dart';
@@ -12,7 +13,7 @@ class Heading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(text, style: Style.text151),
+      child: Text(text, style: context.theme.textTheme.headlineSmall ),
     );
   }
 }

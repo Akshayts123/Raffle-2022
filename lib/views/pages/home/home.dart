@@ -77,7 +77,7 @@ class Home extends HookWidget {
                             // bottom: 0,
                             child: Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xFFFFF8E1),
+                                  color: context.theme.backgroundColor,
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(20.0),
                                       topRight: Radius.circular(20.0))),
@@ -126,7 +126,7 @@ class Home extends HookWidget {
                         ],
                       ),
                       Container(
-                        color: Color(0xFFFFF8E1),
+                        color: context.theme.backgroundColor,
                         // height: 600,
                         child: Column(
                           children: [

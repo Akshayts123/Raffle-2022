@@ -39,9 +39,9 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
   final expirationDate = DateTime(2021, 12, 20);
   @override
   Widget build(BuildContext context) {
-    _appBar(height) => Appbar(context, height,"COUPONS");
+    _appBar(height) => Appbar( text:"COUPONS", height: height,);
     return Scaffold(
-      backgroundColor:Colors.white ,
+      backgroundColor:context.theme.backgroundColor ,
       // bottomNavigationBar: Bottom_nav(),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +51,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
               height: 40,
             ),
             Container(
-              color: Colors.white,
+              color: context.theme.backgroundColor ,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

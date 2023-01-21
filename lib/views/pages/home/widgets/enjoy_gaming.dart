@@ -1,4 +1,5 @@
 
+import 'package:draw_idea/views/pages/Deals/widgets/catogory_heading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
+import '../../../widgets/more/more.dart';
 
 Widget EnjoyGaming(){
   final HomeController _coffeeController = Get.find();
@@ -22,31 +24,9 @@ Widget EnjoyGaming(){
           children: [
             Container(
               padding: Pods.HEADING_PADDING,
-              child: Text(
-                "Enjoy non-stop gaming",
-                style:Style.mainheading,
-              ),
+              child: Heading(text: "Enjoy non-stop gaming",)
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child: RawMaterialButton(
-                onPressed: () {},
-                constraints: BoxConstraints(),
-                elevation: 0.0,
-                fillColor: Style.whitecolor,
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Style.blackcolor),
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Icon(
-                    Icons.chevron_right,
-                    size: 20,
-                  ),
-                ),
-                padding: EdgeInsets.all(0.0),
-                shape: CircleBorder(),
-              ),
-            ),
+            more()
           ],
         ),
         Container(
@@ -88,7 +68,7 @@ Widget EnjoyGaming(){
                       Container(
                         child: Text(
                           _coffeeController.getHomesList[index].title??"",
-                          style: Style.text3,
+                          style: context.theme.textTheme.titleSmall,
                         ),
                       ),
                     ],

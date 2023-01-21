@@ -8,6 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
+import '../../../widgets/more/more.dart';
+import '../../Deals/widgets/catogory_heading.dart';
 
 Widget HelpSupport(){
   final HomeController _coffeeController = Get.find();
@@ -20,31 +22,9 @@ Widget HelpSupport(){
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Text(
-                  "Help and Support",
-                  style: Style.mainheading,
-                ),
+                child: Heading(text: "Help and Support",)
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0),
-                child: RawMaterialButton(
-                  onPressed: () {},
-                  constraints: BoxConstraints(),
-                  elevation: 0.0,
-                  fillColor: Style.whitecolor,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color:Style.blackcolor),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Icon(
-                      Icons.chevron_right,
-                      size: 20,
-                    ),
-                  ),
-                  padding: EdgeInsets.all(0.0),
-                  shape: CircleBorder(),
-                ),
-              ),
+             more()
             ],
           ),
         ),
@@ -71,7 +51,7 @@ Widget HelpSupport(){
                               onPressed: () {},
                               constraints: BoxConstraints(),
                               elevation: 2.0,
-                              fillColor:Style.whitecolor,
+                              fillColor:context.theme.cardColor,
                               child: Container(
                                 height:17,
                                 width: 27,
@@ -116,7 +96,7 @@ Widget HelpSupport(){
                                   _coffeeController
                                       .getHomesList[index].btndesc ??
                                       "",
-                                  style: Style.text3,
+                                  style: context.theme.textTheme.titleSmall,
                                 ),
                               ),
                             ),
@@ -138,12 +118,12 @@ Widget HelpSupport(){
                             onPressed: () {},
                             constraints: BoxConstraints(),
                             elevation: 2.0,
-                            fillColor: Style.whitecolor,
+                            fillColor: context.theme.cardColor,
                             child: Image.asset(
                               _coffeeController.getHomesList[index].help ??
                                   "",
                               width: 27.0,
-                              color: Style.greycolor,
+                              color: context.theme.indicatorColor,
                               height: 27.0,
                               fit: BoxFit.cover,
                             ),
@@ -163,7 +143,7 @@ Widget HelpSupport(){
                                 _coffeeController
                                     .getHomesList[index].btndesc ??
                                     "",
-                                style: Style.text3,
+                                style:context.theme.textTheme.titleSmall,
                               ),
                             ),
                           ),

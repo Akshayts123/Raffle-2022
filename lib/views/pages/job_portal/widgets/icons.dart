@@ -13,7 +13,7 @@ Iconsimage(String Images1 ){
     children: <Widget>[
       // Required some widget in between to float AppBar
       Container(
-        padding: EdgeInsets.only(top: 35, left: 15, right: 15),
+        padding: EdgeInsets.only(top: 35, left: 10, right: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -24,9 +24,9 @@ Iconsimage(String Images1 ){
               child: Container(
                 height: 40,
                 width: 40,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.white),
-                    borderRadius: BorderRadius.circular(5)),
+                // decoration: BoxDecoration(
+                //     border: Border.all(width: 1, color: Colors.white),
+                //     borderRadius: BorderRadius.circular(5)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Icon(Icons.arrow_back_ios,
@@ -37,9 +37,9 @@ Iconsimage(String Images1 ){
             Container(
               height: 40,
               width: 40,
-              decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Colors.white),
-                  borderRadius: BorderRadius.circular(5)),
+              // decoration: BoxDecoration(
+              //     border: Border.all(width: 1, color: Colors.white),
+              //     borderRadius: BorderRadius.circular(5)),
               child: Padding(
                 padding: const EdgeInsets.only(left: 0.0),
                 child: Icon(Icons.more_vert,

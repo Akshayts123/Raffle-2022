@@ -73,14 +73,14 @@ class CategoryInnerScreen extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.7),
+                            color: context.theme.cardColor.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(10)),
                         margin: EdgeInsets.all(10),
                         child: IconButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          icon: Icon(Icons.arrow_back),
+                          icon: Icon(Icons.arrow_back,color: context.theme.focusColor),
                         ),
                       ),
                     ),
@@ -88,7 +88,7 @@ class CategoryInnerScreen extends StatelessWidget {
                       alignment: Alignment.topRight,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.7),
+                            color:context.theme.cardColor.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(10)),
                         margin: EdgeInsets.all(10),
                         child: Favourite2(),
@@ -106,7 +106,7 @@ class CategoryInnerScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          child: HeadingInner(text: "Cardigan Lorem Ipsum"),
+                          child: Heading(text: "Cardigan Lorem Ipsum"),
                         ),
                         Container(
                           child: Row(
@@ -122,7 +122,7 @@ class CategoryInnerScreen extends StatelessWidget {
                                 width: 5,
                               ),
                               Container(
-                                child: Text("4.5"),
+                                child: Text("4.5",style:  context.theme.textTheme.titleSmall,),
                               ),
                             ],
                           ),
@@ -133,7 +133,7 @@ class CategoryInnerScreen extends StatelessWidget {
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
                         "Description",
-                        style: Style.text7
+                        style: context.theme.textTheme.titleMedium
                       ),
                     ),
                     Container(
@@ -161,19 +161,11 @@ class CategoryInnerScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    child: Text("Price", style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        height: 2,
-                        color: Style.blackcolor,
-                        fontWeight: FontWeight.w500),),
+                    child: Text("Price", style: context.theme.textTheme.titleMedium,),
                   ),
                   Container(
-                    child: Text("\$300", style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        height: 1,
-                        color: Style.blackcolor,
-                        fontWeight: FontWeight.w500),),
-                  )
+                    child: Heading(text: "\$ 300"),),
+
                 ],
               ),
             ),
@@ -186,9 +178,9 @@ class CategoryInnerScreen extends StatelessWidget {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    border: Border.all( width: 2,color: Colors.black,),
+                    border: Border.all( width: 2,color: context.theme.focusColor,),
                       borderRadius: BorderRadius.circular(50)),
-                  child: Icon(Icons.add,color: Colors.black,),
+                  child: Icon(Icons.add,color: context.theme.focusColor,),
                 ),
                 SizedBox(
                   width: 10,

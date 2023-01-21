@@ -55,8 +55,9 @@ class MainScreen extends HookWidget {
           bottomNavigationBar: SizedBox(
             height: 60,
             child: BottomNavigationBar(
-              fixedColor: Colors.black,
+              fixedColor: context.theme.highlightColor,
               selectedFontSize: 12,
+              unselectedItemColor: Colors.grey,
               type: BottomNavigationBarType.fixed,
               currentIndex: indexState.value,
               onTap: (e) {
@@ -78,6 +79,7 @@ class MainScreen extends HookWidget {
               items: [
                 BottomNavigationBarItem(
                   label: "HOME",
+
                   tooltip: "HOME",
                   icon: iconAssetImage(
                     "assets/home.png",

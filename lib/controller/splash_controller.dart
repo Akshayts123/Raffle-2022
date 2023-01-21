@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../views/pages/home/home.dart';
 import '../views/pages/home/main_screen.dart';
 import '../views/pages/on_board/on_board.dart';
 import '../views/pages/register_login/welcome_page.dart';
+import '../views/widgets/drawer/drawer.dart';
 
 class SplashController extends GetxController {
   final splashDelay = 5;
@@ -19,9 +22,8 @@ class SplashController extends GetxController {
   Future checkFirstSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool _introSeen = (prefs.getBool('intro_seen') ?? false);
-    var status = prefs.getBool('isLoggedIn') ?? false;
-
-    if (FirebaseAuth.instance.currentUser != null && _introSeen) {
+    // var status = prefs.getBool('isLoggedIn') ?? false;
+    if (FirebaseAuth.instance.currentUser != null && _introSeen   ) {
       Get.to(MainScreen());
       prefs?.setBool("guest", false);
       prefs?.setBool("isLoggedIn", true);
@@ -62,6 +64,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     _loadWidget();
+    getThemeStatus();
     // navigateUser();
     super.onInit();
   }

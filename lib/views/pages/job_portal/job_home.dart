@@ -7,11 +7,13 @@ import 'package:draw_idea/views/pages/job_portal/widgets/designation.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/shops.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/tab_item.dart';
 import 'package:draw_idea/views/pages/job_portal/widgets/wishlist.dart';
+import 'package:draw_idea/views/widgets/more/more.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import '../Deals/widgets/catogory_heading.dart';
 import 'Job_screen_3.dart';
 import 'job_screen_2.dart';
 import 'widgets/job_head_slider.dart';
@@ -21,7 +23,7 @@ class JobHome extends HookWidget {
   final HomeController _coffeeController = Get.find();
   @override
   Widget build(BuildContext context) {
-    _appBar(height) => Appbar(context, height, "JOB PORTAL");
+    _appBar(height) => Appbar( text:"JOB PORTAL", height: height,);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -67,29 +69,12 @@ class JobHome extends HookWidget {
               height: 5,
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Categories",
-                    style: Style.mainheading,
-                  ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          "more",
-                          style: Style.text9111,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 15,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                  ),
+                  Heading(text: "Categories",),
+                  more(),
                 ],
               ),
             ),
@@ -153,32 +138,16 @@ class JobHome extends HookWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "Latest Vacancies",
-                    style: Style.mainheading,
-                  ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Text(
-                          "more",
-                          style: Style.text9111,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 15,
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                  ),
+                  Heading(text: "Latest Vacancies",),
+                  more(),
                 ],
               ),
             ),
+
             ListView.builder(
               shrinkWrap: true,
               padding: EdgeInsets.all(10),

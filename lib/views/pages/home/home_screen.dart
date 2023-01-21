@@ -38,6 +38,8 @@ import '../../../controller/home_controller.dart';
 import '../../../controller/register_controller.dart';
 import '../../../controller/splash_controller.dart';
 import '../../widgets/drawer/drawer.dart';
+import 'full_version.dart';
+import 'guest_version.dart';
 import 'searchbar.dart';
 import 'home_buttons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -95,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           onRefresh: _coffeeController.refreshLocalGallery,
           child: DraggableHome(
             curvedBodyRadius: 10,
+
             // alwaysShowLeadingAndAction: true,
             leading:  Container(),
             title: const Text("Raffle Draw"),
@@ -105,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             // headerBottomBar: headerBottomBarWidget(),
             body: [
               Obx(
-                () => guest.value == true ? listViewguest() : listView(),
+                () => guest.value == true ? GuestVersion() : FullVersion(),
               ),
             ],
             headerExpandedHeight: 0.19,
@@ -115,7 +118,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             // expandedBody: const CameraPreview(),
-            backgroundColor: Color(0xFFFFF9E9),
+            // backgroundColor: Color(0xFFFFF9E9),
+            backgroundColor: context.theme.backgroundColor,
             appBarColor: Style.systemblue,
           ),
         ),
@@ -200,47 +204,48 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget listView() {
-    return Container(
-      color: Color(0xFFFFF9E9),
-      child: Column(
-        children: [
-          // CarouselSliders(),
-          AppBanner(),
-          // CategoryList(),
-          AddBanner(),
-          // MenuSlider(),
-          ProgressCircles(),
-          ImageView(),
-          SmallBanner(),
-          LatestMovies(),
-          MusicSlider(),
-          OfferBanner(),
-          NewsSlider(),
-          EnjoyGaming(),
-          JobEducation(),
-          StackedBanner(),
-          Tickets(),
-          NewConnection(),
-          FeaturedOffer(),
-          // TabView(),
-          HelpSupport(),
-        ],
-      ),
-    );
-  }
-
-  Widget listViewguest() {
-    return Container(
-        color: Color(0xFFFFF9E9),
-        child: Column(
-          children: [
-            AppBanner(),
-            ImageView(),
-            SmallBanner(),
-          ],
-        ));
-  }
+  // Widget listView() {
+  //   return Container(
+  //     // color: Color(0xFFFFF9E9),
+  //     color: context.theme.backgroundColor,
+  //     child: Column(
+  //       children: [
+  //         // CarouselSliders(),
+  //         AppBanner(),
+  //         // CategoryList(),
+  //         AddBanner(),
+  //         // MenuSlider(),
+  //         ProgressCircles(),
+  //         ImageView(),
+  //         SmallBanner(),
+  //         LatestMovies(),
+  //         MusicSlider(),
+  //         OfferBanner(),
+  //         NewsSlider(),
+  //         EnjoyGaming(),
+  //         JobEducation(),
+  //         StackedBanner(),
+  //         Tickets(),
+  //         NewConnection(),
+  //         FeaturedOffer(),
+  //         // TabView(),
+  //         HelpSupport(),
+  //       ],
+  //     ),
+  //   );
+  // }
+  //
+  // Widget listViewguest() {
+  //   return Container(
+  //       color: Color(0xFFFFF9E9),
+  //       child: Column(
+  //         children: [
+  //           AppBanner(),
+  //           ImageView(),
+  //           SmallBanner(),
+  //         ],
+  //       ));
+  // }
 
   main() async {
     guest.value = await loginController.main();
@@ -258,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       }
     });
     super.initState();
-
+    // main();
     setState(() {
       main();
 

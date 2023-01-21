@@ -1,5 +1,6 @@
 
 
+import 'package:draw_idea/views/pages/Deals/widgets/catogory_heading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../controller/home_controller.dart';
 import '../../../../utils/style.dart';
+import '../../../widgets/more/more.dart';
 
 Widget NewsSlider(){
   final HomeController _coffeeController = Get.find();
@@ -22,31 +24,9 @@ Widget NewsSlider(){
           children: [
             Container(
               padding: Pods.HEADING_PADDING,
-              child: Text(
-                "Trending news",
-                style:Style.mainheading,
-              ),
+              child: Heading(text: "Trending news",)
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child: RawMaterialButton(
-                onPressed: () {},
-                constraints: BoxConstraints(),
-                elevation: 0.0,
-                fillColor: Style.whitecolor,
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Style.blackcolor),
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Icon(
-                    Icons.chevron_right,
-                    size: 20,
-                  ),
-                ),
-                padding: EdgeInsets.all(0.0),
-                shape: CircleBorder(),
-              ),
-            ),
+            more()
           ],
         ),
         Container(
@@ -75,7 +55,7 @@ Widget NewsSlider(){
                     height: 30.0,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: Colors.white70,
+                        color: context.theme.dividerColor,
                         image: DecorationImage(
                           image: AssetImage(
                             _coffeeController.getHomesList[index].news ?? "",
@@ -84,7 +64,7 @@ Widget NewsSlider(){
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(100.0)),
                         border: Border.all(
-                          color: Color(0xFFFFF8E1),
+                          color: context.theme.backgroundColor,
                           width: 4.0,
                         )),
                     child: Container(

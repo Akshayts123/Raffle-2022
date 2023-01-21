@@ -29,6 +29,7 @@ Widget AppBanner(){
         itemCount: _coffeeController.getHomesList.length,
         itemBuilder: (BuildContext context, int index) => Container(
           padding: EdgeInsets.zero,
+          
           child: Row(
             children: [
               Container(
