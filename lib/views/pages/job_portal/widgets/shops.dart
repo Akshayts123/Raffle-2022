@@ -1,4 +1,3 @@
-
 import 'package:draw_idea/views/pages/job_portal/widgets/tab_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,7 @@ import '../Job_screen_3.dart';
 
 class Shops extends StatelessWidget {
   final HomeController _coffeeController = Get.find();
-   Shops({Key? key}) : super(key: key);
+  Shops({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +22,17 @@ class Shops extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: (){
-              Get.to(JobScreen3(heading: _coffeeController.studio[index],));
-            },
-            child:TabItem(
-              _coffeeController
-                  .getHomesList[index].shop ??
-                  "",
-              _coffeeController.studio[index],
-              "Innovative ideas",
-              "40 Vaccency",
-            ) ,
-          ) ;
+              onTap: () {
+                Get.to(JobScreen3(
+                  heading: _coffeeController.studio[index],
+                ));
+              },
+              child: TabItem(
+                hatric: _coffeeController.getHomesList[index].shop ?? "",
+                text1: _coffeeController.studio[index],
+                text2: "Innovative ideas",
+                text3: "40 Vaccency",
+              ));
         },
       ),
     );

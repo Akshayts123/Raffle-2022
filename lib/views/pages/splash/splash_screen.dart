@@ -11,13 +11,14 @@ class splashscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Style.backgroundwhite,
+      backgroundColor:context.theme.cardColor,
       body: Center(
         child: Container(
+          padding: EdgeInsets.all(30),
           child: Image.asset(
-            'assets/logo.jpg',
-            width: 200.0,
-            height: 200.0,
+            'assets/RW.png',
+            // width: 70.0,
+            // height: 70.0,
             fit: BoxFit.cover,
           ),
         ),

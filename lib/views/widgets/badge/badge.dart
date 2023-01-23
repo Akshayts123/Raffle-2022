@@ -42,7 +42,7 @@ class _badgeState extends State<badge> {
 
   Widget expandedBadge() {
     return GestureDetector(
-      onTap: () async{
+      onTap: () async {
         // logoutUser();
         await FirebaseAuth.instance.signOut();
         SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -50,7 +50,7 @@ class _badgeState extends State<badge> {
         prefs?.setBool("isLoggedIn", false);
         if (!mounted) return;
         Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return  WelcomeScreen();
+          return WelcomeScreen();
         }));
       },
       child: Container(
@@ -62,10 +62,12 @@ class _badgeState extends State<badge> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Icon(
-                  Icons.power_settings_new_outlined,
-                  size: 25,
-                  color: Colors.white,
+                Obx(
+                  () => Icon(
+                    Icons.power_settings_new_outlined,
+                    size: 25,
+                    color: guest.value == true ? Colors.green : Colors.red,
+                  ),
                 ),
                 SizedBox(
                   width: 5,

@@ -73,8 +73,10 @@ class _SignUpPageState extends State<SignUpPage> {
               height: 10,
             ),
             TextField(
+              style: TextStyle(color: context.theme.hoverColor),
                 controller: _usernameController,
                 decoration: InputDecoration(
+
                     border: InputBorder.none,
                     fillColor: Color(0xfff3f3f4),
                     filled: true)),
@@ -99,6 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   }
                   return null;
                 },
+                style: TextStyle(color: context.theme.hoverColor),
                 controller: _emailController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -124,6 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     return 'Must be more than 6 charater';
                   }
                 },
+                style: TextStyle(color: context.theme.hoverColor),
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(

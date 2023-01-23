@@ -1,4 +1,3 @@
-
 import 'package:draw_idea/views/pages/services/widgets/divider.dart';
 import 'package:draw_idea/views/pages/services/widgets/featured.dart';
 import 'package:draw_idea/views/pages/services/widgets/news_widget.dart';
@@ -10,6 +9,8 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../../controller/home_controller.dart';
 import '../../../utils/style.dart';
+import '../../widgets/more/more.dart';
+import '../Deals/widgets/catogory_heading.dart';
 import '../job_portal/widgets/appbar.dart';
 
 class ServicePage extends StatelessWidget {
@@ -23,7 +24,7 @@ class ServicePage extends StatelessWidget {
     final double itemWidth = size.width / 0.3;
     final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-      backgroundColor:Colors.white ,
+      backgroundColor: context.theme.canvasColor,
       body: SafeArea(
         child: SingleChildScrollView(
             child: Column(
@@ -31,13 +32,22 @@ class ServicePage extends StatelessWidget {
           children: [
             setUserForm(context),
             Container(
-              padding: EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
+              padding:
+                  EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Featured for You",
-                    style: Style.mainheading,
+                  Container(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Heading(
+                          text: "Featured for You",
+                        ),
+                        more(),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -61,29 +71,17 @@ class ServicePage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Convenient Life",
-                        style: Style.mainheading,
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "more",
-                              style: Style.text9111,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 15,
-                              color: Colors.grey,
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Heading(
+                          text: "Convenient Life",
                         ),
-                      ),
-                    ],
+                        more(),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -113,14 +111,15 @@ class ServicePage extends StatelessWidget {
                                   width: 170,
                                   height: 100,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 40,
                                         height: 40,
                                         child: Image.asset(
-                                          _coffeeController
-                                                  .getHomesList[index].services ??
+                                          _coffeeController.getHomesList[index]
+                                                  .services ??
                                               "",
                                           width: 50,
                                           height: 50,
@@ -135,7 +134,8 @@ class ServicePage extends StatelessWidget {
                                           _coffeeController.getHomesList[index]
                                                   .servicestext ??
                                               "",
-                                          style: Style.text7,
+                                          style: context
+                                              .theme.textTheme.titleMedium,
                                         ),
                                       ),
                                       Container(
@@ -159,62 +159,56 @@ class ServicePage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Local News",
-                        style: Style.mainheading,
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              "more",
-                              style: Style.text9111,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 15,
-                              color: Colors.grey,
-                            ),
-                          ],
+                  Container(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Heading(
+                          text: "Local News",
                         ),
-                      ),
-                    ],
+                        more(),
+                      ],
+                    ),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
                   Container(
                     child: Card(
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        width: double.infinity,
-                        height: 350,
-                        child: Column(
-                          children: [
-                            NewsWidget(
-                              "Lorem Ipsum is simply dummy text of the printing",
-                              "Lorem Ipsum is simply dummy",
-                              "assets/z1.jpg",
-                            ),
-                            SizedBox(height: 10,),
-                            NewsWidget(
-                              "Lorem Ipsum is simply dummy text of the printing",
-                              "Lorem Ipsum is simply dummy",
-                              "assets/z2.jpg",
-                            ),
-                            SizedBox(height: 10,),
-                            NewsWidget(
-                              "Lorem Ipsum is simply dummy text of the printing",
-                              "Lorem Ipsum is simply dummy",
-                              "assets/z3.jpg",
-                            ),
-                          ],
-                        )
-
-                      ),
+                          padding: EdgeInsets.all(10),
+                          width: double.infinity,
+                          height: 350,
+                          child: Column(
+                            children: [
+                              NewsWidget(
+                                text:
+                                "Lorem Ipsum is simply dummy text of the printing",
+                                text2: "Lorem Ipsum is simply dummy",
+                                image: "assets/z1.jpg",
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              NewsWidget(
+                                text:
+                                "Lorem Ipsum is simply dummy text of the printing",
+                                text2: "Lorem Ipsum is simply dummy",
+                                image: "assets/z2.jpg",
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              NewsWidget(
+                                text:
+                                    "Lorem Ipsum is simply dummy text of the printing",
+                                text2: "Lorem Ipsum is simply dummy",
+                                image: "assets/z3.jpg",
+                              ),
+                            ],
+                          )),
                     ),
                   ),
                 ],
@@ -259,21 +253,18 @@ class ServicePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ServiceImageText(
-                        "assets/imovie.png",
-                        "imovie",
+                        image: "assets/imovie.png", serviceText: "imovie",
                       ),
                       ServiceImageText(
-                        "assets/imail.png",
-                        "imovie",
+                        image: "assets/imail.png", serviceText: "imovie",
                       ),
                       ServiceImageText(
-                        "assets/ibook.png",
-                        "imovie",
+                        image:  "assets/ibook.png", serviceText: "imovie",
                       ),
                       ServiceImageText(
-                        "assets/fitnes.png",
-                        "imovie",
+                        image:  "assets/fitnes.png", serviceText: "imovie",
                       ),
+
                     ],
                   )
                 ],
@@ -297,5 +288,4 @@ class ServicePage extends StatelessWidget {
       ],
     );
   }
-
 }

@@ -170,7 +170,7 @@ class JobHome extends HookWidget {
                   width: double.infinity,
                   height: 140,
                   margin: EdgeInsets.only(bottom: 10),
-                  child: Card(elevation: 2, child: Designation(index)),
+                  child: Card(elevation: 2, child: Designation( index: index,)),
                 ),
               ),
             ),

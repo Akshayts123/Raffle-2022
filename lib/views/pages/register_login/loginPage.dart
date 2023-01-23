@@ -88,6 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                   }
                   return null;
                 },
+                style: TextStyle(color: context.theme.hoverColor),
                 controller: _emailController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -113,6 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                     return 'Must be more than 6 charater';
                   }
                 },
+                style: TextStyle(color: context.theme.hoverColor),
                 controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(

@@ -226,7 +226,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Divider(
-                thickness: 1,
+                thickness: 1,color: Colors.grey[400],
               ),
             ),
           ),
@@ -235,7 +235,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Divider(
-                thickness: 1,
+                thickness: 1,color: Colors.grey[400],
               ),
             ),
           ),

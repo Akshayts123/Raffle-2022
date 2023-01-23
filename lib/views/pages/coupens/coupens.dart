@@ -41,7 +41,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
   Widget build(BuildContext context) {
     _appBar(height) => Appbar( text:"COUPONS", height: height,);
     return Scaffold(
-      backgroundColor:context.theme.backgroundColor ,
+      backgroundColor:context.theme.canvasColor ,
       // bottomNavigationBar: Bottom_nav(),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +51,7 @@ class _ScrachCoupensState extends State<ScrachCoupens> {
               height: 40,
             ),
             Container(
-              color: context.theme.backgroundColor ,
+              color: context.theme.canvasColor ,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -42,7 +42,7 @@ Widget AppBanner(){
                         onPressed: () {},
                         constraints: BoxConstraints(),
                         elevation: 5.0,
-                        fillColor: Style.whitecolor,
+                        fillColor: context.theme.cardColor,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
                           child: Image.asset(

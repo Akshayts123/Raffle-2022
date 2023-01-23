@@ -377,9 +377,9 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                       ),
                                       child: InternationalPhoneNumberInput(
                                         onInputChanged: (PhoneNumber number) {
-                                          print(number.phoneNumber);
+                                          print(number.phoneNumber,);
                                         },
-                                        textStyle: TextStyle(fontSize: 17),
+                                        textStyle: TextStyle(fontSize: 17,color: context.theme.hoverColor),
                                         inputDecoration: InputDecoration.collapsed(hintText: ""),
                                         onInputValidated: (bool value) {
                                           print(value);
@@ -388,6 +388,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
                                           selectorType:
                                           PhoneInputSelectorType.DROPDOWN,
                                         ),
+
                                         ignoreBlank: false,
                                         autoValidateMode: AutovalidateMode.disabled,
                                         selectorTextStyle:

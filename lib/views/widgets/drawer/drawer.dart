@@ -1,5 +1,6 @@
 
 
+import 'package:draw_idea/utils/style.dart';
 import 'package:draw_idea/views/pages/register_login/loginPage.dart';
 import 'package:draw_idea/views/widgets/floatingpopup/popup.dart';
 import 'package:flutter/cupertino.dart';
@@ -90,6 +91,7 @@ class _drawerState extends State<drawer> {
                   leading: _isLightTheme.value ? Icon(Icons.sunny): Icon(Icons.brightness_2_rounded),
                   title: _isLightTheme.value ? Text('Light Mode'.tr) : Text('Dark Mode'.tr),
                   trailing: Switch(
+                    activeColor: Style.systemblue,
                     value: _isLightTheme.value,
                     onChanged: (val) {
                       _isLightTheme.value = val;
@@ -199,17 +201,17 @@ class _drawerState extends State<drawer> {
                   ],
                 ),
               ),
-              // Container(
-              //   margin: EdgeInsets.only(left: 70,right: 20),
-              //   width: 200,
-              //   height: 1,
-              //   color: Colors.white,
-              // ),
-              // ListTile(
-              //   onTap: () {},
-              //   leading: Icon(Icons.flight),
-              //   title: Text('International Draw'),
-              // ),
+              Container(
+                margin: EdgeInsets.only(left: 70,right: 20),
+                width: 200,
+                height: 1,
+                color: Colors.white,
+              ),
+              ListTile(
+                onTap: () {},
+                leading: Icon(Icons.flight),
+                title: Text('International Draw'),
+              ),
               // Container(
               //   margin: EdgeInsets.only(left: 70,right: 20),
               //   width: 200,

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:draggable_home/draggable_home.dart';
 import 'package:draw_idea/utils/style.dart';
+import 'package:draw_idea/views/pages/Deals/widgets/catogory_heading.dart';
 import 'package:draw_idea/views/pages/home/widgets/add_banner.dart';
 import 'package:draw_idea/views/pages/home/widgets/appbanner.dart';
 import 'package:draw_idea/views/pages/home/widgets/bottom_nav_bar.dart';
@@ -82,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         return false;
       },
       child: AdvancedDrawer(
-        backdropColor: Color(0xFF2F3044),
+        // backdropColor: Color(0xFF2F3044),
+        backdropColor: Color(0xFF2C2C2C),
         controller: _advancedDrawerController,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 300),
@@ -100,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
             // alwaysShowLeadingAndAction: true,
             leading:  Container(),
-            title: const Text("Raffle Draw"),
+            title: const Heading(text: "Raffle Draw"),
             // actions: [
             //   IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
             // ],
@@ -204,49 +206,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  // Widget listView() {
-  //   return Container(
-  //     // color: Color(0xFFFFF9E9),
-  //     color: context.theme.backgroundColor,
-  //     child: Column(
-  //       children: [
-  //         // CarouselSliders(),
-  //         AppBanner(),
-  //         // CategoryList(),
-  //         AddBanner(),
-  //         // MenuSlider(),
-  //         ProgressCircles(),
-  //         ImageView(),
-  //         SmallBanner(),
-  //         LatestMovies(),
-  //         MusicSlider(),
-  //         OfferBanner(),
-  //         NewsSlider(),
-  //         EnjoyGaming(),
-  //         JobEducation(),
-  //         StackedBanner(),
-  //         Tickets(),
-  //         NewConnection(),
-  //         FeaturedOffer(),
-  //         // TabView(),
-  //         HelpSupport(),
-  //       ],
-  //     ),
-  //   );
-  // }
-  //
-  // Widget listViewguest() {
-  //   return Container(
-  //       color: Color(0xFFFFF9E9),
-  //       child: Column(
-  //         children: [
-  //           AppBanner(),
-  //           ImageView(),
-  //           SmallBanner(),
-  //         ],
-  //       ));
-  // }
-
   main() async {
     guest.value = await loginController.main();
   }
@@ -287,13 +246,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         ],
       );
 
-  Widget _buildDialogItem(Country country) => Row(
+ Widget _buildDialogItem(Country country) => Row(
         children: <Widget>[
           CountryPickerUtils.getDefaultFlagImage(country),
           SizedBox(width: 8.0),
-          Text("+${country.phoneCode}"),
+          Text("+${country.phoneCode}",style: context.theme.textTheme.labelLarge,),
           SizedBox(width: 8.0),
-          Flexible(child: Text(country.name))
+          Flexible(child: Text(country.name,style: context.theme.textTheme.labelLarge,))
         ],
       );
 

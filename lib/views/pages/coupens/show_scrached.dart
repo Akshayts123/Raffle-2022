@@ -22,84 +22,83 @@ class ShowScrached extends StatelessWidget {
         child: (alreadyAddedIndices.contains(index))
             ? Stack(
           children: [
-            Card(
-              child: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  // image: DecorationImage(
-                  //   image: AssetImage(
-                  //         _coffeeController.getHomesList[index]
-                  //           .game ?? ""),
-                  //   fit: BoxFit.cover,
-                  // ),
-                  border: Border.all(width: 1, color: Colors.grey),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                // image: DecorationImage(
+                //   image: AssetImage(
+                //         _coffeeController.getHomesList[index]
+                //           .game ?? ""),
+                //   fit: BoxFit.cover,
+                // ),
+                border: Border.all(width: 1, color: Colors.grey),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10.0),
                 ),
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text(
-                          "25% upto \$500",
-                          style:Style.text20
-                        ),
+              ),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Text(
+                        "25% upto \$500",
+                        style:Style.text20
                       ),
-                      Container(
-                        child: Text(
-                          "off on your 1st 5 uber rides",
-                          style:Style.text2
-                        ),
+                    ),
+                    Container(
+                      child: Text(
+                        "off on your 1st 5 uber rides",
+                        style:Style.text2
                       ),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Stack(
-                        clipBehavior: Clip.none,
-                        children: <Widget>[
-                          Container(
-                            child: Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(100.0),
-                                    ),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: <Widget>[
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(100.0),
                                   ),
-                                  child: ClipRRect(
-                                    borderRadius:
-                                    BorderRadius.circular(100),
-                                    child: Image.asset(
-                                      _coffeeController
-                                          .getHomesList[index].scrach ??
-                                          "",
-                                      width: 50.0,
-                                      height: 50.0,
-                                      fit: BoxFit.cover,
-                                    ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius:
+                                  BorderRadius.circular(100),
+                                  child: Image.asset(
+                                    _coffeeController
+                                        .getHomesList[index].scrach ??
+                                        "",
+                                    width: 50.0,
+                                    height: 50.0,
+                                    fit: BoxFit.cover,
                                   ),
-                                )
-                              ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          top: -20,
+                          right: -10,
+                          child: Container(
+                            child: Image.asset(
+                              "assets/staring.jpg",
+                              width: 80.0,
+                              height: 80.0,
+                              fit: BoxFit.contain,
                             ),
                           ),
-                          Positioned(
-                            top: -20,
-                            right: -10,
-                            child: Container(
-                              child: Image.asset(
-                                "assets/staring.jpg",
-                                width: 80.0,
-                                height: 80.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -87,14 +87,14 @@ class _JobInnerScreenState extends State<JobInnerScreen>
                           ),
                           Text(
                             widget.designation,
-                            style: Style.text29,
+                            style: context.theme.textTheme.bodyLarge,
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           Text(
                            widget.description,
-                            style: Style.text9111,
+                            style: context.theme.textTheme.bodyLarge,
                           ),
                         ],
                       ),
@@ -113,7 +113,7 @@ class _JobInnerScreenState extends State<JobInnerScreen>
                           ),
                           Text(
                             "Posted 2h ago",
-                            style: Style.text9111,
+                            style: context.theme.textTheme.bodyLarge,
                           ),
                         ],
                       ),
@@ -165,7 +165,7 @@ class _JobInnerScreenState extends State<JobInnerScreen>
                         children: [
                           Text(
                             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                            style: Style.text32,
+                            style: context.theme.textTheme.titleLarge,
                           ),
                           SizedBox(
                             height: 10,
@@ -175,19 +175,19 @@ class _JobInnerScreenState extends State<JobInnerScreen>
                             height: 10,
                           ),
                           DotText(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                          text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           DotText(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                           ),
                           SizedBox(
                             height: 5,
                           ),
                           DotText(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
                           ),
                         ],
                       ),

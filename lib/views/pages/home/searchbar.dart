@@ -2,6 +2,7 @@ import 'package:country_pickers/country.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:country_pickers/country_pickers.dart';
+import 'package:get/get.dart';
 
 import '../../../utils/style.dart';
 
@@ -23,7 +24,7 @@ class _HomePageState extends State<DemoPage> {
               height: 46,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color:Style.whitecolor,
+                color:context.theme.cardColor,
                 boxShadow: kElevationToShadow[2],
               ),
               child: Row(
@@ -36,7 +37,7 @@ class _HomePageState extends State<DemoPage> {
                               decoration: InputDecoration(
                                   hintText: "Search..",
                                   hintStyle: TextStyle(
-                                    color: Colors.black54,
+                                    color: context.theme.selectedRowColor,
                                   ),
                                   border: InputBorder.none),
                             )
@@ -59,7 +60,7 @@ class _HomePageState extends State<DemoPage> {
                           child: Icon(
                             folded
                              ? Icons.search : Icons.close,
-                            color: Colors.black87,
+                            color: context.theme.focusColor,
                           ),
                         ),
                         onTap: (){
