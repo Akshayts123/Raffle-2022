@@ -217,7 +217,7 @@ class HomeController extends GetxController {
       shop: 'assets/shop2.png' ,
     ),
     Homes(
-      Name: 'Game ',
+      Name: 'Offers ',
       img: "assets/btn3.png",
       ban: "assets/ban3.png",
       btndesc: "Order new number ",
@@ -251,7 +251,7 @@ class HomeController extends GetxController {
       shop: 'assets/shop3.png' ,
     ),
     Homes(
-      Name: 'Food ',
+      Name: 'Coupons ',
       img: "assets/btn4.png",
       ban: "assets/ban1.png",
       btndesc: "Jobs & Education",
@@ -285,7 +285,7 @@ class HomeController extends GetxController {
       shop: 'assets/shop4.png' ,
     ),
     Homes(
-      Name: 'Bar ',
+      Name: 'Business',
       img: "assets/btn5.png",
       ban: "assets/ban5.png",
       btndesc: "Recharge for others",

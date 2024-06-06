@@ -3,7 +3,6 @@ import 'package:draw_idea/views/pages/home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../views/pages/home/home.dart';
 import '../views/pages/home/main_screen.dart';

@@ -63,9 +63,14 @@ class AddBannerWidget extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
+                                (index % 2 == 0)? Container(
                                   child: Text(
-                                    'Lorem Ipsum',
+                                    'Grab 30% OFF',
+                                    style: context.theme.textTheme.titleMedium,
+                                  ),
+                                ):Container(
+                                  child: Text(
+                                    'Grab 20% OFF',
                                     style: context.theme.textTheme.titleMedium,
                                   ),
                                 ),
@@ -116,10 +121,14 @@ class AddBannerWidget extends StatelessWidget {
                                       SizedBox(
                                         width: 5,
                                       ),
-                                      Container(
+                                      (index % 2 == 0)? Container(
                                           child: Text(
-                                            "30 Reviews",
-                                            style: context.theme.textTheme.titleSmall
+                                            "330 Reviews",
+                                            style: Style.grab
+                                          )):Container(
+                                          child: Text(
+                                              "760 Reviews",
+                                              style: Style.grab
                                           )),
                                     ],
                                   ),

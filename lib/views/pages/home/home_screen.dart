@@ -113,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 () => guest.value == true ? GuestVersion() : FullVersion(),
               ),
             ],
+
             headerExpandedHeight: 0.19,
             fullyStretchable: false,
             // bottomNavigationBar: Bottom_nav(),

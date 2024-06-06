@@ -24,9 +24,11 @@ class FullVersion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       // color: Color(0xFFFFF9E9),
       color: context.theme.backgroundColor,
       child: Column(
+
         children: [
           // CarouselSliders(),
           AppBanner(),

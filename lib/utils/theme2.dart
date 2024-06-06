@@ -33,7 +33,7 @@ ThemeData darkTheme = ThemeData(
   dividerColor: Colors.white,
   errorColor: Color(0xFF2C2C2C),
   cardColor: Color(0xFF2C2C2C),
-  buttonColor: Colors.deepPurple,
+  // buttonColor: Colors.deepPurple,
   bottomAppBarColor: Colors.deepPurple,
   buttonTheme: const ButtonThemeData(
     buttonColor: Colors.deepPurple,
@@ -69,7 +69,7 @@ ThemeData lightTheme = ThemeData(
   dividerColor: Colors.white70,
   errorColor: Colors.grey[200],
   cardColor: Colors.white,
-  buttonColor: Colors.cyan,
+  // buttonColor: Colors.cyan,
   bottomAppBarColor: Colors.cyan,
   buttonTheme: const ButtonThemeData(
     buttonColor: Colors.cyan,

@@ -36,7 +36,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
   final TextEditingController textEditingController = TextEditingController();
   final RegisterController loginController = Get.find();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController  controller = TextEditingController();
   String initialCountry = 'IN';
   PhoneNumber number = PhoneNumber(isoCode: 'IN');
   Widget _backButton() {
@@ -561,22 +561,7 @@ class _LoginPhonePageState extends State<LoginPhonePage> {
   void dispose() {
     controller.dispose();
     super.dispose();
-  }
-
-  Future<void> logoutUser() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs?.setBool("guest", true);
-    prefs?.setBool("isLoggedIn", true);
-    Get.to(HomeScreen());
-  }
-// Future<void> main() async {
-//    SharedPreferences prefs = await SharedPreferences.getInstance();
-//    var status = prefs.getBool('isLoggedIn') ?? false;
-//   var isLoggedIn = (prefs.getBool('isLoggedIn') == null) ? false : prefs.getBool('isLoggedIn');
-//    runApp(MaterialApp(
-//      debugShowCheckedModeBanner: false,
-//      home: isLoggedIn ? HomeScreen() : loginPage(),
-//    ));
+  }//    ));
 // }
 
 }

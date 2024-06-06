@@ -17,4 +17,7 @@ class CoupenController extends GetxController{
   var coursename = "default";
   bool isExpired = true;
   final expirationDate = DateTime(2021, 12, 20);
+  final TextEditingController emailController = TextEditingController();
+  // final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 }

@@ -12,8 +12,7 @@ class Api extends ChangeNotifier {
 
     var cartarray = [
       {
-        "Name": 'Home ',
-        "img": "assets/telegram.png",
+        "Name": 'Home ',        "img": "assets/telegram.png",
         "ban":"assets/ban1.png",
         "btndesc":"Recharge for others",
         "game":"assets/game1.png",

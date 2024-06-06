@@ -6,11 +6,12 @@ class Style {
   static const greycolor=   Colors.grey;
   static const whitecolor=   Colors.white;
   static const blackcolor=   Colors.black;
-  static const backgroundwhite=   Colors.white;
+  static const backgroundwhite=  Colors.white;
   static const headerText = TextStyle(color: systemblue, fontSize: 28, fontWeight: FontWeight.w700);
   static const normalText = TextStyle(color: Colors.white, fontWeight: FontWeight.bold);
   static TextStyle mainheading  =  GoogleFonts.poppins(color: Colors.black, fontSize: 19, fontWeight: FontWeight.w600);
   static TextStyle text  =   GoogleFonts.poppins(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w600);
+  static TextStyle grab  =   GoogleFonts.poppins(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500);
   static TextStyle text1  =  GoogleFonts.poppins(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w600);
   static TextStyle text111  =  GoogleFonts.poppins(color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500);
   static TextStyle text2  =  GoogleFonts.poppins(color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500);

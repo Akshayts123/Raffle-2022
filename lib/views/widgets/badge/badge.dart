@@ -1,4 +1,5 @@
-import 'package:badges/badges.dart';
+// import 'package:badges/badges.dart';
+// import 'package:badges/badges.dart';
 import 'package:draw_idea/views/pages/register_login/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,7 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../controller/register_controller.dart';
 import '../../../utils/style.dart';
 import '../../pages/register_login/loginPage.dart';
-
+import 'package:badges/badges.dart' as badges;
 class badge extends StatefulWidget {
   @override
   _badgeState createState() => _badgeState();
@@ -54,9 +55,9 @@ class _badgeState extends State<badge> {
         }));
       },
       child: Container(
-        child: Obx(
-          () => Badge(
-            badgeColor: guest.value == true ? Colors.green : Colors.red,
+        child: Badge(
+
+            // badgeColor: guest.value == true ? Colors.green : Colors.red,
 
             // badgeContent: Text('10'),
             child: Row(
@@ -92,7 +93,7 @@ class _badgeState extends State<badge> {
               ],
             ),
           ),
-        ),
+
       ),
     );
   }
